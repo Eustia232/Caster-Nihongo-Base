@@ -2,6 +2,7 @@
 
 ## [2026-01-27]
 ### Added
+- 实现 Repository 模式：`WordRepository` (YAML) 和 `ProgressRepository` (JSON)。
 - 定义数据模型：`Word` (单词模型) 和 `SRSProgress` (FSRS 进度模型)。
 - 添加核心依赖：`pydantic`, `fsrs`, `typer`, `rich`, `pyyaml`, `pytest`。
 - 创建 `AGENT.md` 作为项目规格说明书。
