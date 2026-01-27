@@ -74,7 +74,25 @@ Caster-Nihongo-Base/
 └── pyproject.toml         # 依赖配置
 ```
 
-## 5. 技术栈
-- **核心**: Python 3.12+, fsrs, pydantic, pyyaml
-- **交互**: typer, rich
-- **质量**: ruff, pytest
+## 6. 项目 TODO List (Roadmap)
+
+### 第一阶段：基础设施 (Phase 1: Infrastructure) - [ ]
+- [ ] 1.1 定义 Pydantic 数据模型 (`src/data/models.py`)
+- [ ] 1.2 实现 YAML/JSON 仓储访问层 (`src/data/repository.py`)
+- [ ] 1.3 编写仓储层单元测试 (`tests/test_data/`)
+
+### 第二阶段：核心逻辑 (Phase 2: Core Logic) - [ ]
+- [ ] 2.1 封装 FSRS 算法引擎 (`src/core/fsrs_engine.py`)
+- [ ] 2.2 实现单词导入服务，含去重逻辑 (`src/core/logic.py`)
+- [ ] 2.3 实现复习筛选与三种随机题型逻辑 (`src/core/logic.py`)
+
+### 第三阶段：表现层开发 (Phase 3: Interface) - [ ]
+- [ ] 3.1 搭建 Typer CLI 基础框架 (`src/cli/main.py`)
+- [ ] 3.2 实现 `import` 命令交互
+- [ ] 3.3 实现 `review` 命令交互（含 Rich 渲染）
+- [ ] 3.4 实现 `export` 命令导出 Markdown
+
+### 第四阶段：集成与交付 (Phase 4: Integration) - [ ]
+- [ ] 4.1 编写顶层入口 `main.py`
+- [ ] 4.2 进行全流程冒烟测试
+- [ ] 4.3 完善文档与使用说明
