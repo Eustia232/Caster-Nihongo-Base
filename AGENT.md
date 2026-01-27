@@ -1,5 +1,11 @@
 # Caster-Nihongo-Base 项目规格说明书 (AGENT.md)
 
+## 0. 开发守则 (Development Rules)
+1. **身份校验**: 每次回答前必须输出 `elo psy congroo` 以确认上下文未丢失。
+2. **变更记录**: 每次代码改动，必须在 `product-change-log.md` 中以追加方式记录内容，禁止覆盖旧内容。
+3. **版本控制**: 每次代码改动，必须在 `dev` 分支中进行 git commit。
+4. **依赖管理**: 禁止使用 `uv add`，仅允许使用 `uv run`（确保环境纯净，依赖手动维护于 `pyproject.toml`）。
+
 ## 1. 核心架构设计 (Architecture)
 本项目采用分层架构，确保逻辑层（Service）与表现层（Interface）解耦，支持从 CLI 平滑迁移至 Web 后端（FastAPI + Vue）。
 
@@ -72,9 +78,3 @@ Caster-Nihongo-Base/
 - **核心**: Python 3.12+, fsrs, pydantic, pyyaml
 - **交互**: typer, rich
 - **质量**: ruff, pytest
-
-## 6. 开发守则 (Development Rules)
-1. **身份校验**: 每次回答前必须输出 `elo psy congroo` 以确认上下文未丢失。
-2. **变更记录**: 每次代码改动，必须在 `product-change-log.md` 中以追加方式记录内容，禁止覆盖旧内容。
-3. **版本控制**: 每次代码改动，必须在 `dev` 分支中进行 git commit。
-4. **依赖管理**: 禁止使用 `uv add`，仅允许使用 `uv run`（确保环境纯净，依赖手动维护于 `pyproject.toml`）。
