@@ -24,6 +24,15 @@ class WordRepository:
             except Exception:
                 return []
 
+    def save_all(self, words: List[Word]):
+        """将所有单词保存到 YAML 文件"""
+        # 确保目录存在
+        os.makedirs(os.path.dirname(os.path.abspath(self.file_path)), exist_ok=True)
+
+        data = [w.model_dump() for w in words]
+        with open(self.file_path, "w", encoding="utf-8") as f:
+            yaml.safe_dump(data, f, allow_unicode=True, sort_keys=False)
+
 
 class ProgressRepository:
     """管理 SRS 进度的 JSON 持久化层"""

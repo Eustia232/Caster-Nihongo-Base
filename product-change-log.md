@@ -2,6 +2,7 @@
 
 ## [2026-01-27]
 ### Added
+- 完成 CLI 交互层：实现 `import` 单词导入和 `review` FSRS 复习命令。
 - 集成 FSRS 算法并实现 `FSRSEngine` 包装类。
 - 实现 `WordImporter` 逻辑，支持按格式解析单词。
 - 实现 Repository 模式：`WordRepository` (YAML) 和 `ProgressRepository` (JSON)。
