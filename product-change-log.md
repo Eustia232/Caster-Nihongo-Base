@@ -2,6 +2,8 @@
 
 ## [2026-01-27]
 ### Added
+- 集成 FSRS 算法并实现 `FSRSEngine` 包装类。
+- 实现 `WordImporter` 逻辑，支持按格式解析单词。
 - 实现 Repository 模式：`WordRepository` (YAML) 和 `ProgressRepository` (JSON)。
 - 定义数据模型：`Word` (单词模型) 和 `SRSProgress` (FSRS 进度模型)。
 - 添加核心依赖：`pydantic`, `fsrs`, `typer`, `rich`, `pyyaml`, `pytest`。
