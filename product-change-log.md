@@ -2,6 +2,8 @@
 
 ## [2026-01-28]
 ### Added
+- Added English export requirements plan at `docs/plans/2026-01-28-export-requirements.md`.
+### Added
 - 新增 Markdown 导出器（`src/core/exporter.py`），实现按 `pos / category` 分组并生成 `export/words-YYYYMMDD.md`。
 - 在 CLI 中新增 `export` 命令（`src/cli/main.py`），支持 `--out` 与 `--classify` 参数以导出词汇为 Markdown。
 - 新增导出相关测试 `tests/test_core/test_export.py`，覆盖分组、排序与转义逻辑。
