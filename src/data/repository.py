@@ -20,7 +20,13 @@ class WordRepository:
         with open(self.file_path, "r", encoding="utf-8") as f:
             try:
                 data = yaml.safe_load(f) or []
-                return [Word(**item) for item in data]
+                # Ensure compatibility when YAML items lack the optional `category` field.
+                normalized = []
+                for item in data:
+                    if "category" not in item:
+                        item["category"] = None
+                    normalized.append(item)
+                return [Word(**item) for item in normalized]
             except Exception:
                 return []
 

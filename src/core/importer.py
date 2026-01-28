@@ -19,7 +19,12 @@ class WordImporter:
             raise ValueError(f"格式错误，应为 '汉字|假名+音调|释义|词性': {line}")
 
         return Word(
-            id=word_id, kanji=parts[0], kana=parts[1], meaning=parts[2], pos=parts[3]
+            id=word_id,
+            kanji=parts[0],
+            kana=parts[1],
+            meaning=parts[2],
+            pos=parts[3],
+            category=None,
         )
 
     def process_file(self, content: str, start_id: int) -> List[Word]:

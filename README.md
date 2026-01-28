@@ -50,10 +50,10 @@ uv run main.py review
 
 ## 📝 路线图
 
-- [ ] 实现基础 CLI 导入与复习功能
-- [ ] 支持词库导出为 Markdown 词典
-- [ ] 接入 FastAPI 构建 RESTful API
-- [ ] 开发 Vue.js 网页版前端
+- [ ] （已迁移至 `TODO.md`）实现基础 CLI 导入与复习功能
+- [ ] （已迁移至 `TODO.md`）支持词库导出为 Markdown 词典
+- [ ] （已迁移至 `TODO.md`）接入 FastAPI 构建 RESTful API
+- [ ] （已迁移至 `TODO.md`）开发 Vue.js 网页版前端
 
 ## 📄 开源协议
 
