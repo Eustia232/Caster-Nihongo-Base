@@ -1,6 +1,7 @@
 import typer
 import os
 import random
+import re
 from datetime import datetime, timezone
 from rich.console import Console
 from rich.table import Table
@@ -121,20 +122,28 @@ def review():
         console.print(f"\n[bold white]汉字: {word.kanji}[/bold white]")
         console.print(f"[dim]词性: {word.pos}[/dim]\n")
 
-        typer.prompt("按回车键查看答案", default="", show_default=False)
+        user_answer = typer.prompt(
+            "请输入假名答案 (直接回车跳过)", default="", show_default=False
+        )
 
-        # 显示答案
-        console.print(f"[bold green]假名: {word.kana}[/bold green]")
+        # 显示正确答案
+        console.print(f"[bold green]正确假名: {word.kana}[/bold green]")
         console.print(f"[bold cyan]释义: {word.meaning}[/bold cyan]\n")
 
-        # 获取评分
-        rating = 0
-        while rating not in [1, 2, 3, 4]:
-            rating_str = typer.prompt(
-                "评分 (1:Again, 2:Hard, 3:Good, 4:Easy)", type=str
-            )
-            if rating_str.isdigit():
-                rating = int(rating_str)
+        # 归一化对比 (去除 [n] 格式的音调标记)
+        def normalize(s: str) -> str:
+            return re.sub(r"\[\d+\]", "", s).strip()
+
+        if user_answer.strip() == "":
+            # 用户选择跳过，设为 Again
+            rating = 1
+            console.print("[yellow]已跳过，记为错误。[/yellow]")
+        elif normalize(user_answer) == normalize(word.kana):
+            rating = 3  # Good
+            console.print("[bold green]回答正确！[/bold green]")
+        else:
+            rating = 1  # Again
+            console.print(f"[bold red]回答错误。你的输入: {user_answer}[/bold red]")
 
         # 更新进度
         new_progress = engine.review(progress, rating, now)
