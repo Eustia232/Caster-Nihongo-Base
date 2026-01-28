@@ -22,3 +22,9 @@ class SRSProgress(BaseModel):
     state: int = Field(
         ..., description="FSRS 状态 (0:New, 1:Learning, 2:Review, 3:Relearning)"
     )
+    consecutive_successes: int = Field(0, description="连续正确次数，用于自动归档判断")
+    archived: bool = Field(False, description="是否已归档（永不复习）")
+    archived_at: Optional[datetime] = Field(None, description="归档时间，可选")
+    archived_reason: Optional[str] = Field(
+        None, description="归档原因，例如 'auto:6_consecutive' or 'manual'"
+    )

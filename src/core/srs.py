@@ -50,10 +50,34 @@ class FSRSEngine:
         fsrs_rating = Rating(rating)
         updated_card, _ = self.scheduler.review_card(card, fsrs_rating, review_time)
 
+        # Update consecutive success count and possibly archive
+        prev_consec = 0
+        prev_archived = False
+        if current_progress is not None:
+            prev_consec = getattr(current_progress, "consecutive_successes", 0)
+            prev_archived = getattr(current_progress, "archived", False)
+
+        if rating >= 3:
+            consec = prev_consec + 1
+        else:
+            consec = 0
+
+        archived = prev_archived
+        archived_at = None
+        archived_reason = None
+        if not prev_archived and consec >= 6:
+            archived = True
+            archived_at = review_time
+            archived_reason = "auto:6_consecutive"
+
         return SRSProgress(
             stability=updated_card.stability,
             difficulty=updated_card.difficulty,
             due=updated_card.due,
             last_review=updated_card.last_review,
             state=updated_card.state,
+            consecutive_successes=consec,
+            archived=archived,
+            archived_at=archived_at,
+            archived_reason=archived_reason,
         )

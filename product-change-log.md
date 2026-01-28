@@ -6,6 +6,8 @@
 - 在 CLI 中新增 `export` 命令（`src/cli/main.py`），支持 `--out` 与 `--classify` 参数以导出词汇为 Markdown。
 - 新增导出相关测试 `tests/test_core/test_export.py`，覆盖分组、排序与转义逻辑。
 - 新增导出需求文档 `docs/export_requirements.md` 与演示文件 `demo.md`。
+ - 自动归档（auto-archive）功能：当单词连续答对 6 次后，系统自动将其标记为归档（`archived=True`），并在复习选择中跳过。
+   - 变更位置：`src/data/models.py`（新增字段 `consecutive_successes`, `archived`, `archived_at`, `archived_reason`），`src/core/srs.py`（更新归档判定逻辑），`src/cli/main.py`（跳过归档条目），新增测试 `tests/test_core/test_auto_archive.py`。
 ### Added
 - 在 `words.yaml` 中新增了 10 个常用日语单词。
 ### Changed

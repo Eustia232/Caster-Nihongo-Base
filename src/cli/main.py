@@ -102,6 +102,10 @@ def review():
 
     for word in words:
         progress = progress_repo.load(word.id)
+        # 跳过已归档的单词
+        if progress is not None and getattr(progress, "archived", False):
+            continue
+
         # 如果没有进度或已到期
         if progress is None or progress.due <= now:
             due_words.append((word, progress))
