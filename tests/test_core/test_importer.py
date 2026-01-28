@@ -19,3 +19,11 @@ def test_word_importer_invalid_line():
     importer = WordImporter()
     with pytest.raises(ValueError):
         importer.parse_line("invalid|line", word_id=101)
+
+
+def test_parse_line_with_category():
+    importer = WordImporter()
+    line = "勉強する|べんきょうする0|学习|动词|JLPT5"
+    word = importer.parse_line(line, word_id=102)
+
+    assert word.category == "JLPT5"

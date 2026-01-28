@@ -14,9 +14,15 @@ class WordImporter:
         if not line:
             raise ValueError("Empty line")
 
-        parts = line.split("|")
-        if len(parts) != 4:
-            raise ValueError(f"格式错误，应为 '汉字|假名+音调|释义|词性': {line}")
+        parts = [p.strip() for p in line.split("|")]
+        if len(parts) not in (4, 5):
+            raise ValueError(
+                f"格式错误，应为 '汉字|假名+音调|释义|词性' 或加上可选 'category': {line}"
+            )
+
+        category = None
+        if len(parts) == 5:
+            category = parts[4] if parts[4] != "" else None
 
         return Word(
             id=word_id,
@@ -24,7 +30,7 @@ class WordImporter:
             kana=parts[1],
             meaning=parts[2],
             pos=parts[3],
-            category=None,
+            category=category,
         )
 
     def process_file(self, content: str, start_id: int) -> List[Word]:
