@@ -130,9 +130,13 @@ def review():
         console.print(f"[bold green]正确假名: {word.kana}[/bold green]")
         console.print(f"[bold cyan]释义: {word.meaning}[/bold cyan]\n")
 
-        # 归一化对比 (去除 [n] 格式的音调标记)
+        # 归一化对比 (去除 [n] 或末尾数字格式的音调标记)
         def normalize(s: str) -> str:
-            return re.sub(r"\[\d+\]", "", s).strip()
+            # 去除 [0], [1] 格式
+            s = re.sub(r"\[\d+\]", "", s)
+            # 去除末尾的单个数字格式 (如 べんきょうする0 -> べんきょうする)
+            s = re.sub(r"\d+$", "", s)
+            return s.strip()
 
         if user_answer.strip() == "":
             # 用户选择跳过，设为 Again
