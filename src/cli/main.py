@@ -8,6 +8,7 @@ from rich.table import Table
 from src.data.repository import WordRepository, ProgressRepository
 from src.core.importer import WordImporter
 from src.core.srs import FSRSEngine
+from src.core.exporter import export_words_to_file, default_out_path
 
 app = typer.Typer(
     help="Caster-Nihongo-Base: 基于 FSRS 的轻量级日语复习工具", add_completion=False
@@ -161,3 +162,21 @@ def review():
 
 if __name__ == "__main__":
     app()
+
+
+@app.command()
+def export(out: str = default_out_path(), classify: str = "export/classify.txt"):
+    """导出词汇为 Markdown 文件
+
+    参数:
+    - out: 输出文件路径，默认 `export/words-YYYYMMDD.md`（UTC 日期）
+    - classify: 可选的分类顺序配置文件路径（每行一个分类名）
+    """
+    repo = WordRepository(WORDS_FILE)
+    words = repo.load_all()
+    if not words:
+        console.print("[yellow]词库为空，没有可导出的内容。[/yellow]")
+        raise typer.Exit(1)
+
+    path = export_words_to_file(words, out, classify_config=classify)
+    console.print(f"[green]导出完成: {path}[/green]")

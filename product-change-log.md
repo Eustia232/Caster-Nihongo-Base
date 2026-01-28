@@ -2,6 +2,11 @@
 
 ## [2026-01-28]
 ### Added
+- 新增 Markdown 导出器（`src/core/exporter.py`），实现按 `pos / category` 分组并生成 `export/words-YYYYMMDD.md`。
+- 在 CLI 中新增 `export` 命令（`src/cli/main.py`），支持 `--out` 与 `--classify` 参数以导出词汇为 Markdown。
+- 新增导出相关测试 `tests/test_core/test_export.py`，覆盖分组、排序与转义逻辑。
+- 新增导出需求文档 `docs/export_requirements.md` 与演示文件 `demo.md`。
+### Added
 - 在 `words.yaml` 中新增了 10 个常用日语单词。
 ### Changed
 - 新增 `category` 可选字段到 `Word` 数据模型；更新 `src/data/models.py`, `src/data/repository.py`, `src/core/importer.py`，以及相关测试与 `data_store/words.yaml`（现有词条的 `category` 设为空字符串），以保持向后兼容。
