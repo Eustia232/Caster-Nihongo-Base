@@ -118,47 +118,61 @@ def review():
     total = len(due_words)
     console.print(f"[bold blue]待复习单词数量: {total}[/bold blue]\n")
 
-    count = 0
-    for word, progress in due_words:
-        count += 1
-        console.rule(f"复习中 ({count}/{total})")
+    # 分批处理，每批最多 10 个
+    BATCH_SIZE = 10
+    idx = 0
 
-        # 显示题目
-        console.print(f"\n[bold white]汉字: {word.kanji}[/bold white]")
-        console.print(f"[dim]词性: {word.pos}[/dim]\n")
+    def normalize(s: str) -> str:
+        s = re.sub(r"\[\d+\]", "", s)
+        s = re.sub(r"\d+$", "", s)
+        return s.strip()
 
-        user_answer = typer.prompt(
-            "请输入假名答案 (直接回车跳过)", default="", show_default=False
-        )
+    while idx < total:
+        batch = due_words[idx : idx + BATCH_SIZE]
+        batch_count = len(batch)
 
-        # 显示正确答案
-        console.print(f"[bold green]正确假名: {word.kana}[/bold green]")
-        console.print(f"[bold cyan]释义: {word.meaning}[/bold cyan]\n")
+        for i, (word, progress) in enumerate(batch, start=1):
+            console.rule(f"复习中 ({idx + i}/{total})")
 
-        # 归一化对比 (去除 [n] 或末尾数字格式的音调标记)
-        def normalize(s: str) -> str:
-            # 去除 [0], [1] 格式
-            s = re.sub(r"\[\d+\]", "", s)
-            # 去除末尾的单个数字格式 (如 べんきょうする0 -> べんきょうする)
-            s = re.sub(r"\d+$", "", s)
-            return s.strip()
+            # 显示题目
+            console.print(f"\n[bold white]汉字: {word.kanji}[/bold white]")
+            console.print(f"[dim]词性: {word.pos}[/dim]\n")
 
-        if user_answer.strip() == "":
-            # 用户选择跳过，设为 Again
-            rating = 1
-            console.print("[yellow]已跳过，记为错误。[/yellow]")
-        elif normalize(user_answer) == normalize(word.kana):
-            rating = 3  # Good
-            console.print("[bold green]回答正确！[/bold green]")
-        else:
-            rating = 1  # Again
-            console.print(f"[bold red]回答错误。你的输入: {user_answer}[/bold red]")
+            user_answer = typer.prompt(
+                "请输入假名答案 (直接回车跳过)", default="", show_default=False
+            )
 
-        # 更新进度
-        new_progress = engine.review(progress, rating, now)
-        progress_repo.save(word.id, new_progress)
+            # 显示正确答案
+            console.print(f"[bold green]正确假名: {word.kana}[/bold green]")
+            console.print(f"[bold cyan]释义: {word.meaning}[/bold cyan]\n")
 
-        console.print("[dim]进度已更新。[/dim]\n")
+            if user_answer.strip() == "":
+                rating = 1
+                console.print("[yellow]已跳过，记为错误。[/yellow]")
+            elif normalize(user_answer) == normalize(word.kana):
+                rating = 3
+                console.print("[bold green]回答正确！[/bold green]")
+            else:
+                rating = 1
+                console.print(f"[bold red]回答错误。你的输入: {user_answer}[/bold red]")
+
+            # 更新进度
+            new_progress = engine.review(progress, rating, now)
+            progress_repo.save(word.id, new_progress)
+
+            console.print("[dim]进度已更新。[/dim]\n")
+
+        idx += batch_count
+
+        if idx >= total:
+            break
+
+        # 批次处理完，询问是否继续
+        if not typer.confirm(
+            f"已完成 {idx}/{total}。是否继续复习下一批？", default=True
+        ):
+            console.print("[yellow]已退出复习。下次可继续未完成的复习。[/yellow]")
+            return
 
     console.rule("复习结束")
     console.print("[bold green]所有待复习单词已处理完毕！[/bold green]")
