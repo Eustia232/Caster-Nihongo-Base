@@ -1,5 +1,11 @@
 # Product Change Log
 
+## [2026-01-29]
+### Fixed
+- 修复：使 `load_accents` 更加鲁棒，支持 accents.txt 中仅包含假名/无汉字的行并对假名进行规范化（去掉尾部占位数字与方括号），以保证在导入时能为无汉字条目正确补上音调。
+  - 变更位置：`src/core/accents.py`（改进解析逻辑、增加假名检测与规范化），`src/core/importer.py`（保留调用点，兼容新加载逻辑）。
+  - 说明：此前当行没有汉字时，载入的索引未使用与查找时一致的规范化 key，导致 reading-only 查询失败；本次修复统一了规范化流程并容错两列/三列格式。
+
 ## [2026-01-28]
 ### Added
 - Added English export requirements plan at `docs/plans/2026-01-28-export-requirements.md`.

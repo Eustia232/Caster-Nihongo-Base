@@ -39,6 +39,7 @@ class WordImporter:
         """批量处理文件内容"""
         # 自动补全音调：使用 accents.txt（仓库根目录）
         try:
+            # use repo-relative accents file (but keep using simple name for tests)
             content = fill_pitch_for_content(content, "accents.txt")
         except Exception:
             # 如果填充失败，回退到原始内容并继续解析

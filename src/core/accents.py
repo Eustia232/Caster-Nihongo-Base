@@ -3,10 +3,25 @@ import re
 from typing import Dict, Tuple, Optional
 
 
-def load_accents(path: str) -> Dict[Tuple[str, str], str]:
-    """Load accents file into a mapping (kanji, reading) -> pitch string.
+def _is_kana(s: str) -> bool:
+    """Return True if string s is (mostly) kana (hiragana/katakana)."""
+    if not s:
+        return False
+    # Hiragana: \u3040-\u309F, Katakana: \u30A0-\u30FF, include prolonged sound mark
+    return bool(re.match(r"^[\u3040-\u309F\u30A0-\u30FFー]+$", s))
 
-    Expects a tab-separated file with at least three columns: kanji\treading\tpitch
+
+def load_accents(path: str) -> Dict[Tuple[str, str], str]:
+    """Load accents file into a mapping (kanji, normalized_reading) -> pitch string.
+
+    The accents file is tab-separated but historically contains several variants:
+    - kanji\treading\tpitch
+    - reading\tpitch (kanji omitted)
+    - kanji\t\tpitch (empty reading column; reading may be in kanji column)
+
+    This loader is tolerant: it detects which column contains kana (reading)
+    and normalizes the reading using _normalize_reading_for_match so lookups
+    are consistent whether the input line had kana in the first or second column.
     """
     accents: Dict[Tuple[str, str], str] = {}
     if not os.path.exists(path):
@@ -18,14 +33,48 @@ def load_accents(path: str) -> Dict[Tuple[str, str], str]:
             if not line:
                 continue
             parts = line.split("\t")
-            if len(parts) < 3:
+
+            kanji_raw = ""
+            reading_raw = ""
+            pitch = ""
+
+            if len(parts) >= 3:
+                kanji_raw = parts[0].strip()
+                reading_raw = parts[1].strip()
+                pitch = parts[2].strip()
+            elif len(parts) == 2:
+                a = parts[0].strip()
+                b = parts[1].strip()
+                # if first column looks like kana, treat it as reading
+                if _is_kana(a):
+                    kanji_raw = ""
+                    reading_raw = a
+                    pitch = b
+                else:
+                    # otherwise treat as kanji + pitch (no explicit reading)
+                    kanji_raw = a
+                    reading_raw = ""
+                    pitch = b
+            else:
                 continue
-            kanji = parts[0].strip()
-            reading = parts[1].strip()
-            pitch = parts[2].strip()
-            # store entries even if kanji is empty; we'll use reading-based lookup
-            if reading:
-                accents[(kanji, reading)] = pitch
+
+            # if reading column is empty but kanji_raw actually contains kana,
+            # treat kanji_raw as the reading and clear kanji
+            if not reading_raw and _is_kana(kanji_raw):
+                reading_raw = kanji_raw
+                kanji_raw = ""
+
+            if not reading_raw:
+                # nothing to index by reading; still record fuzzy kanji->pitch
+                if kanji_raw and pitch:
+                    accents[(kanji_raw, "")] = pitch
+                continue
+
+            norm_reading = _normalize_reading_for_match(reading_raw)
+            if not norm_reading:
+                continue
+
+            accents[(kanji_raw, norm_reading)] = pitch
 
     return accents
 
@@ -59,9 +108,10 @@ def fill_pitch_for_content(content: str, accents_path: str) -> str:
     # build reading index: reading -> first pitch found (useful when kanji is empty)
     reading_index: Dict[str, str] = {}
     for (k, r), p in accents.items():
-        if k not in fuzzy:
+        # accents keys are (kanji, normalized_reading) from load_accents
+        if k and k not in fuzzy:
             fuzzy[k] = p
-        if r not in reading_index:
+        if r and r not in reading_index:
             reading_index[r] = p
 
     out_lines = []
