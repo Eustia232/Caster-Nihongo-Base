@@ -28,6 +28,12 @@
 ### Administrative
 - 修正：遵循 `.gitignore` 指南，不应将本仓库中被忽略的 `AGENTS.md` 文件加入版本控制。已将 `AGENTS.md` 从暂存区移除并恢复为未跟踪（保留本地副本），以遵循仓库忽略规则。
 
+### Added
+- 新增自动音调补全模块 `src/core/accents.py`，在导入时会使用仓库根目录的 `accents.txt` 为假名字段补上音调，并在导入到 `data_store/words.yaml` 前完成预处理。
+
+### Changed
+- 在 `src/core/importer.py` 的 `process_file` 中集成了音调自动补全调用，导入前会把 `new.txt` 的假名字段规范化并尝试从 `accents.txt` 查找音调，匹配优先使用 `(kanji, reading)` 精确匹配，未命中时按 `kanji` 模糊退路。
+
 ## [2026-01-27]
 ### Added
 - 完成 CLI 交互层：实现 `import` 单词导入和 `review` FSRS 复习命令。

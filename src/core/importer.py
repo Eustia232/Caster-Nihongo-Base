@@ -1,6 +1,7 @@
 from typing import List, Dict, Optional, Union, Any, Tuple
 import re
 from src.data.models import Word
+from src.core.accents import fill_pitch_for_content
 
 
 class WordImporter:
@@ -36,6 +37,12 @@ class WordImporter:
 
     def process_file(self, content: str, start_id: int) -> List[Word]:
         """批量处理文件内容"""
+        # 自动补全音调：使用 accents.txt（仓库根目录）
+        try:
+            content = fill_pitch_for_content(content, "accents.txt")
+        except Exception:
+            # 如果填充失败，回退到原始内容并继续解析
+            pass
         words = []
         current_id = start_id
         for line in content.splitlines():
