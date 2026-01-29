@@ -158,27 +158,80 @@ def review():
         for i, (word, progress) in enumerate(batch, start=1):
             console.rule(f"复习中 ({idx + i}/{total})")
 
-            # 显示题目
-            console.print(f"\n[bold white]汉字: {word.kanji}[/bold white]")
-            console.print(f"[dim]词性: {word.pos}[/dim]\n")
+            # 随机选择复习模式：
+            # - 给汉字写假名
+            # - 给释义写假名
+            # - 显示汉字和假名，用户输入 1 或 0 表示是否认识
+            modes = ["kanji_to_kana", "meaning_to_kana", "recognition"]
+            # 如果没有汉字，去掉第一个模式
+            if not word.kanji:
+                modes = [m for m in modes if m != "kanji_to_kana"]
 
-            user_answer = typer.prompt(
-                "请输入假名答案 (直接回车跳过)", default="", show_default=False
-            )
+            mode = random.choice(modes)
 
-            # 显示正确答案
-            console.print(f"[bold green]正确假名: {word.kana}[/bold green]")
-            console.print(f"[bold cyan]释义: {word.meaning}[/bold cyan]\n")
+            if mode == "kanji_to_kana":
+                console.print(f"\n[bold white]汉字: {word.kanji}[/bold white]")
+                console.print(f"[dim]词性: {word.pos}[/dim]\n")
+                prompt_text = "请输入假名答案 (直接回车跳过)"
+                user_answer = typer.prompt(prompt_text, default="", show_default=False)
 
-            if user_answer.strip() == "":
-                rating = 1
-                console.print("[yellow]已跳过，记为错误。[/yellow]")
-            elif normalize(user_answer) == normalize(word.kana):
-                rating = 3
-                console.print("[bold green]回答正确！[/bold green]")
-            else:
-                rating = 1
-                console.print(f"[bold red]回答错误。你的输入: {user_answer}[/bold red]")
+                console.print(f"[bold green]正确假名: {word.kana}[/bold green]")
+                console.print(f"[bold cyan]释义: {word.meaning}[/bold cyan]\n")
+
+                if user_answer.strip() == "":
+                    rating = 1
+                    console.print("[yellow]已跳过，记为错误。[/yellow]")
+                elif normalize(user_answer) == normalize(word.kana):
+                    rating = 3
+                    console.print("[bold green]回答正确！[/bold green]")
+                else:
+                    rating = 1
+                    console.print(
+                        f"[bold red]回答错误。你的输入: {user_answer}[/bold red]"
+                    )
+
+            elif mode == "meaning_to_kana":
+                console.print(f"\n[bold white]释义: {word.meaning}[/bold white]")
+                console.print(f"[dim]词性: {word.pos}[/dim]\n")
+                prompt_text = "请根据释义输入假名答案 (直接回车跳过)"
+                user_answer = typer.prompt(prompt_text, default="", show_default=False)
+
+                console.print(f"[bold green]正确假名: {word.kana}[/bold green]")
+                console.print(
+                    f"[bold magenta]汉字: {word.kanji or '<无汉字>'}[/bold magenta]\n"
+                )
+
+                if user_answer.strip() == "":
+                    rating = 1
+                    console.print("[yellow]已跳过，记为错误。[/yellow]")
+                elif normalize(user_answer) == normalize(word.kana):
+                    rating = 3
+                    console.print("[bold green]回答正确！[/bold green]")
+                else:
+                    rating = 1
+                    console.print(
+                        f"[bold red]回答错误。你的输入: {user_answer}[/bold red]"
+                    )
+
+            else:  # recognition
+                # 显示汉字与假名，让用户判断是否认识（1/0）
+                console.print(
+                    f"\n[bold white]汉字: {word.kanji or '<无汉字>'}[/bold white]"
+                )
+                console.print(f"[bold green]假名: {word.kana}[/bold green]")
+                console.print(f"[dim]词性: {word.pos}[/dim]\n")
+
+                resp = typer.prompt(
+                    "输入 `1` 表示认识，`0` 表示不认识", default="", show_default=False
+                )
+                if resp.strip() == "1":
+                    rating = 3
+                    console.print("[bold green]已标记为认识（Good）。[/bold green]")
+                else:
+                    rating = 1
+                    console.print(
+                        "[bold red]标记为不认识或未输入有效值（Again）。[/bold red]"
+                    )
 
             # 更新进度
             new_progress = engine.review(progress, rating, now)
