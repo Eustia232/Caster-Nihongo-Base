@@ -13,6 +13,8 @@ Field rules
 - Lines with fewer or more than four pipe-separated fields are invalid.
 - Do not include extra metadata or extra `|` characters.
   - Kana/读音 规则：填写假名读音时只需要填写纯假名（例如 `じしょ`），不需要在 `new.txt` 中加入音调数字或其他音调标记。导入时程序会自动根据仓库根目录的 `accents.txt` 为假名补全音调；如果 `accents.txt` 中存在对应条目，会以其为准。
+  - 更新行为：每次你准备更新单词列表时，请用新的内容替换（清空并覆盖）工作目录下的 `new.txt`，不要在原文件末尾追加新行。导入工具会按整个文件的当前内容执行导入。
+  - 空汉字处理：如果某条目没有汉字（例如外来语或仅假名），请把汉字字段留空但保留分隔符。例如：`|スイッチ|开关|名词` 表示汉字为空、假名为 `スイッチ`。
 
 Allowed pos values (exact string match)
 - 名词
