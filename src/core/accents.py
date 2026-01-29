@@ -23,7 +23,8 @@ def load_accents(path: str) -> Dict[Tuple[str, str], str]:
             kanji = parts[0].strip()
             reading = parts[1].strip()
             pitch = parts[2].strip()
-            if kanji and reading:
+            # store entries even if kanji is empty; we'll use reading-based lookup
+            if reading:
                 accents[(kanji, reading)] = pitch
 
     return accents
@@ -55,9 +56,13 @@ def fill_pitch_for_content(content: str, accents_path: str) -> str:
 
     # build fuzzy mapping: kanji -> first pitch found
     fuzzy: Dict[str, str] = {}
+    # build reading index: reading -> first pitch found (useful when kanji is empty)
+    reading_index: Dict[str, str] = {}
     for (k, r), p in accents.items():
         if k not in fuzzy:
             fuzzy[k] = p
+        if r not in reading_index:
+            reading_index[r] = p
 
     out_lines = []
     for lineno, raw in enumerate(content.splitlines(), start=1):
@@ -88,8 +93,12 @@ def fill_pitch_for_content(content: str, accents_path: str) -> str:
         if (kanji, norm) in accents:
             pitch = accents[(kanji, norm)]
         else:
-            # fuzzy by kanji
-            pitch = fuzzy.get(kanji)
+            # if kanji is empty, try reading-based lookup (best-effort)
+            if not kanji:
+                pitch = reading_index.get(norm)
+            # fuzzy by kanji (fallback)
+            if pitch is None:
+                pitch = fuzzy.get(kanji)
 
         if pitch:
             clean_pitch = pitch.replace(" ", "")

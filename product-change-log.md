@@ -33,6 +33,7 @@
 
 ### Changed
 - 在 `src/core/importer.py` 的 `process_file` 中集成了音调自动补全调用，导入前会把 `new.txt` 的假名字段规范化并尝试从 `accents.txt` 查找音调，匹配优先使用 `(kanji, reading)` 精确匹配，未命中时按 `kanji` 模糊退路。
+  - 当 `kanji` 为空时，增加了基于 `reading` 的回退查找：会使用 `accents.txt` 中首个出现的相同假名的音调（实现路径：`src/core/accents.py`，添加了 `reading_index`），以支持无汉字的行也能补全音调。
 
 ## [2026-01-27]
 ### Added
