@@ -25,6 +25,9 @@
   - 变更位置：`src/cli/main.py`
   - 新增单元测试：`tests/test_cli/test_review_batching.py`
 
+### Administrative
+- 修正：遵循 `.gitignore` 指南，不应将本仓库中被忽略的 `AGENTS.md` 文件加入版本控制。已将 `AGENTS.md` 从暂存区移除并恢复为未跟踪（保留本地副本），以遵循仓库忽略规则。
+
 ## [2026-01-27]
 ### Added
 - 完成 CLI 交互层：实现 `import` 单词导入和 `review` FSRS 复习命令。
