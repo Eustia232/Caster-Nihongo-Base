@@ -2,195 +2,117 @@
   kanji: 勉強する
   kana: べんきょうする0
   meaning: 学习
-  pos: 动词
-  category: ''
+  pos: 动词1
+  category: null
 - id: 2
   kanji: 食べる
   kana: たべる2
   meaning: 吃
-  pos: 动词
-  category: ''
+  pos: 动词5
+  category: null
 - id: 3
   kanji: 本
   kana: ほん1
   meaning: 书
   pos: 名词
-  category: ''
+  category: null
 - id: 4
   kanji: 先生
   kana: せんせい3
   meaning: 老师
   pos: 名词
-  category: ''
+  category: null
 - id: 5
   kanji: 学生
   kana: がくせい0
   meaning: 学生
   pos: 名词
-  category: ''
+  category: null
 - id: 6
   kanji: 日本語
   kana: にほんご0
   meaning: 日语
   pos: 名词
-  category: ''
+  category: null
 - id: 7
   kanji: 学校
   kana: がっこう0
   meaning: 学校
   pos: 名词
-  category: ''
+  category: null
 - id: 8
   kanji: 飲む
   kana: のむ1
   meaning: 喝
-  pos: 动词
-  category: ''
+  pos: 動词5
+  category: null
 - id: 9
   kanji: 行く
   kana: いく0
   meaning: 去
-  pos: 动词
-  category: ''
+  pos: 動词5
+  category: null
 - id: 10
   kanji: 面白い
   kana: おもしろい4
   meaning: 有趣的
   pos: 形容词
-  category: ''
+  category: null
 - id: 11
   kanji: 高い
   kana: たかい2
   meaning: 高的、贵的
   pos: 形容词
-  category: ''
+  category: null
 - id: 12
   kanji: 友達
   kana: ともだち0
   meaning: 朋友
   pos: 名词
-  category: ''
+  category: null
 - id: 13
   kanji: 綺麗
   kana: きれい1
   meaning: 漂亮、干净
   pos: 形容动词
-  category: ''
+  category: null
 - id: 14
-  kanji: 勉強する
-  kana: べんきょうする0
-  meaning: 学习
-  pos: 动词1
-  category: null
-- id: 15
-  kanji: 食べる
-  kana: たべる2
-  meaning: 吃
-  pos: 动词5
-  category: null
-- id: 16
-  kanji: 本
-  kana: ほん1
-  meaning: 书
-  pos: 名词
-  category: null
-- id: 17
-  kanji: 先生
-  kana: せんせい3
-  meaning: 老师
-  pos: 名词
-  category: null
-- id: 18
-  kanji: 学生
-  kana: がくせい0
-  meaning: 学生
-  pos: 名词
-  category: null
-- id: 19
-  kanji: 日本語
-  kana: にほんご0
-  meaning: 日语
-  pos: 名词
-  category: null
-- id: 20
-  kanji: 学校
-  kana: がっこう0
-  meaning: 学校
-  pos: 名词
-  category: null
-- id: 21
-  kanji: 飲む
-  kana: のむ1
-  meaning: 喝
-  pos: 動词5
-  category: null
-- id: 22
-  kanji: 行く
-  kana: いく0
-  meaning: 去
-  pos: 動词5
-  category: null
-- id: 23
-  kanji: 面白い
-  kana: おもしろい4
-  meaning: 有趣的
-  pos: 形容词
-  category: null
-- id: 24
-  kanji: 高い
-  kana: たかい2
-  meaning: 高的、贵的
-  pos: 形容词
-  category: null
-- id: 25
-  kanji: 友達
-  kana: ともだち0
-  meaning: 朋友
-  pos: 名词
-  category: null
-- id: 26
-  kanji: 綺麗
-  kana: きれい1
-  meaning: 漂亮、干净
-  pos: 形容动词
-  category: null
-- id: 27
   kanji: 見る
   kana: みる0
   meaning: 看
   pos: 动词1
   category: null
-- id: 28
+- id: 15
   kanji: 来る
   kana: くる0
   meaning: 来
   pos: 动词1
   category: null
-- id: 29
+- id: 16
   kanji: 書く
   kana: かく1
   meaning: 写
   pos: 动词5
   category: null
-- id: 30
+- id: 17
   kanji: 走る
   kana: はしる1
   meaning: 跑
   pos: 动词5
   category: null
-- id: 31
+- id: 18
   kanji: 早い
   kana: はやい1
   meaning: 早的
   pos: 形容词
   category: null
-- id: 32
+- id: 19
   kanji: 静か
   kana: しずか0
   meaning: 安静的
   pos: 形容动词
   category: null
-- id: 33
+- id: 20
   kanji: 速く
   kana: はやく0
   meaning: 快速地

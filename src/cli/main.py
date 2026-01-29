@@ -51,7 +51,11 @@ def import_cmd(file_path: str = "new.txt"):
         with open(file_path, "r", encoding="utf-8") as f:
             content = f.read()
 
-        new_words = importer.process_file(content, start_id)
+        # 依据文件后缀选择解析器：.md 使用 Markdown 解析器，其他使用现有文本解析
+        if file_path.lower().endswith(".md") or file_path.lower().endswith(".markdown"):
+            new_words = importer.process_markdown(content, start_id)
+        else:
+            new_words = importer.process_file(content, start_id)
 
         if not new_words:
             console.print("[yellow]没有发现可导入的有效单词。[/yellow]")
