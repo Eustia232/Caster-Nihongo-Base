@@ -57,10 +57,30 @@ def import_cmd(file_path: str = "new.txt"):
             console.print("[yellow]没有发现可导入的有效单词。[/yellow]")
             return
 
-        # 合并并保存
-        all_words = existing_words + new_words
+        # 导入去重：以 (kanji, kana) 作为重复判定键，优先保留已存在的条目
+        existing_keys = set((w.kanji, w.kana) for w in existing_words)
+        filtered_new = []
+        skipped = 0
+        for w in new_words:
+            key = (w.kanji, w.kana)
+            if key in existing_keys:
+                skipped += 1
+                continue
+            filtered_new.append(w)
+            existing_keys.add(key)
 
-        console.print(f"[green]解析成功！准备导入 {len(new_words)} 个单词。[/green]")
+        if not filtered_new:
+            console.print(
+                "[yellow]解析成功，但所有发现的单词均已存在，已跳过导入。[/yellow]"
+            )
+            return
+
+        # 合并并保存（保留 existing_words 的优先权）
+        all_words = existing_words + filtered_new
+
+        console.print(
+            f"[green]解析成功！准备导入 {len(filtered_new)} 个单词（跳过 {skipped} 个重复条目）。[/green]"
+        )
 
         # 显示预览表格
         table = Table(title="待导入单词预览")
