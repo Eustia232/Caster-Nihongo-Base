@@ -224,7 +224,9 @@ def review():
                 resp = typer.prompt(
                     "输入 `1` 表示认识，`0` 表示不认识", default="", show_default=False
                 )
-                if resp.strip() == "1":
+                # 支持日语输入法的全角数字（如：'１' 和 '０'），先做简单规范化再判断
+                resp_norm = resp.strip().replace("１", "1").replace("０", "0")
+                if resp_norm == "1":
                     rating = 3
                     console.print("[bold green]已标记为认识（Good）。[/bold green]")
                 else:
