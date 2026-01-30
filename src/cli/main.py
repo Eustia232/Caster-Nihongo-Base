@@ -147,8 +147,12 @@ def review():
     idx = 0
 
     def normalize(s: str) -> str:
+        # 去掉方括号内的数字标注
         s = re.sub(r"\[\d+\]", "", s)
-        s = re.sub(r"\d+$", "", s)
+        # 将全角数字与全角逗号规范为 ASCII 形式，便于后续统一处理
+        s = s.translate(str.maketrans("０１２３４５６７８９，", "0123456789,"))
+        # 去掉尾部由数字与逗号组成的序列（例如 "3,2"、"３，２"）
+        s = re.sub(r"[,，\d\uFF10-\uFF19]+$", "", s)
         return s.strip()
 
     while idx < total:
