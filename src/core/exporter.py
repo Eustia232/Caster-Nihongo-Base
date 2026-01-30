@@ -55,7 +55,28 @@ def generate_markdown(
         ordered.extend(rest)
         keys = ordered
     else:
-        keys = sorted(keys)
+        # 默认排序：按词性优先级，词性内先无 category（pos）再有 category（pos / category），
+        # 有 category 的按 category 字典序
+        POS_ORDER = ["名词", "动词1", "动词5", "形容词", "形容动词", "副词"]
+
+        def parse_key(k: str):
+            if " / " in k:
+                pos, cat = [p.strip() for p in k.split("/", 1)]
+                return pos, cat
+            return k.strip(), None
+
+        def sort_key(k: str):
+            pos, cat = parse_key(k)
+            try:
+                pos_idx = POS_ORDER.index(pos)
+            except ValueError:
+                pos_idx = len(POS_ORDER)
+            # 无 category 的放在前（0），有 category 的放后（1）
+            has_cat = 1 if cat else 0
+            cat_key = cat or ""
+            return (pos_idx, has_cat, cat_key, k)
+
+        keys = sorted(keys, key=sort_key)
 
     # 生成 Markdown
     lines: List[str] = []
