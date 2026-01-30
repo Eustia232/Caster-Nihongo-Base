@@ -138,11 +138,10 @@ def review():
         console.print("[bold green]恭喜！目前没有待复习的单词。[/bold green]")
         return
 
-    random.shuffle(due_words)
     total = len(due_words)
     console.print(f"[bold blue]待复习单词数量: {total}[/bold blue]\n")
 
-    # 分批处理，每批最多 10 个
+    # 分批处理，每批最多 10 个（每批从待复习列表中随机抽取不重复的项，且批内顺序乱序）
     BATCH_SIZE = 10
     idx = 0
 
@@ -155,8 +154,11 @@ def review():
         s = re.sub(r"[,，\d\uFF10-\uFF19]+$", "", s)
         return s.strip()
 
-    while idx < total:
-        batch = due_words[idx : idx + BATCH_SIZE]
+    # 使用一个可变的待处理列表，每次随机抽取 up to BATCH_SIZE 个不重复单词进行本批复习
+    while due_words:
+        batch = random.sample(due_words, k=min(BATCH_SIZE, len(due_words)))
+        # 再对批内顺序进行乱序，保证出题顺序随机
+        random.shuffle(batch)
         batch_count = len(batch)
 
         for i, (word, progress) in enumerate(batch, start=1):
@@ -255,8 +257,15 @@ def review():
 
             console.print("[dim]进度已更新。[/dim]\n")
 
-        idx += batch_count
+        # 从待处理队列中移除已抽取的条目
+        for item in batch:
+            try:
+                due_words.remove(item)
+            except ValueError:
+                # 理论上不会发生，但保持鲁棒性
+                pass
 
+        idx += batch_count
         if idx >= total:
             break
 
