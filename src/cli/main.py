@@ -57,6 +57,17 @@ def import_cmd(file_path: str = "new.txt"):
         else:
             new_words = importer.process_file(content, start_id)
 
+        # If importer reported lines with missing readings, show warnings but
+        # still continue importing the rest (skip problematic lines). The
+        # importer exposes these in importer.last_problems.
+        missing_reading_msgs = getattr(importer, "last_problems", []) or []
+        if missing_reading_msgs:
+            console.print(
+                "[yellow]导入过程中发现以下问题（这些条目将被跳过）：[/yellow]"
+            )
+            for msg in missing_reading_msgs:
+                console.print(f"  - [red]{msg}[/red]")
+
         if not new_words:
             console.print("[yellow]没有发现可导入的有效单词。[/yellow]")
             return

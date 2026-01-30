@@ -2,7 +2,6 @@ from typing import List, Dict, Optional, Union, Any, Tuple
 import re
 from src.data.models import Word
 from src.core.accents import fill_pitch_for_content
-from src.core.exceptions import ImporterError
 
 
 class WordImporter:
@@ -67,11 +66,8 @@ class WordImporter:
             words.append(self.parse_line(line, current_id))
             current_id += 1
 
-        if problems:
-            # Block the import and surface the missing-reading problems to caller
-            raise ImporterError(
-                "Import blocked due to missing readings", problems=problems
-            )
+        # expose problems for caller (CLI) to decide how to proceed
+        self.last_problems = problems
 
         return words
 
