@@ -1,5 +1,6 @@
 import pytest
 from src.core.importer import WordImporter
+from src.core.exceptions import ImporterError
 from src.data.models import Word
 
 
@@ -25,5 +26,16 @@ def test_parse_line_with_category():
     importer = WordImporter()
     line = "勉強する|べんきょうする0|学习|动词|JLPT5"
     word = importer.parse_line(line, word_id=102)
+
+
+def test_process_file_blocks_missing_readings(tmp_path):
+    importer = WordImporter()
+    # content has a line with empty kana column
+    content = "漢字| |意义|名词\n"
+    try:
+        importer.process_file(content, start_id=1)
+        assert False, "Expected ImporterError"
+    except ImporterError as e:
+        assert e.problems and "missing kana" in e.problems[0]
 
     assert word.category == "JLPT5"

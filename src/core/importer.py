@@ -2,6 +2,7 @@ from typing import List, Dict, Optional, Union, Any, Tuple
 import re
 from src.data.models import Word
 from src.core.accents import fill_pitch_for_content
+from src.core.exceptions import ImporterError
 
 
 class WordImporter:
@@ -46,12 +47,32 @@ class WordImporter:
             pass
         words = []
         current_id = start_id
-        for line in content.splitlines():
-            line = line.strip()
+        problems: List[str] = []
+
+        for lineno, raw in enumerate(content.splitlines(), start=1):
+            line = raw.strip()
             if not line or line.startswith("#"):
                 continue
+
+            parts = [p.strip() for p in line.split("|")]
+            kana_field = parts[1] if len(parts) >= 2 else ""
+
+            # If kana/reading is missing after accent fill attempt, collect as problem
+            if not kana_field:
+                problems.append(f"Line {lineno}: missing kana/reading -> {line}")
+                # still advance id to keep deterministic ids for other lines
+                current_id += 1
+                continue
+
             words.append(self.parse_line(line, current_id))
             current_id += 1
+
+        if problems:
+            # Block the import and surface the missing-reading problems to caller
+            raise ImporterError(
+                "Import blocked due to missing readings", problems=problems
+            )
+
         return words
 
     def process_markdown(self, content: str, start_id: int) -> List[Word]:
