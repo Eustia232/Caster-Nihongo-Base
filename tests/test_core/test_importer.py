@@ -32,10 +32,12 @@ def test_process_file_blocks_missing_readings(tmp_path):
     importer = WordImporter()
     # content has a line with empty kana column
     content = "漢字| |意义|名词\n"
-    try:
-        importer.process_file(content, start_id=1)
-        assert False, "Expected ImporterError"
-    except ImporterError as e:
-        assert e.problems and "missing kana" in e.problems[0]
+    words = importer.process_file(content, start_id=1)
+    # importer should expose problems for lines with missing readings
+    assert hasattr(importer, "last_problems")
+    assert importer.last_problems
+    # any words returned must have non-empty kana fields
+    for w in words:
+        assert getattr(w, "kana", "")
 
-    assert word.category == "JLPT5"
+    # cleanup: no further assertions

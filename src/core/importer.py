@@ -56,8 +56,16 @@ class WordImporter:
             parts = [p.strip() for p in line.split("|")]
             kana_field = parts[1] if len(parts) >= 2 else ""
 
-            # If kana/reading is missing after accent fill attempt, collect as problem
-            if not kana_field:
+            # Treat placeholder-only readings (like "0", "０", "," or "0,0") as missing.
+            # Normalize: remove bracketed numbers and trailing digits/commas (including fullwidth)
+            kana_norm = re.sub(r"\[\d+\]", "", kana_field)
+            kana_norm = kana_norm.translate(
+                str.maketrans("０１２３４５６７８９", "0123456789")
+            )
+            kana_norm = re.sub(r"[,，\d]+$", "", kana_norm).strip()
+
+            # If, after normalization, there's nothing left, treat as missing
+            if not kana_norm:
                 problems.append(f"Line {lineno}: missing kana/reading -> {line}")
                 # still advance id to keep deterministic ids for other lines
                 current_id += 1
