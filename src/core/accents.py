@@ -130,13 +130,17 @@ def fill_pitch_for_content(content: str, accents_path: str) -> str:
         kanji = parts[0].strip()
         reading = parts[1].strip()
 
-        # detect if reading already contains a pitch at the end (e.g. "じしょ3" or "じしょ3,2")
-        if re.search(r"\d+(,\d+)*$", reading):
+        # normalize reading by removing bracketed numbers and trailing placeholder digits
+        norm = _normalize_reading_for_match(reading)
+
+        # detect if reading already contains a pitch at the end (e.g. "じしょ3" or "じしょ3,2").
+        # If normalization changed the reading (e.g. removed a placeholder like '0'), treat it
+        # as not having a real pitch and continue to try filling from accents. Only skip if the
+        # reading ends with a pitch-like suffix and normalization did not change it.
+        if re.search(r"\d+(,\d+)*$", reading) and norm == reading:
             # already has pitch-ish suffix; keep as-is
             out_lines.append(line)
             continue
-
-        norm = _normalize_reading_for_match(reading)
 
         # exact match
         pitch: Optional[str] = None
