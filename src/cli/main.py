@@ -156,7 +156,8 @@ def review():
         batch_count = len(batch)
 
         for i, (word, progress) in enumerate(batch, start=1):
-            console.rule(f"复习中 ({idx + i}/{total})")
+            # 显示风格改为去掉前导分隔符并保留后置短横线
+            console.print(f"复习中----- ({idx + i}/{total})")
 
             # 随机选择复习模式：
             # - 给汉字写假名
