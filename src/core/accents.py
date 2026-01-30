@@ -134,13 +134,19 @@ def fill_pitch_for_content(content: str, accents_path: str) -> str:
         norm = _normalize_reading_for_match(reading)
 
         # detect if reading already contains a pitch at the end (e.g. "じしょ3" or "じしょ3,2").
-        # If normalization changed the reading (e.g. removed a placeholder like '0'), treat it
-        # as not having a real pitch and continue to try filling from accents. Only skip if the
-        # reading ends with a pitch-like suffix and normalization did not change it.
-        if re.search(r"\d+(,\d+)*$", reading) and norm == reading:
-            # already has pitch-ish suffix; keep as-is
-            out_lines.append(line)
-            continue
+        # If the suffix is a real pitch (contains a non-zero digit) preserve the original line.
+        # If the suffix is only a placeholder like '0', treat it as absent and continue lookup.
+        m = re.search(r"([0-9０-９]+(?:[,，][0-9０-９]+)*)$", reading)
+        if m:
+            suffix = m.group(1)
+            # normalize fullwidth digits to ASCII for decision
+            suffix_ascii = suffix.translate(
+                str.maketrans("０１２３４５６７８９", "0123456789")
+            ).replace("，", ",")
+            # if suffix is not solely zero(s), consider it a real pitch and preserve
+            if any(ch != "0" and ch != "," for ch in suffix_ascii):
+                out_lines.append(line)
+                continue
 
         # exact match
         pitch: Optional[str] = None
