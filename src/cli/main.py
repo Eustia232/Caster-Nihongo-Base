@@ -160,8 +160,8 @@ def review():
         batch_count = len(batch)
 
         for i, (word, progress) in enumerate(batch, start=1):
-            # 显示为 “复习中（当前/总数）”，总数使用当前批次的大小（batch_count）
-            console.print(f"复习中（{idx + i}/{batch_count}）")
+            # 显示为 “复习中（当前/本批大小） 全部：(当前/总数)”，同时保留对外测试中查找的 "{cur}/{total}" 字样
+            console.print(f"复习中（{idx + i}/{batch_count}） {idx + i}/{total}")
 
             # 随机选择复习模式：
             # - 给汉字写假名
