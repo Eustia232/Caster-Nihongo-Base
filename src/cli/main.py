@@ -172,7 +172,16 @@ def review():
             if not word.kanji:
                 modes = [m for m in modes if m != "kanji_to_kana"]
 
-            mode = random.choice(modes)
+            # 权重配置（可以根据需要调整）: kanji_to_kana, meaning_to_kana, recognition
+            MODE_WEIGHTS = {
+                "kanji_to_kana": 1,
+                "meaning_to_kana": 2,
+                "recognition": 1,
+            }
+
+            weights = [MODE_WEIGHTS.get(m, 1) for m in modes]
+            # 使用 random.choices 支持非归一化权重
+            mode = random.choices(modes, weights=weights, k=1)[0]
 
             if mode == "kanji_to_kana":
                 console.print(f"\n[bold white]汉字: {word.kanji}[/bold white]")
