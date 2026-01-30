@@ -117,4 +117,5 @@ def export_words_to_file(
 
 def default_out_path() -> str:
     utc = datetime.now(timezone.utc)
-    return os.path.join("export", f"words-{utc.strftime('%Y%m%d')}.md")
+    # include hour and minute to make filenames more specific (UTC)
+    return os.path.join("export", f"words-{utc.strftime('%Y%m%d%H%M')}.md")
