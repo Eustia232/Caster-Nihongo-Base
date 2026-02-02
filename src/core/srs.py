@@ -2,6 +2,7 @@ from datetime import datetime, timezone
 from typing import Optional, List, Dict, Union, Any, Tuple
 from fsrs import Scheduler, Card, Rating
 from src.data.models import SRSProgress
+from datetime import timedelta
 
 
 class FSRSEngine:
@@ -49,6 +50,16 @@ class FSRSEngine:
 
         fsrs_rating = Rating(rating)
         updated_card, _ = self.scheduler.review_card(card, fsrs_rating, review_time)
+
+        # Enforce a minimum next interval so that a reviewed card won't be
+        # scheduled again too soon. Apply this rule to all reviews (both
+        # correct and incorrect) and set the minimum to 17 hours.
+        # This avoids immediate re-scheduling within a short window after any
+        # review action.
+        if updated_card.due is not None:
+            min_due = review_time + timedelta(hours=17)
+            if updated_card.due <= min_due:
+                updated_card.due = min_due
 
         # Update consecutive success count and possibly archive
         prev_consec = 0
