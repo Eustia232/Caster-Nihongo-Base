@@ -1,6 +1,15 @@
 # Product Change Log
 
+## [2026-02-05]
+### Fixed
+- 修复：防止在调用 `fsrs.Scheduler.review_card` 时因 `step` 为 `None` 触发断言（AssertionError）。如果进度记录中缺少 `step` 或 `stability/difficulty` 为 None，会在构造 `fsrs.Card` 前进行类型安全处理与回退，保证传入 `Card` 的字段满足库的类型要求。
+  - 变更位置：`src/core/srs.py`（在创建 `Card` 时强制转换 `stability`/`difficulty` 为 `float`、将 `state` 转为 `fsrs.State`，并安全地包含可选 `step`）、`src/data/models.py`（将 `SRSProgress.step` 设为可选 `Optional[int]`）。
+  - 说明：日志中出现的断言栈顶为 `fsrs.scheduler.review_card` 中 `assert card.step is not None`，根因是从旧的或部分字段缺失的 `SRSProgress` 反序列化后没有 `step` 字段。此修复保证向 `fsrs` 传递的 `Card` 拥有期望的类型或显式的 None 容错，从而避免间歇性崩溃。
+
 ## [2026-02-02]
+### Added
+- 在 `new.txt` 中添加了 13 个单词：`運転手`, `料理`, `八つ`, `土曜日`, `短い`, `狭い`, `軽い`, `細い`, `辛い`, `遠い`, `まずい`, `長い`, `熱い`（遵循 `NEW_TXT_SPEC.md` 中的 `kanji | kana | meaning | pos` 四字段格式），位置：仓库根目录的 `new.txt`。
+
 ### Changed
 - 将 FSRS 最小强制下次复习间隔从 1 天改为 17 小时，并改为对所有复习评分均生效（无论答对或答错）。
   - 变更位置：`src/core/srs.py`

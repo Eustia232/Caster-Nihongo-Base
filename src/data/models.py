@@ -19,6 +19,10 @@ class SRSProgress(BaseModel):
     difficulty: float = Field(..., description="难度系数")
     due: datetime = Field(..., description="下次复习时间")
     last_review: Optional[datetime] = Field(None, description="上次复习时间")
+    # Current step within a learning/relearning sequence (e.g. 0,1,...).
+    # FSRS expects a non-None `step` when state == Relearning; make this
+    # optional here so older progress records remain compatible.
+    step: Optional[int] = Field(None, description="学习/再学习步骤索引，可选")
     state: int = Field(
         ..., description="FSRS 状态 (0:New, 1:Learning, 2:Review, 3:Relearning)"
     )

@@ -1,6 +1,6 @@
 from datetime import datetime, timezone
 from typing import Optional, List, Dict, Union, Any, Tuple
-from fsrs import Scheduler, Card, Rating
+from fsrs import Scheduler, Card, Rating, State
 from src.data.models import SRSProgress
 from datetime import timedelta
 
@@ -40,12 +40,17 @@ class FSRSEngine:
             if due and due.tzinfo is None:
                 due = due.replace(tzinfo=timezone.utc)
 
+            # fsrs.Card expects specific types (State enum for state,
+            # floats for stability/difficulty). Ensure we coerce values to
+            # match that API and include `step` if present on the progress
+            # object.
             card = Card(
-                stability=current_progress.stability,
-                difficulty=current_progress.difficulty,
+                stability=float(current_progress.stability),
+                difficulty=float(current_progress.difficulty),
                 due=due,
                 last_review=last_review,
-                state=current_progress.state,
+                state=State(current_progress.state),
+                step=getattr(current_progress, "step", None),
             )
 
         fsrs_rating = Rating(rating)
