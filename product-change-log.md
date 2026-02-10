@@ -1,5 +1,53 @@
 # Product Change Log
 
+## [2026-02-10]
+### Added
+- 为 `import` 命令添加 `--overwrite` / `-o` 参数，允许用户选择覆盖已存在的重复条目。
+  - 变更位置：`src/cli/main.py`
+  - 说明：
+    - **默认行为（不加参数）**：跳过重复项，保留旧数据（保持原有行为）。
+    - **覆盖模式（`--overwrite`）**：用新数据的 `meaning`、`pos`、`category` 覆盖已存在条目，但保留原 `id`（以维持与 `progress.json` 的学习进度关联）。
+  - 用法示例：
+    - `uv run main.py import new.txt` — 跳过重复
+    - `uv run main.py import new.txt --overwrite` — 覆盖重复
+
+### Changed
+- 重构导入去重逻辑，使用字典索引替代集合，便于支持覆盖模式下的原地更新。
+  - 变更位置：`src/cli/main.py`
+
+### Tests
+- 新增 3 个测试用例验证覆盖模式行为：
+  - `test_import_overwrites_duplicates_when_flag_set` — 验证覆盖模式正确更新已存在条目并保留原 ID
+  - `test_import_overwrite_only_affects_existing` — 验证空词库时覆盖模式不影响正常导入
+  - `test_import_skips_internal_duplicates_in_overwrite_mode` — 验证覆盖模式下导入文件内部重复仍被跳过
+  - 变更位置：`tests/test_cli/test_import_dedupe.py`
+
+- ## [2026-02-06]
+- ### Changed
+- - 统一仓库中所有 `形容動詞`（日文写法）为 `形容动词`（中文写法）。修改文件：`accents.txt`。变更位置：仓库根目录。说明：为保持 `pos` 标签一致性，已将 `accents.txt` 中的 `形容動詞` 替换为 `形容动词`。
+- ### Added
+- 在 `new.txt` 中添加并替换了 11 个形容词：`薄い`, `古い`, `忙しい`, `低い`, `明るい`, `暗い`, `黄色い`, `欲しい`, `近い`, `遅い`, `重い`。所有行遵循 `kanji | kana | meaning | pos` 四字段格式，`pos` 使用规范允许的精确字符串 `形容词`（文件已整体替换以严格遵守 `NEW_TXT_SPEC.md`）。变更位置：仓库根目录的 `new.txt`。
+### Changed
+- 将 `new.txt` 中的 `形容動詞` 词性标签改为 `形容动词`（使用中文描述以匹配 `NEW_TXT_SPEC.md` 的约定），涉及条目：`嫌い`, `立派`, `賑やか`。变更位置：`new.txt`。
+### Added
+- 在 `new.txt` 中添加了 3 个单词：`嫌い`, `立派`, `賑やか`（遵循 `NEW_TXT_SPEC.md` 中的 `kanji | kana | meaning | pos` 四字段格式），位置：仓库根目录的 `new.txt`。
+- 在 `new.txt` 中添加了 4 个单词：`田舎`, `切手`, `夕飯`, `十`（读音 `とお`），位置：仓库根目录的 `new.txt`。
+## [2026-02-05]
+### Changed
+- 将以下词条的词性从 `名词` 调整为 `名词サ变`（suru-noun）：`遅刻` (id:26), `出張` (id:27), `旅行` (id:28), `料理` (id:91)。
+  - 变更位置：`data_store/words.yaml`
+  - 说明：这些名词可直接与 `する` 构成动词（如 `旅行する`），将其标注为 `名词サ变` 可在导出时按新分类顺序正确排序并更准确地反映词性。
+
+### Added
+- 新增词性 `名词サ变`（表示可与 `する` 构成动词的名词，suru-noun）。
+  - 变更位置：`src/core/exporter.py`（在默认 `POS_ORDER` 中将 `名词サ变` 放在 `名词` 之后），`NEW_TXT_SPEC.md`（在允许的 pos 列表中添加提示），`export/classify.txt`（可选的分类顺序示例中插入 `名词サ变`）。
+  - 说明：该词性与现有的 `名词`、`动词1` 等并列，导出时会按新顺序显示；导入仍接受任意 `pos` 字符串，但规范文件已更新以提示新增选项。
+
+### Fixed
+- 修复：在用 `SRSProgress` 重建 `fsrs.Card` 时确保提供 `step` 字段并对 `state` 做容错处理，避免当卡片处于 `Relearning` 状态但 `step` 为 `None` 时触发 `fsrs.scheduler.review_card` 内部的断言错误。
+  - 变更位置：`src/core/srs.py`
+  - 说明：将 `state=0`（New）映射为 `Learning`，并在 `Relearning` 状态缺失 `step` 时默认 `step=0`，同时确保传给 `fsrs.Card` 的类型与期望一致（`State` 枚举、浮点数 stability/difficulty、时区感知的 datetime）。
+
 ## [2026-02-05]
 ### Fixed
 - 修复：防止在调用 `fsrs.Scheduler.review_card` 时因 `step` 为 `None` 触发断言（AssertionError）。如果进度记录中缺少 `step` 或 `stability/difficulty` 为 None，会在构造 `fsrs.Card` 前进行类型安全处理与回退，保证传入 `Card` 的字段满足库的类型要求。

@@ -3,9 +3,12 @@ import os
 import random
 import re
 from datetime import datetime, timezone
+from typing import Dict, Set, Tuple
+
 from rich.console import Console
 from rich.table import Table
 from src.data.repository import WordRepository, ProgressRepository
+from src.data.models import Word
 from src.core.importer import WordImporter
 from src.core.srs import FSRSEngine
 from src.core.exporter import export_words_to_file, default_out_path
@@ -29,7 +32,15 @@ def hello():
 
 
 @app.command(name="import")
-def import_cmd(file_path: str = "new.txt"):
+def import_cmd(
+    file_path: str = "new.txt",
+    overwrite: bool = typer.Option(
+        False,
+        "--overwrite",
+        "-o",
+        help="覆盖已存在的重复条目（保留原ID，更新其他字段）",
+    ),
+):
     """从文本文件导入新单词"""
     if not os.path.exists(file_path):
         console.print(f"[red]错误: 找不到文件 {file_path}[/red]")
@@ -72,30 +83,68 @@ def import_cmd(file_path: str = "new.txt"):
             console.print("[yellow]没有发现可导入的有效单词。[/yellow]")
             return
 
-        # 导入去重：以 (kanji, kana) 作为重复判定键，优先保留已存在的条目
-        existing_keys = set((w.kanji, w.kana) for w in existing_words)
+        # 导入去重：以 (kanji, kana) 作为重复判定键
+        # 构建 existing_words 的索引映射（便于覆盖更新）
+        existing_map: Dict[Tuple[str, str], int] = {
+            (w.kanji, w.kana): idx for idx, w in enumerate(existing_words)
+        }
+
         filtered_new = []
         skipped = 0
+        overwritten = 0
+        seen_keys: Set[Tuple[str, str]] = set()
+
         for w in new_words:
             key = (w.kanji, w.kana)
-            if key in existing_keys:
+
+            # 处理导入文件内部的重复
+            if key in seen_keys:
                 skipped += 1
                 continue
-            filtered_new.append(w)
-            existing_keys.add(key)
+            seen_keys.add(key)
 
-        if not filtered_new:
+            if key in existing_map:
+                if overwrite:
+                    # 覆盖模式：更新已存在条目的其他字段，保留原 ID
+                    idx = existing_map[key]
+                    old_word = existing_words[idx]
+                    existing_words[idx] = Word(
+                        id=old_word.id,
+                        kanji=w.kanji,
+                        kana=w.kana,
+                        meaning=w.meaning,
+                        pos=w.pos,
+                        category=w.category,
+                    )
+                    overwritten += 1
+                else:
+                    # 跳过模式：保留旧条目
+                    skipped += 1
+            else:
+                filtered_new.append(w)
+                existing_map[key] = -1  # 标记为已添加，防止文件内重复
+
+        # 判断是否有实际变更
+        if not filtered_new and overwritten == 0:
             console.print(
                 "[yellow]解析成功，但所有发现的单词均已存在，已跳过导入。[/yellow]"
             )
             return
 
-        # 合并并保存（保留 existing_words 的优先权）
+        # 合并：existing_words（可能已被原地更新）+ 新增的条目
         all_words = existing_words + filtered_new
 
-        console.print(
-            f"[green]解析成功！准备导入 {len(filtered_new)} 个单词（跳过 {skipped} 个重复条目）。[/green]"
-        )
+        # 根据模式显示不同的提示信息
+        if overwrite and overwritten > 0:
+            console.print(
+                f"[green]解析成功！准备导入 {len(filtered_new)} 个新单词，"
+                f"覆盖 {overwritten} 个已存在条目"
+                f"{'（跳过 ' + str(skipped) + ' 个重复条目）' if skipped > 0 else ''}。[/green]"
+            )
+        else:
+            console.print(
+                f"[green]解析成功！准备导入 {len(filtered_new)} 个单词（跳过 {skipped} 个重复条目）。[/green]"
+            )
 
         # 显示预览表格
         table = Table(title="待导入单词预览")
@@ -111,7 +160,13 @@ def import_cmd(file_path: str = "new.txt"):
 
         if typer.confirm("确认导入以上单词吗？"):
             repo.save_all(all_words)
-            console.print(f"[green]成功导入 {len(new_words)} 个单词！[/green]")
+            # 根据操作情况显示不同的成功消息
+            if overwrite and overwritten > 0:
+                console.print(
+                    f"[green]成功导入 {len(filtered_new)} 个新单词，覆盖 {overwritten} 个已存在条目！[/green]"
+                )
+            else:
+                console.print(f"[green]成功导入 {len(filtered_new)} 个单词！[/green]")
         else:
             console.print("[yellow]导入已取消。[/yellow]")
 
@@ -209,7 +264,8 @@ def review():
                     rating = 1
                     console.print("[yellow]已跳过，记为错误。[/yellow]")
                 elif normalize(user_answer) == normalize(word.kana):
-                    rating = 3
+                    # Treat correct answer as Easy to increase spacing
+                    rating = 4
                     console.print("[bold green]回答正确！[/bold green]")
                 else:
                     rating = 1
@@ -232,7 +288,8 @@ def review():
                     rating = 1
                     console.print("[yellow]已跳过，记为错误。[/yellow]")
                 elif normalize(user_answer) == normalize(word.kana):
-                    rating = 3
+                    # Treat correct answer as Easy to increase spacing
+                    rating = 4
                     console.print("[bold green]回答正确！[/bold green]")
                 else:
                     rating = 1
@@ -254,17 +311,33 @@ def review():
                 # 支持日语输入法的全角数字（如：'１' 和 '０'），先做简单规范化再判断
                 resp_norm = resp.strip().replace("１", "1").replace("０", "0")
                 if resp_norm == "1":
-                    rating = 3
+                    # Recognized -> Easy
+                    rating = 4
                     console.print("[bold green]已标记为认识（Good）。[/bold green]")
                 else:
                     rating = 1
                     console.print(
                         "[bold red]标记为不认识或未输入有效值（Again）。[/bold red]"
                     )
+                # 无论用户输入 1 还是 0，都要显示该单词的中文释义以便复习
+                console.print(f"[bold cyan]释义: {word.meaning}[/bold cyan]\n")
 
             # 更新进度
             new_progress = engine.review(progress, rating, now)
             progress_repo.save(word.id, new_progress)
+
+            # 移除已处理项，避免在本次会话中被重新抽到
+            try:
+                # batch contains tuples (word, progress)
+                if (word, progress) in due_words:
+                    due_words.remove((word, progress))
+                else:
+                    # fallback: remove any tuple with same word id
+                    for pair in list(due_words):
+                        if pair[0].id == word.id:
+                            due_words.remove(pair)
+            except ValueError:
+                pass
 
             console.print("[dim]进度已更新。[/dim]\n")
 
