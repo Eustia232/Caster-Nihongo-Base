@@ -43,14 +43,27 @@ class FSRSEngine:
             # fsrs.Card expects specific types (State enum for state,
             # floats for stability/difficulty). Ensure we coerce values to
             # match that API and include `step` if present on the progress
-            # object.
+            # object. Also tolerate our SRSProgress `state` using 0 for "New"
+            # (map it to Learning) and ensure cards in Relearning have a
+            # non-None step (default to 0) to satisfy fsrs.scheduler assertions.
+            raw_state = int(current_progress.state)
+            if raw_state in (1, 2, 3):
+                state_enum = State(raw_state)
+            else:
+                # treat unknown/0 (New) as Learning
+                state_enum = State.Learning
+
+            step_val = getattr(current_progress, "step", None)
+            if state_enum == State.Relearning and step_val is None:
+                step_val = 0
+
             card = Card(
                 stability=float(current_progress.stability),
                 difficulty=float(current_progress.difficulty),
                 due=due,
                 last_review=last_review,
-                state=State(current_progress.state),
-                step=getattr(current_progress, "step", None),
+                state=state_enum,
+                step=step_val,
             )
 
         fsrs_rating = Rating(rating)

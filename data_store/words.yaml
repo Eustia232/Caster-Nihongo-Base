@@ -152,19 +152,19 @@
   kanji: 遅刻
   kana: ちこく0
   meaning: 迟到
-  pos: 名词
+  pos: 名词サ变
   category: null
 - id: 27
   kanji: 出張
   kana: しゅっちょう0
   meaning: 出差
-  pos: 名词
+  pos: 名词サ变
   category: null
 - id: 28
   kanji: 旅行
   kana: りょこう0
   meaning: 旅行
-  pos: 名词
+  pos: 名词サ变
   category: null
 - id: 29
   kanji: 展覧会
@@ -216,7 +216,7 @@
   category: null
 - id: 69
   kanji: ''
-  kana: まっすく3
+  kana: まっすぐ3
   meaning: 笔直
   pos: 副词
   category: null
@@ -284,5 +284,173 @@
   kanji: 階段
   kana: かいだん0
   meaning: 楼梯
+  pos: 名词
+  category: null
+- id: 81
+  kanji: 引く
+  kana: ひく0
+  meaning: 拉；染上/患（病，如感冒）
+  pos: 动词5
+  category: null
+- id: 82
+  kanji: 切る
+  kana: きる1
+  meaning: 切；切断（如关掉电源）；结束
+  pos: 动词5
+  category: null
+- id: 83
+  kanji: 入る
+  kana: はいる1
+  meaning: 进入；加入；容纳；开始
+  pos: 动词5
+  category: null
+- id: 84
+  kanji: 持つ
+  kana: もつ1
+  meaning: 持有；维持（某种状态）
+  pos: 动词5
+  category: null
+- id: 85
+  kanji: 乗る
+  kana: のる0
+  meaning: 乘坐；兴致高涨（引申用法）
+  pos: 动词5
+  category: null
+- id: 86
+  kanji: 出す
+  kana: だす1
+  meaning: 拿出；提出；寄出
+  pos: 动词5
+  category: null
+- id: 87
+  kanji: 取る
+  kana: とる1
+  meaning: 取；取得
+  pos: 动词5
+  category: null
+- id: 88
+  kanji: 歌う
+  kana: うたう0
+  meaning: 唱歌
+  pos: 动词5
+  category: null
+- id: 89
+  kanji: 思う
+  kana: おもう2
+  meaning: 认为
+  pos: 动词5
+  category: null
+- id: 90
+  kanji: 運転手
+  kana: うんてんしゅ3
+  meaning: 司机
+  pos: 名词
+  category: null
+- id: 91
+  kanji: 料理
+  kana: りょうり1
+  meaning: 烹饪；菜肴
+  pos: 名词サ变
+  category: null
+- id: 92
+  kanji: 八つ
+  kana: やっつ3
+  meaning: 八个
+  pos: 名词
+  category: null
+- id: 93
+  kanji: 土曜日
+  kana: どようび2
+  meaning: 星期六
+  pos: 名词
+  category: null
+- id: 94
+  kanji: 短い
+  kana: みじかい3
+  meaning: 短的
+  pos: 形容词
+  category: null
+- id: 95
+  kanji: 狭い
+  kana: せまい2
+  meaning: 狭窄的
+  pos: 形容词
+  category: null
+- id: 96
+  kanji: 軽い
+  kana: かるい0
+  meaning: 轻的
+  pos: 形容词
+  category: null
+- id: 97
+  kanji: 細い
+  kana: ほそい2
+  meaning: 细的
+  pos: 形容词
+  category: null
+- id: 98
+  kanji: 辛い
+  kana: からい2
+  meaning: 辣的
+  pos: 形容词
+  category: null
+- id: 99
+  kanji: 遠い
+  kana: とおい0
+  meaning: 远的
+  pos: 形容词
+  category: null
+- id: 100
+  kanji: ''
+  kana: まずい2
+  meaning: 难吃；不妙
+  pos: 形容词
+  category: null
+- id: 101
+  kanji: 長い
+  kana: ながい2
+  meaning: 长的
+  pos: 形容词
+  category: null
+- id: 102
+  kanji: 嫌い
+  kana: きらい0
+  meaning: 讨厌
+  pos: 形容动词
+  category: null
+- id: 103
+  kanji: 立派
+  kana: りっぱ0
+  meaning: 出色
+  pos: 形容动词
+  category: null
+- id: 104
+  kanji: 賑やか
+  kana: にぎやか2
+  meaning: 热闹
+  pos: 形容动词
+  category: null
+- id: 105
+  kanji: 田舎
+  kana: いなか0
+  meaning: 农村
+  pos: 名词
+  category: null
+- id: 106
+  kanji: 切手
+  kana: きって0
+  meaning: 邮票
+  pos: 名词
+  category: null
+- id: 107
+  kanji: 夕飯
+  kana: ゆうはん0
+  meaning: 晚饭
+  pos: 名词
+  category: null
+- id: 108
+  kanji: 十
+  kana: とお1
+  meaning: 十
   pos: 名词
   category: null

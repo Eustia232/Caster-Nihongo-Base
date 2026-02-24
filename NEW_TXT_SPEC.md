@@ -18,6 +18,7 @@ Field rules
 
 Allowed pos values (exact string match)
 - 名词
+- 名词サ变
 - 动词1
 - 动词5
 - 形容词

@@ -209,7 +209,8 @@ def review():
                     rating = 1
                     console.print("[yellow]已跳过，记为错误。[/yellow]")
                 elif normalize(user_answer) == normalize(word.kana):
-                    rating = 3
+                    # Treat correct answer as Easy to increase spacing
+                    rating = 4
                     console.print("[bold green]回答正确！[/bold green]")
                 else:
                     rating = 1
@@ -232,7 +233,8 @@ def review():
                     rating = 1
                     console.print("[yellow]已跳过，记为错误。[/yellow]")
                 elif normalize(user_answer) == normalize(word.kana):
-                    rating = 3
+                    # Treat correct answer as Easy to increase spacing
+                    rating = 4
                     console.print("[bold green]回答正确！[/bold green]")
                 else:
                     rating = 1
@@ -254,17 +256,33 @@ def review():
                 # 支持日语输入法的全角数字（如：'１' 和 '０'），先做简单规范化再判断
                 resp_norm = resp.strip().replace("１", "1").replace("０", "0")
                 if resp_norm == "1":
-                    rating = 3
+                    # Recognized -> Easy
+                    rating = 4
                     console.print("[bold green]已标记为认识（Good）。[/bold green]")
                 else:
                     rating = 1
                     console.print(
                         "[bold red]标记为不认识或未输入有效值（Again）。[/bold red]"
                     )
+                # 无论用户输入 1 还是 0，都要显示该单词的中文释义以便复习
+                console.print(f"[bold cyan]释义: {word.meaning}[/bold cyan]\n")
 
             # 更新进度
             new_progress = engine.review(progress, rating, now)
             progress_repo.save(word.id, new_progress)
+
+            # 移除已处理项，避免在本次会话中被重新抽到
+            try:
+                # batch contains tuples (word, progress)
+                if (word, progress) in due_words:
+                    due_words.remove((word, progress))
+                else:
+                    # fallback: remove any tuple with same word id
+                    for pair in list(due_words):
+                        if pair[0].id == word.id:
+                            due_words.remove(pair)
+            except ValueError:
+                pass
 
             console.print("[dim]进度已更新。[/dim]\n")
 
