@@ -12,6 +12,8 @@ from src.data.models import Word
 from src.core.importer import WordImporter
 from src.core.srs import FSRSEngine
 from src.core.exporter import export_words_to_file, default_out_path
+from src.core.exceptions import SyncError
+from src.core.sync import check_git_env, sync_pull, sync_push
 
 app = typer.Typer(
     help="Caster-Nihongo-Base: 基于 FSRS 的轻量级日语复习工具", add_completion=False
@@ -31,6 +33,22 @@ def hello():
     console.print("Caster-Nihongo-Base 已就绪。")
 
 
+@app.command()
+def sync():
+    """手动触发云端数据同步"""
+    try:
+        console.print("[cyan]正在检查 Git 环境...[/cyan]")
+        check_git_env()
+        console.print("[cyan]正在拉取云端数据...[/cyan]")
+        sync_pull(DATA_DIR)
+        console.print("[cyan]正在推送本地数据...[/cyan]")
+        sync_push(DATA_DIR)
+        console.print("[bold green]同步完成！[/bold green]")
+    except SyncError as e:
+        console.print(f"[bold red]同步失败: {e}[/bold red]")
+        raise typer.Exit(1)
+
+
 @app.command(name="import")
 def import_cmd(
     file_path: str = "new.txt",
@@ -48,6 +66,13 @@ def import_cmd(
 
     # 确保数据目录存在
     os.makedirs(DATA_DIR, exist_ok=True)
+
+    try:
+        check_git_env()
+        sync_pull(DATA_DIR)
+    except SyncError as e:
+        console.print(f"[bold red]同步失败: {e}[/bold red]")
+        raise typer.Exit(1)
 
     repo = WordRepository(WORDS_FILE)
     importer = WordImporter()
@@ -167,6 +192,12 @@ def import_cmd(
                 )
             else:
                 console.print(f"[green]成功导入 {len(filtered_new)} 个单词！[/green]")
+
+            try:
+                sync_push(DATA_DIR)
+                console.print("[green]数据已同步至云端。[/green]")
+            except SyncError as e:
+                console.print(f"[bold red]云端同步失败: {e}[/bold red]")
         else:
             console.print("[yellow]导入已取消。[/yellow]")
 
@@ -178,6 +209,13 @@ def import_cmd(
 @app.command()
 def review():
     """开始复习会话"""
+    try:
+        check_git_env()
+        sync_pull(DATA_DIR)
+    except SyncError as e:
+        console.print(f"[bold red]同步失败: {e}[/bold red]")
+        raise typer.Exit(1)
+
     word_repo = WordRepository(WORDS_FILE)
     progress_repo = ProgressRepository(PROGRESS_FILE)
     engine = FSRSEngine()
@@ -353,19 +391,133 @@ def review():
         if idx >= total:
             break
 
-        # 批次处理完，询问是否继续
-        if not typer.confirm(
-            f"已完成 {idx}/{total}。是否继续复习下一批？", default=True
-        ):
+        # 批次处理完，询问是否继续 (支持全角 ｙ/ｎ)
+        resp = (
+            typer.prompt(
+                f"已完成 {idx}/{total}。是否继续复习下一批？ [Y/n]",
+                default="y",
+                show_default=False,
+            )
+            .lower()
+            .strip()
+        )
+
+        if resp in ("n", "ｎ"):
             console.print("[yellow]已退出复习。下次可继续未完成的复习。[/yellow]")
+            try:
+                sync_push(DATA_DIR)
+                console.print("[green]进度已同步至云端。[/green]")
+            except SyncError as e:
+                console.print(f"[bold red]云端同步失败: {e}[/bold red]")
             return
 
     console.rule("复习结束")
     console.print("[bold green]所有待复习单词已处理完毕！[/bold green]")
+    try:
+        sync_push(DATA_DIR)
+        console.print("[green]进度已同步至云端。[/green]")
+    except SyncError as e:
+        console.print(f"[bold red]云端同步失败: {e}[/bold red]")
 
 
-if __name__ == "__main__":
-    app()
+@app.command()
+def delete(
+    ids: str = typer.Argument(
+        ...,
+        help="要删除的单词 ID 列表，用英文或中文逗号分隔。例如: 1,2,3 或 1，2，3",
+    ),
+):
+    """永久删除指定 ID 的单词及学习进度"""
+    # 确保数据目录存在
+    os.makedirs(DATA_DIR, exist_ok=True)
+
+    try:
+        check_git_env()
+        sync_pull(DATA_DIR)
+    except SyncError as e:
+        console.print(f"[bold red]同步失败: {e}[/bold red]")
+        raise typer.Exit(1)
+
+    word_repo = WordRepository(WORDS_FILE)
+    progress_repo = ProgressRepository(PROGRESS_FILE)
+
+    # 解析 ID 列表
+    try:
+        # 支持中英文逗号，去除空格，过滤空字符串
+        id_str_list = [s.strip() for s in re.split(r"[,，]", ids) if s.strip()]
+        if not id_str_list:
+            console.print("[red]错误：未提供有效的 ID。[/red]")
+            raise typer.Exit(1)
+
+        target_ids = list(set(int(id_str) for id_str in id_str_list))
+    except ValueError:
+        console.print("[red]错误：ID 必须是有效的整数。[/red]")
+        raise typer.Exit(1)
+
+    # 加载现有单词以验证和预览
+    existing_words = word_repo.load_all()
+    if not existing_words:
+        console.print("[yellow]词库为空，没有可删除的内容。[/yellow]")
+        raise typer.Exit(0)
+
+    # 构建索引以便快速查找
+    existing_map = {w.id: w for w in existing_words}
+
+    words_to_delete = []
+    not_found_ids = []
+
+    for wid in target_ids:
+        if wid in existing_map:
+            words_to_delete.append(existing_map[wid])
+        else:
+            not_found_ids.append(wid)
+
+    # 如果有没找到的 ID，给出警告
+    if not_found_ids:
+        console.print(
+            f"[yellow]警告：未找到以下 ID 对应的单词：{', '.join(map(str, not_found_ids))}[/yellow]"
+        )
+
+    # 如果没有要删除的单词，直接退出
+    if not words_to_delete:
+        console.print("[yellow]没有可删除的单词，操作取消。[/yellow]")
+        raise typer.Exit(0)
+
+    # 显示预览表格
+    table = Table(title="待删除单词预览")
+    table.add_column("ID", justify="right", style="cyan")
+    table.add_column("汉字", style="magenta")
+    table.add_column("假名", style="green")
+    table.add_column("释义")
+
+    for w in words_to_delete:
+        table.add_row(str(w.id), w.kanji, w.kana, w.meaning)
+
+    console.print(table)
+
+    # 二次确认
+    if typer.confirm("确认永久删除以上单词及对应的学习进度吗？"):
+        try:
+            valid_ids = [w.id for w in words_to_delete]
+
+            # 删除单词和进度
+            word_repo.delete_many(valid_ids)
+            progress_repo.delete_many(valid_ids)
+
+            console.print(
+                f"[bold green]成功删除 {len(valid_ids)} 个单词及其进度记录！[/bold green]"
+            )
+
+            try:
+                sync_push(DATA_DIR)
+                console.print("[green]数据已同步至云端。[/green]")
+            except SyncError as e:
+                console.print(f"[bold red]云端同步失败: {e}[/bold red]")
+        except Exception as e:
+            console.print(f"[bold red]删除失败：{e}[/bold red]")
+            raise typer.Exit(1)
+    else:
+        console.print("[yellow]删除已取消。[/yellow]")
 
 
 @app.command()
@@ -384,3 +536,7 @@ def export(out: str = default_out_path(), classify: str = "export/classify.txt")
 
     path = export_words_to_file(words, out, classify_config=classify)
     console.print(f"[green]导出完成: {path}[/green]")
+
+
+if __name__ == "__main__":
+    app()

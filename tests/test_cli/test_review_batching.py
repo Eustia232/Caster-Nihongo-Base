@@ -7,6 +7,12 @@ from src.cli import main as cli_main
 from src.data.models import Word, SRSProgress
 
 
+def _disable_sync_hooks(monkeypatch):
+    monkeypatch.setattr(cli_main, "check_git_env", lambda: None)
+    monkeypatch.setattr(cli_main, "sync_pull", lambda _path: None)
+    monkeypatch.setattr(cli_main, "sync_push", lambda _path: None)
+
+
 def make_word(
     word_id: int,
     kanji: str = "漢字",
@@ -34,6 +40,8 @@ def make_progress(due: datetime = None, archived: bool = False):
 
 
 def test_batching_limits(monkeypatch, tmp_path, capsys):
+    _disable_sync_hooks(monkeypatch)
+
     # Prepare 25 words: all due now
     words = [make_word(i) for i in range(1, 26)]
 
@@ -63,20 +71,17 @@ def test_batching_limits(monkeypatch, tmp_path, capsys):
     # Monkeypatch random.shuffle to keep deterministic order
     monkeypatch.setattr(random, "shuffle", lambda x: None)
 
-    # Simulate user interactions: for each prompt, return correct kana; for confirms, say yes twice then no
+    # Simulate user interactions: for each prompt, return correct kana; for review batch confirms, say yes ('y') twice then no ('n')
     prompts = []
+    confirms = iter(["y", "y", "n"])
 
     def fake_prompt(text, default=None, show_default=None):
         prompts.append(text)
+        if "是否继续复习下一批" in text:
+            return next(confirms)
         return "かな"
 
-    confirms = iter([True, True, False])
-
-    def fake_confirm(text, default=True):
-        return next(confirms)
-
     monkeypatch.setattr(cli_main.typer, "prompt", fake_prompt)
-    monkeypatch.setattr(cli_main.typer, "confirm", fake_confirm)
 
     # Run review
     cli_main.review()

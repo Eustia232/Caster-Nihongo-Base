@@ -7,3 +7,9 @@ class ImporterError(Exception):
     def __init__(self, message: str, problems: List[str] = None) -> None:
         super().__init__(message)
         self.problems = problems or []
+
+
+class SyncError(Exception):
+    """Custom exception raised during Git sync operations."""
+
+    pass

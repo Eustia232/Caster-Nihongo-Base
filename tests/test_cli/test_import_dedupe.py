@@ -6,6 +6,12 @@ from src.cli import main as cli_main
 from src.data.models import Word
 
 
+def _disable_sync_hooks(monkeypatch):
+    monkeypatch.setattr(cli_main, "check_git_env", lambda: None)
+    monkeypatch.setattr(cli_main, "sync_pull", lambda _path: None)
+    monkeypatch.setattr(cli_main, "sync_push", lambda _path: None)
+
+
 def make_word(
     word_id: int,
     kanji: str,
@@ -20,6 +26,8 @@ def make_word(
 
 
 def test_import_skips_duplicates(monkeypatch, tmp_path, capsys):
+    _disable_sync_hooks(monkeypatch)
+
     # existing words contain one entry
     existing = [make_word(1, "勉強する", "べんきょうする0")]
 
@@ -70,6 +78,8 @@ def test_import_skips_duplicates(monkeypatch, tmp_path, capsys):
 
 def test_import_overwrites_duplicates_when_flag_set(monkeypatch, tmp_path, capsys):
     """测试 --overwrite 模式：重复条目应被覆盖，保留原 ID"""
+    _disable_sync_hooks(monkeypatch)
+
     # 已存在的单词
     existing = [
         make_word(1, "勉強する", "べんきょうする0", meaning="旧释义", pos="动词")
@@ -131,6 +141,8 @@ def test_import_overwrites_duplicates_when_flag_set(monkeypatch, tmp_path, capsy
 
 def test_import_overwrite_only_affects_existing(monkeypatch, tmp_path, capsys):
     """测试 --overwrite 模式：仅覆盖已存在的条目，新条目正常添加"""
+    _disable_sync_hooks(monkeypatch)
+
     existing = []  # 空词库
     saved_words = []
 
@@ -178,6 +190,8 @@ def test_import_skips_internal_duplicates_in_overwrite_mode(
     monkeypatch, tmp_path, capsys
 ):
     """测试 --overwrite 模式：导入文件内部的重复条目应被跳过"""
+    _disable_sync_hooks(monkeypatch)
+
     existing = []
     saved_words = []
 
