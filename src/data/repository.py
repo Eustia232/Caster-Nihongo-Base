@@ -39,6 +39,13 @@ class WordRepository:
         with open(self.file_path, "w", encoding="utf-8") as f:
             yaml.safe_dump(data, f, allow_unicode=True, sort_keys=False)
 
+    def delete_many(self, word_ids: List[int]):
+        """从词库中批量删除指定 ID 的单词"""
+        words = self.load_all()
+        id_set = set(word_ids)
+        filtered_words = [w for w in words if w.id not in id_set]
+        self.save_all(filtered_words)
+
 
 class ProgressRepository:
     """管理 SRS 进度的 JSON 持久化层"""
@@ -77,3 +84,18 @@ class ProgressRepository:
 
         with open(self.file_path, "w", encoding="utf-8") as f:
             json.dump(data, f, ensure_ascii=False, indent=2)
+
+    def delete_many(self, word_ids: List[int]):
+        """批量删除单词的学习进度"""
+        data = self._load_all_raw()
+        deleted = False
+
+        for word_id in word_ids:
+            key = str(word_id)
+            if key in data:
+                del data[key]
+                deleted = True
+
+        if deleted:
+            with open(self.file_path, "w", encoding="utf-8") as f:
+                json.dump(data, f, ensure_ascii=False, indent=2)
