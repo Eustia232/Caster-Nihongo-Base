@@ -814,3 +814,33 @@
   meaning: 听、问
   pos: 动词5
   category: null
+- id: 189
+  kanji: 追いつく
+  kana: おいつく3
+  meaning: 赶上
+  pos: 动词5
+  category: null
+- id: 190
+  kanji: 歩く
+  kana: あるく2
+  meaning: 走
+  pos: 动词5
+  category: null
+- id: 191
+  kanji: ''
+  kana: いつか0
+  meaning: 某个时候
+  pos: 副词
+  category: null
+- id: 192
+  kanji: 出会う
+  kana: であう2
+  meaning: 遇见
+  pos: 动词5
+  category: null
+- id: 193
+  kanji: ''
+  kana: まなこ1
+  meaning: 眼睛
+  pos: 名词
+  category: null
