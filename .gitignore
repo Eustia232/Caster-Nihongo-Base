@@ -6,3 +6,5 @@ product-change-log.md
 export
 
 new.txt
+__pycache__/
+   
