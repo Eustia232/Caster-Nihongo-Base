@@ -37,7 +37,7 @@
 - id: 7
   kanji: 売り場
   kana: うりば0
-  meaning: 卖场
+  meaning: 售卖处
   pos: 名词
   category: null
 - id: 8
@@ -337,7 +337,7 @@
 - id: 89
   kanji: 思う
   kana: おもう2
-  meaning: 认为
+  meaning: 认为，觉得
   pos: 动词5
   category: null
 - id: 90
@@ -595,7 +595,7 @@
 - id: 150
   kanji: 呑み込む
   kana: のみこむ0,3
-  meaning: 吞下
+  meaning: 吞下，理解
   pos: 动词5
   category: null
 - id: 151
@@ -835,7 +835,7 @@
 - id: 192
   kanji: 出会う
   kana: であう2
-  meaning: 遇见
+  meaning: 偶然遇见
   pos: 动词5
   category: null
 - id: 193
