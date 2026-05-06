@@ -904,3 +904,21 @@
   meaning: 晚饭
   pos: 名词
   category: null
+- id: 206
+  kanji: 掃除
+  kana: そうじ0
+  meaning: 打扫；扫除
+  pos: 名词
+  category: null
+- id: 207
+  kanji: 撮る
+  kana: とる1
+  meaning: 拍摄；录像
+  pos: 动词1
+  category: null
+- id: 208
+  kanji: おにぎり
+  kana: おにぎり
+  meaning: 饭团
+  pos: 名词
+  category: null
