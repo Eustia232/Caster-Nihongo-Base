@@ -1,5 +1,14 @@
 # Product Change Log
 
+## [2026-05-08]
+### Changed
+- import 时如果没找到词的发音（accents.txt 中无匹配），跳过该词并提示用户。
+  - 变更位置：`src/core/accents.py`, `src/core/importer.py`
+  - 行为：
+    - 缺少假名（kana 为空）：显示 "Line X: missing kana/reading -> ..."
+    - 未找到音调（accents.txt 无匹配）：显示 "Line X: pitch not found in accents -> ..."
+  - 测试：更新 `tests/test_core/test_accents.py` 以适配新的返回值。
+
 ## [2026-04-25]
 ### Added
 - 在 `new.txt` 中添加了 12 个新单词：`言葉`, `顔`, `お金`, `来月`, `出口`, `五日`, `九つ`, `うち`, `ごみ箱`, `二つ`, `豚肉`, `晩ご飯`。

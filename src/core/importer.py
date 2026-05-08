@@ -1,4 +1,4 @@
-from typing import List, Dict, Optional, Union, Any, Tuple
+from typing import List, Dict, Optional, Set, Tuple
 import re
 from src.data.models import Word
 from src.core.accents import fill_pitch_for_content
@@ -38,12 +38,17 @@ class WordImporter:
     def process_file(self, content: str, start_id: int) -> List[Word]:
         """批量处理文件内容"""
         # 自动补全音调：使用 accents.txt（仓库根目录）
+        missing_pitch_lines: List[Tuple[int, str]] = []
         try:
             # use repo-relative accents file (but keep using simple name for tests)
-            content = fill_pitch_for_content(content, "accents.txt")
+            content, missing_pitch_lines = fill_pitch_for_content(content, "accents.txt")
         except Exception:
             # 如果填充失败，回退到原始内容并继续解析
             pass
+
+        # 构建 missing_pitch_lines 集合以便快速查找
+        missing_pitch_set: Set[Tuple[int, str]] = set(missing_pitch_lines)
+
         words = []
         current_id = start_id
         problems: List[str] = []
@@ -64,10 +69,15 @@ class WordImporter:
             )
             kana_norm = re.sub(r"[,，\d]+$", "", kana_norm).strip()
 
-            # If, after normalization, there's nothing left, treat as missing
+            # If, after normalization, there's nothing left, treat as missing kana
             if not kana_norm:
                 problems.append(f"Line {lineno}: missing kana/reading -> {line}")
-                # still advance id to keep deterministic ids for other lines
+                current_id += 1
+                continue
+
+            # Check if this line had missing pitch (before fill_pitch normalized the reading)
+            if (lineno, line) in missing_pitch_set:
+                problems.append(f"Line {lineno}: pitch not found in accents -> {line}")
                 current_id += 1
                 continue
 

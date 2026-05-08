@@ -1,6 +1,6 @@
 import os
 import re
-from typing import Dict, Tuple, Optional
+from typing import Dict, List, Optional, Tuple
 
 
 def _is_kana(s: str) -> bool:
@@ -89,8 +89,13 @@ def _normalize_reading_for_match(reading: str) -> str:
     return s
 
 
-def fill_pitch_for_content(content: str, accents_path: str) -> str:
+def fill_pitch_for_content(content: str, accents_path: str) -> Tuple[str, List[Tuple[int, str]]]:
     """Given file content (pipe-separated lines), return content with pitch filled.
+
+    Returns:
+        Tuple of (processed_content, missing_pitch_lines)
+        - processed_content: content with pitch filled where found
+        - missing_pitch_lines: list of (line_number, original_line) where pitch was not found
 
     Behavior:
     - For each line containing '|' split into parts, expect parts[0]=kanji, parts[1]=reading
@@ -115,6 +120,7 @@ def fill_pitch_for_content(content: str, accents_path: str) -> str:
             reading_index[r] = p
 
     out_lines = []
+    missing_pitch_lines: List[Tuple[int, str]] = []
     for lineno, raw in enumerate(content.splitlines(), start=1):
         line = raw.rstrip("\n")
         if "|" not in line or not line.strip():
@@ -136,7 +142,7 @@ def fill_pitch_for_content(content: str, accents_path: str) -> str:
         # detect if reading already contains a pitch at the end (e.g. "じしょ3" or "じしょ3,2").
         # If the suffix is a real pitch (contains a non-zero digit) preserve the original line.
         # If the suffix is only a placeholder like '0', treat it as absent and continue lookup.
-        m = re.search(r"([0-9０-９]+(?:[,，][0-9０-９]+)*)$", reading)
+        m = re.search(r"([0-9０-９]+(?:[,，][0-９]+)*)$", reading)
         if m:
             suffix = m.group(1)
             # normalize fullwidth digits to ASCII for decision
@@ -163,10 +169,15 @@ def fill_pitch_for_content(content: str, accents_path: str) -> str:
         if pitch:
             clean_pitch = pitch.replace(" ", "")
             parts[1] = f"{norm}{clean_pitch}"
+            out_lines.append("|".join(parts))
         else:
             # no pitch found: use normalized reading (remove placeholders)
             parts[1] = norm
+            processed_line = "|".join(parts)
+            missing_pitch_lines.append((lineno, processed_line))
+            out_lines.append(processed_line)
 
-        out_lines.append("|".join(parts))
-
-    return "\n".join(out_lines) + ("\n" if content.endswith("\n") else "")
+    return (
+        "\n".join(out_lines) + ("\n" if content.endswith("\n") else ""),
+        missing_pitch_lines,
+    )
