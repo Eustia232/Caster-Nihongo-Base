@@ -453,7 +453,7 @@
   kana: とお1
   meaning: 十
   pos: 名词
-  category: null
+  category: 数词
 - id: 109
   kanji: 警官
   kana: けいかん0
@@ -873,7 +873,7 @@
   kana: ここのつ2
   meaning: 九个
   pos: 名词
-  category: null
+  category: 数词
 - id: 201
   kanji: ''
   kana: うち0
@@ -891,7 +891,7 @@
   kana: ふたつ3
   meaning: 两个
   pos: 名词
-  category: null
+  category: 数词
 - id: 204
   kanji: 豚肉
   kana: ぶたにく0
