@@ -946,3 +946,33 @@
   meaning: 西装；衣服
   pos: 名词
   category: null
+- id: 213
+  kanji: 一つ
+  kana: ひとつ2
+  meaning: 一个
+  pos: 名词
+  category: 数词
+- id: 215
+  kanji: 四つ
+  kana: よっつ3
+  meaning: 四个
+  pos: 名词
+  category: 数词
+- id: 216
+  kanji: 五つ
+  kana: いつつ五个2
+  meaning: 名词
+  pos: 数词
+  category: null
+- id: 217
+  kanji: 六つ
+  kana: むっつ3
+  meaning: 六个
+  pos: 名词
+  category: 数词
+- id: 218
+  kanji: 七つ
+  kana: ななつ2
+  meaning: 七个
+  pos: 名词
+  category: 数词
