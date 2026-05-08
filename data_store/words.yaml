@@ -1072,3 +1072,33 @@
   meaning: 刷（牙），打磨
   pos: 动词5
   category: null
+- id: 239
+  kanji: 飛ぶ
+  kana: とぶ0
+  meaning: 飞翔
+  pos: 动词5
+  category: null
+- id: 240
+  kanji: 吹く
+  kana: ふく1,2
+  meaning: 吹
+  pos: 动词5
+  category: null
+- id: 241
+  kanji: 無くす
+  kana: なくす0
+  meaning: 消除，丢失
+  pos: 动词5
+  category: null
+- id: 242
+  kanji: 押す
+  kana: おす0
+  meaning: 按，推，盖章
+  pos: 动词5
+  category: null
+- id: 243
+  kanji: 働く
+  kana: はたらく0
+  meaning: 干（坏事），劳动
+  pos: 动词5
+  category: null
