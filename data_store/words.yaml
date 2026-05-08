@@ -960,10 +960,10 @@
   category: 数词
 - id: 216
   kanji: 五つ
-  kana: いつつ五个2
-  meaning: 名词
-  pos: 数词
-  category: null
+  kana: いつつ2
+  meaning: 五个
+  pos: 名词
+  category: 数词
 - id: 217
   kanji: 六つ
   kana: むっつ3
