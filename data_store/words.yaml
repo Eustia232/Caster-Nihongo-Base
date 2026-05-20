@@ -917,8 +917,8 @@
   pos: 动词1
   category: null
 - id: 208
-  kanji: おにぎり
-  kana: おにぎり
+  kanji: ''
+  kana: おにぎり2
   meaning: 饭团
   pos: 名词
   category: null
@@ -1206,7 +1206,7 @@
   category: null
 - id: 261
   kanji: 厚い
-  kana: あついい0
+  kana: あつい0
   meaning: 厚的
   pos: 形容词
   category: null
