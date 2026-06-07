@@ -2340,10 +2340,10 @@
     "archived_reason": null
   },
   "247": {
-    "stability": 0.017088490271231622,
-    "difficulty": 9.964319173862265,
-    "due": "2026-06-06T20:43:47.659705Z",
-    "last_review": "2026-06-06T03:43:47.659705Z",
+    "stability": 0.012394961493503193,
+    "difficulty": 9.973500324374982,
+    "due": "2026-06-07T21:34:41.043293Z",
+    "last_review": "2026-06-07T04:34:41.043293Z",
     "step": null,
     "state": 1,
     "consecutive_successes": 0,
