@@ -173,7 +173,7 @@
   pos: 名词
   category: null
 - id: 30
-  kanji: 昨夜
+  kanji: 昨夜（正式）
   kana: さくや2
   meaning: 昨夜
   pos: 名词
@@ -1313,7 +1313,7 @@
   pos: 名词
   category: null
 - id: 290
-  kanji: 昨夜
+  kanji: 昨夜（非正式）
   kana: ゆうべ3
   meaning: 昨晚
   pos: 名词
