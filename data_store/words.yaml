@@ -1510,3 +1510,45 @@
   meaning: 放置
   pos: 动词5
   category: null
+- id: 333
+  kanji: 丁寧
+  kana: ていねい1
+  meaning: 礼貌
+  pos: 形容动词
+  category: null
+- id: 334
+  kanji: 文
+  kana: ぶん1
+  meaning: 句子
+  pos: 名词
+  category: null
+- id: 335
+  kanji: 手伝う
+  kana: てつだう3
+  meaning: 帮助
+  pos: 动词5
+  category: null
+- id: 336
+  kanji: ''
+  kana: イメージ2,1
+  meaning: 印象
+  pos: 名词
+  category: null
+- id: 337
+  kanji: 実は
+  kana: じつは2
+  meaning: 其实
+  pos: 副词
+  category: null
+- id: 338
+  kanji: 訳す
+  kana: やくす2
+  meaning: 翻译
+  pos: 动词5
+  category: null
+- id: 339
+  kanji: 詳しい
+  kana: くわしい3
+  meaning: 详细的
+  pos: 形容词
+  category: null
