@@ -1552,3 +1552,45 @@
   meaning: 详细的
   pos: 形容词
   category: null
+- id: 357
+  kanji: 続く
+  kana: つづく0
+  meaning: 继续
+  pos: 动词5
+  category: null
+- id: 358
+  kanji: 続ける
+  kana: つづける0
+  meaning: 继续
+  pos: 动词1
+  category: null
+- id: 359
+  kanji: ''
+  kana: おしゃべり2
+  meaning: 聊天
+  pos: 名词サ变
+  category: null
+- id: 360
+  kanji: 戻る
+  kana: もどる2
+  meaning: 返回
+  pos: 动词5
+  category: null
+- id: 361
+  kanji: 付く
+  kana: つく1,2
+  meaning: 附着
+  pos: 动词5
+  category: null
+- id: 362
+  kanji: 差す
+  kana: さす1
+  meaning: 撑/指
+  pos: 动词5
+  category: null
+- id: 363
+  kanji: 貼る
+  kana: はる0
+  meaning: 贴
+  pos: 动词5
+  category: null
