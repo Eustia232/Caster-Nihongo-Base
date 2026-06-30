@@ -1,6 +1,14 @@
 from datetime import datetime
 from typing import List, Dict, Optional, Union, Any, Tuple
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, field_validator
+
+
+ALLOWED_POS = [
+    "名词", "名词サ变",
+    "动词1", "动词5",
+    "自动词", "他动词",
+    "形容词", "形容动词", "副词",
+]
 
 
 class Word(BaseModel):
@@ -8,10 +16,31 @@ class Word(BaseModel):
     kanji: str = Field(..., description="日文汉字")
     kana: str = Field(..., description="假名（含音调，如：たべる2）")
     meaning: str = Field(..., description="中文释义")
-    pos: str = Field(..., description="词性")
+    pos: List[str] = Field(..., description="词性列表")
     category: Optional[str] = Field(
         None, description="可选：单词分类，例如 JLPT 等级或主题"
     )
+
+    @field_validator("pos", mode="before")
+    @classmethod
+    def ensure_list(cls, v):
+        if isinstance(v, str):
+            return [v]
+        return v
+
+    @field_validator("pos")
+    @classmethod
+    def validate_pos_values(cls, v):
+        for item in v:
+            if item not in ALLOWED_POS:
+                raise ValueError(
+                    f"非法词性 '{item}'，允许值: {', '.join(ALLOWED_POS)}"
+                )
+        return v
+
+    @property
+    def pos_str(self) -> str:
+        return "、".join(self.pos)
 
 
 class SRSProgress(BaseModel):
