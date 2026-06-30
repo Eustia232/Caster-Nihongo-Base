@@ -21,14 +21,19 @@ Allowed pos values (exact string match)
 - 名词サ变
 - 动词1
 - 动词5
+- 自动词
+- 他动词
 - 形容词
 - 形容动词
 - 副词
 
+Multi-POS: separate with comma (， or ,), e.g. `自动词,他动词`
+
 Examples
- - 勉強する|べんきょうする|学习|动词1
- - 学校|がっこう|学校|名词
- - 高い|たかい|高的|形容词
+  - 勉強する|べんきょうする|学习|动词1
+  - 学校|がっこう|学校|名词
+  - 高い|たかい|高的|形容词
+  - 綺麗|きれい|漂亮|形容动词,名词
 
 Notes
 - This file is intended for other agents or tools to read when generating or validating `new.txt` input. It intentionally omits any mention of category handling; only the four fields above are part of the import format.
