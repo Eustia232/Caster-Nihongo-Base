@@ -26,12 +26,16 @@ class WordImporter:
         if len(parts) == 5:
             category = parts[4] if parts[4] != "" else None
 
+        import re as _re
+        pos_raw = parts[3]
+        pos_list = [p.strip() for p in _re.split(r"[，,]", pos_raw) if p.strip()]
+
         return Word(
             id=word_id,
             kanji=parts[0],
             kana=parts[1],
             meaning=parts[2],
-            pos=parts[3],
+            pos=pos_list,
             category=category,
         )
 
