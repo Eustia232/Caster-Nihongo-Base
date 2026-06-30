@@ -4,46 +4,57 @@ from src.core.exporter import generate_markdown, export_words_to_file, default_o
 import os
 
 
-def make_word(id: int, kanji: str, kana: str, meaning: str, pos: str, category=None):
+def make_word(id: int, kanji: str, kana: str, meaning: str, pos, category=None):
+    if isinstance(pos, str):
+        pos = [pos]
     return Word(
         id=id, kanji=kanji, kana=kana, meaning=meaning, pos=pos, category=category
     )
 
 
 def test_grouping_and_id_sort():
-    w1 = make_word(2, "食べる", "たべる", "吃", "动词", "JLPT5")
-    w2 = make_word(1, "勉強する", "べんきょうする", "学习", "动词", "JLPT5")
+    w1 = make_word(2, "食べる", "たべる", "吃", "动词1", "JLPT5")
+    w2 = make_word(1, "勉強する", "べんきょうする", "学习", "动词1", "JLPT5")
     w3 = make_word(3, "学校", "がっこう", "学校", "名词", "日常")
 
     md = generate_markdown([w1, w2, w3])
-    # 分类行应该先出现 动词 / JLPT5，然后是 id 升序的两个单词（id 1 然后 2）
-    assert "**动词 / JLPT5**" in md
-    # 勉強する (id=1) 在 食べる (id=2) 之前
+    assert "**动词1 / JLPT5**" in md
     assert md.index("勉強する") < md.index("食べる")
-    # 名词组存在
     assert "**名词 / 日常**" in md
 
 
 def test_default_sort_order_no_classify():
-    # groups: 名词 (no category), 名词 / 菜, 动词
     w1 = make_word(1, "A名词1", "a", "m1", "名词", None)
     w2 = make_word(2, "B名词2", "b", "m2", "名词", "菜")
     w3 = make_word(3, "C动词", "c", "m3", "动词1", None)
 
     md = generate_markdown([w1, w2, w3])
-    # order should be: 名词 (no category) -> 名词 / 菜 -> 动词1
     idx1 = md.index("**名词**")
     idx2 = md.index("**名词 / 菜**")
     idx3 = md.index("**动词1**")
     assert idx1 < idx2 < idx3
 
 
+def test_multi_pos_classification_name():
+    w = make_word(1, "綺麗", "きれい", "漂亮", ["形容动词", "名词"], None)
+    md = generate_markdown([w])
+    assert "**形容动词、名词**" in md
+
+
+def test_multi_pos_sort_by_first_pos():
+    w1 = make_word(1, "Z自动1", "a", "m1", ["形容动词", "名词"], None)
+    w2 = make_word(2, "A名1", "b", "m2", ["名词", "形容动词"], None)
+
+    md = generate_markdown([w1, w2])
+    idx1 = md.index("**名词、形容动词**")
+    idx2 = md.index("**形容动词、名词**")
+    assert idx1 < idx2
+
+
 def test_escape_and_linebreak():
     w = make_word(1, "本", "ほん", "书籍|参考\n更多", "名词", "日常")
     md = generate_markdown([w])
-    # 竖线被转义
     assert "\|" in md
-    # 换行被替换为 <br>
     assert "<br>" in md
 
 

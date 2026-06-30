@@ -18,10 +18,10 @@ def make_word(
     kanji: str = "漢字",
     kana: str = "かな",
     meaning: str = "释义",
-    pos: str = "n",
+    pos: str = "名词",
 ):
     return Word(
-        id=word_id, kanji=kanji, kana=kana, meaning=meaning, pos=pos, category=None
+        id=word_id, kanji=kanji, kana=kana, meaning=meaning, pos=[pos], category=None
     )
 
 

@@ -5,7 +5,7 @@ from src.core.exporter import generate_markdown
 
 def test_import_export_and_accent_fill(tmp_path):
     """确认：当 kanji 为空时，能导入、音调能从 accents.txt 填充，并能导出为 markdown 表格"""
-    content = "|たべる|吃|v\n"  # 空 kanji 列，假名为 たべる（没有音调数字）
+    content = "|たべる|吃|动词1\n"  # 空 kanji 列，假名为 たべる（没有音调数字）
 
     importer = WordImporter()
     words = importer.process_file(content, start_id=1)

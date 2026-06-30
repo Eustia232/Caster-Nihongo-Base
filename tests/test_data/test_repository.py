@@ -11,7 +11,7 @@ def test_word_repository_load(tmp_path):
   kanji: 食べる
   kana: たべる2
   meaning: 吃
-  pos: 动词
+  pos: 动词1
   category: ""
 """
     data_file = tmp_path / "words.yaml"
@@ -23,6 +23,47 @@ def test_word_repository_load(tmp_path):
     assert len(words) == 1
     assert words[0].kanji == "食べる"
     assert words[0].id == 1
+
+
+def test_word_repository_auto_wraps_single_pos(tmp_path):
+    yaml_content = """
+- id: 1
+  kanji: 食べる
+  kana: たべる2
+  meaning: 吃
+  pos: 动词1
+  category: ""
+"""
+    data_file = tmp_path / "words.yaml"
+    data_file.write_text(yaml_content, encoding="utf-8")
+
+    repo = WordRepository(str(data_file))
+    words = repo.load_all()
+
+    assert len(words) == 1
+    assert words[0].pos == ["动词1"]
+
+
+def test_word_repository_handles_list_pos(tmp_path):
+    yaml_content = """
+- id: 1
+  kanji: 綺麗
+  kana: きれい
+  meaning: 漂亮
+  pos:
+  - 形容动词
+  - 名词
+  category: ""
+"""
+    data_file = tmp_path / "words.yaml"
+    data_file.write_text(yaml_content, encoding="utf-8")
+
+    repo = WordRepository(str(data_file))
+    words = repo.load_all()
+
+    assert len(words) == 1
+    assert words[0].pos == ["形容动词", "名词"]
+    assert words[0].pos_str == "形容动词、名词"
 
 
 def test_progress_repository_save_load(tmp_path):
@@ -47,7 +88,6 @@ def test_progress_repository_save_load(tmp_path):
 
     assert loaded is not None
     assert loaded.stability == 0.5
-    # 注意：JSON 序列化后微秒可能会有差异或被忽略，但 isoformat 通常没问题
     assert loaded.due.isoformat() == progress.due.isoformat()
 
 
@@ -57,23 +97,23 @@ def test_word_repository_delete_many(tmp_path):
   kanji: 食べる
   kana: たべる2
   meaning: 吃
-  pos: 动词
+  pos: 动词1
 - id: 2
   kanji: 飲む
   kana: のむ1
   meaning: 喝
-  pos: 动词
+  pos: 动词5
 - id: 3
   kanji: 行く
   kana: いく0
   meaning: 去
-  pos: 动词
+  pos: 动词5
 """
     data_file = tmp_path / "words.yaml"
     data_file.write_text(yaml_content, encoding="utf-8")
 
     repo = WordRepository(str(data_file))
-    repo.delete_many([1, 3, 99])  # 99 不存在，应忽略
+    repo.delete_many([1, 3, 99])
 
     words = repo.load_all()
     assert len(words) == 1
@@ -102,7 +142,7 @@ def test_progress_repository_delete_many(tmp_path):
     repo.save(2, progress)
     repo.save(3, progress)
 
-    repo.delete_many([1, 3, 99])  # 99 不存在，应忽略
+    repo.delete_many([1, 3, 99])
 
     assert repo.load(1) is None
     assert repo.load(2) is not None
