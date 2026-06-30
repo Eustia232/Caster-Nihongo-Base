@@ -13,12 +13,10 @@ def _escape_cell(s: str) -> str:
 
 
 def classification_name(word: Word) -> str:
-    # 按规则：若 category 非空则为 "pos / category"，否则仅为 pos
-    if word.category is None:
-        return word.pos
-    if str(word.category).strip() == "":
-        return word.pos
-    return f"{word.pos} / {word.category}"
+    name = word.pos_str
+    if word.category and str(word.category).strip() != "":
+        return f"{name} / {word.category}"
+    return name
 
 
 def load_classify_order(path: str) -> Optional[List[str]]:
@@ -46,7 +44,12 @@ def generate_markdown(
 
     # default pos ordering and helpers (used for both classify_order present/absent)
     # 新增名词サ变（表示可する的名词，suru-noun）并把它放在名词之后
-    POS_ORDER = ["名词", "名词サ变", "动词1", "动词5", "形容词", "形容动词", "副词"]
+    POS_ORDER = [
+        "名词", "名词サ变",
+        "动词1", "动词5",
+        "自动词", "他动词",
+        "形容词", "形容动词", "副词",
+    ]
 
     import re as _re
 
@@ -58,8 +61,9 @@ def generate_markdown(
 
     def sort_key(k: str):
         pos, cat = parse_key(k)
+        first_pos = pos.split("、")[0]
         try:
-            pos_idx = POS_ORDER.index(pos)
+            pos_idx = POS_ORDER.index(first_pos)
         except ValueError:
             pos_idx = len(POS_ORDER)
         has_cat = 0 if not cat else 1
