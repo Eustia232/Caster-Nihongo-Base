@@ -131,7 +131,7 @@ class WordImporter:
             r"^\|\s*(?P<kanji>.*?)\s*\|\s*(?P<kana>.*?)\s*\|\s*(?P<meaning>.*?)\s*\|\s*$"
         )
 
-        current_pos: Optional[str] = None
+        current_pos: Optional[List[str]] = None
         current_category: Optional[str] = None
 
         def unescape_cell(s: str) -> str:
@@ -149,12 +149,14 @@ class WordImporter:
             mcls = class_re.match(ln)
             if mcls:
                 cls = mcls.group("cls").strip()
+                import re as _re2
                 if " / " in cls:
-                    pos, cat = [p.strip() for p in cls.split("/", 1)]
-                    current_pos = pos
+                    pos_part, cat = [p.strip() for p in cls.split("/", 1)]
+                    current_pos = [p.strip() for p in _re2.split(r"[,，、]", pos_part) if p.strip()]
                     current_category = cat
                 else:
-                    current_pos = cls
+                    pos_part = cls
+                    current_pos = [p.strip() for p in _re2.split(r"[,，、]", pos_part) if p.strip()]
                     current_category = None
                 continue
 
@@ -164,8 +166,7 @@ class WordImporter:
                 kana = unescape_cell(mw.group("kana"))
                 meaning = unescape_cell(mw.group("meaning"))
 
-                # 如果当前分类未设置，尝试从单元格中识别（若导出不规范）
-                pos = current_pos or ""
+                pos = current_pos or []
                 category = current_category
 
                 words.append(
