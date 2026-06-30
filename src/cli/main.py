@@ -291,7 +291,7 @@ def review():
 
             if mode == "kanji_to_kana":
                 console.print(f"\n[bold white]汉字: {word.kanji}[/bold white]")
-                console.print(f"[dim]词性: {word.pos}[/dim]\n")
+                console.print(f"[dim]词性: {word.pos_str}[/dim]\n")
                 prompt_text = "请输入假名答案 (直接回车跳过)"
                 user_answer = typer.prompt(prompt_text, default="", show_default=False)
 
@@ -313,7 +313,7 @@ def review():
 
             elif mode == "meaning_to_kana":
                 console.print(f"\n[bold white]释义: {word.meaning}[/bold white]")
-                console.print(f"[dim]词性: {word.pos}[/dim]\n")
+                console.print(f"[dim]词性: {word.pos_str}[/dim]\n")
                 prompt_text = "请根据释义输入假名答案 (直接回车跳过)"
                 user_answer = typer.prompt(prompt_text, default="", show_default=False)
 
@@ -341,7 +341,7 @@ def review():
                     f"\n[bold white]汉字: {word.kanji or '<无汉字>'}[/bold white]"
                 )
                 console.print(f"[bold green]假名: {word.kana}[/bold green]")
-                console.print(f"[dim]词性: {word.pos}[/dim]\n")
+                console.print(f"[dim]词性: {word.pos_str}[/dim]\n")
 
                 resp = typer.prompt(
                     "输入 `1` 表示认识，`0` 表示不认识", default="", show_default=False
