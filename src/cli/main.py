@@ -1,5 +1,6 @@
 import typer
 import os
+import sys
 import random
 import re
 from datetime import datetime, timezone
@@ -216,6 +217,24 @@ def review():
         console.print(f"[bold red]同步失败: {e}[/bold red]")
         raise typer.Exit(1)
 
+    sys.stdin.reconfigure(encoding="utf-8", errors="replace")
+
+    def safe_prompt(text: str, default: str = "", show_default: bool = False) -> str:
+        for attempt in range(3):
+            try:
+                return typer.prompt(text, default=default, show_default=show_default)
+            except UnicodeDecodeError:
+                if attempt < 2:
+                    console.print(
+                        "[yellow]输入编码错误，请重新输入。[/yellow]"
+                    )
+                else:
+                    console.print(
+                        "[red]多次编码错误，跳过本题。[/red]"
+                    )
+                    return ""
+        return ""
+
     word_repo = WordRepository(WORDS_FILE)
     progress_repo = ProgressRepository(PROGRESS_FILE)
     engine = FSRSEngine()
@@ -293,7 +312,7 @@ def review():
                 console.print(f"\n[bold white]汉字: {word.kanji}[/bold white]")
                 console.print(f"[dim]词性: {word.pos_str}[/dim]\n")
                 prompt_text = "请输入假名答案 (直接回车跳过)"
-                user_answer = typer.prompt(prompt_text, default="", show_default=False)
+                user_answer = safe_prompt(prompt_text, default="", show_default=False)
 
                 console.print(f"[bold green]正确假名: {word.kana}[/bold green]")
                 console.print(f"[bold cyan]释义: {word.meaning}[/bold cyan]\n")
@@ -315,7 +334,7 @@ def review():
                 console.print(f"\n[bold white]释义: {word.meaning}[/bold white]")
                 console.print(f"[dim]词性: {word.pos_str}[/dim]\n")
                 prompt_text = "请根据释义输入假名答案 (直接回车跳过)"
-                user_answer = typer.prompt(prompt_text, default="", show_default=False)
+                user_answer = safe_prompt(prompt_text, default="", show_default=False)
 
                 console.print(f"[bold green]正确假名: {word.kana}[/bold green]")
                 console.print(
@@ -343,7 +362,7 @@ def review():
                 console.print(f"[bold green]假名: {word.kana}[/bold green]")
                 console.print(f"[dim]词性: {word.pos_str}[/dim]\n")
 
-                resp = typer.prompt(
+                resp = safe_prompt(
                     "输入 `1` 表示认识，`0` 表示不认识", default="", show_default=False
                 )
                 # 支持日语输入法的全角数字（如：'１' 和 '０'），先做简单规范化再判断
@@ -393,7 +412,7 @@ def review():
 
         # 批次处理完，询问是否继续 (支持全角 ｙ/ｎ)
         resp = (
-            typer.prompt(
+            safe_prompt(
                 f"已完成 {idx}/{total}。是否继续复习下一批？ [Y/n]",
                 default="y",
                 show_default=False,
