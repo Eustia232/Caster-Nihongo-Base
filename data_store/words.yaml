@@ -146,7 +146,7 @@
   kanji: 仕事
   kana: しごと0
   meaning: 工作；职业
-  pos: 名词
+  pos: 名词サ变
   category: null
 - id: 26
   kanji: 遅刻
@@ -290,55 +290,55 @@
   kanji: 引く
   kana: ひく0
   meaning: 拉；染上/患（病，如感冒）
-  pos: 动词5
+  pos: [动词5, 他动词]
   category: null
 - id: 82
   kanji: 切る
   kana: きる1
   meaning: 切；切断（如关掉电源）；结束
-  pos: 动词5
+  pos: [动词5, 他动词]
   category: null
 - id: 83
   kanji: 入る
   kana: はいる1
   meaning: 进入；加入；容纳；开始
-  pos: 动词5
+  pos: [动词5, 自动词]
   category: null
 - id: 84
   kanji: 持つ
   kana: もつ1
   meaning: 持有；维持（某种状态）
-  pos: 动词5
+  pos: [动词5, 他动词]
   category: null
 - id: 85
   kanji: 乗る
   kana: のる0
   meaning: 乘坐；兴致高涨（引申用法）
-  pos: 动词5
+  pos: [动词5, 自动词]
   category: null
 - id: 86
   kanji: 出す
   kana: だす1
   meaning: 拿出；提出；寄出
-  pos: 动词5
+  pos: [动词5, 他动词]
   category: null
 - id: 87
   kanji: 取る
   kana: とる1
   meaning: 取；取得
-  pos: 动词5
+  pos: [动词5, 他动词]
   category: null
 - id: 88
   kanji: 歌う
   kana: うたう0
   meaning: 唱歌
-  pos: 动词5
+  pos: [动词5, 他动词]
   category: null
 - id: 89
   kanji: 思う
   kana: おもう2
   meaning: 认为，觉得
-  pos: 动词5
+  pos: [动词5, 他动词]
   category: null
 - id: 90
   kanji: 運転手
@@ -590,13 +590,13 @@
   kanji: 流す
   kana: ながす2
   meaning: 使流动
-  pos: 动词5
+  pos: [动词5, 他动词]
   category: null
 - id: 150
   kanji: 呑み込む
   kana: のみこむ0,3
   meaning: 吞下，理解
-  pos: 动词5
+  pos: [动词5, 他动词]
   category: null
 - id: 151
   kanji: 裸足
@@ -608,13 +608,13 @@
   kanji: 膨らむ
   kana: ふくらむ0
   meaning: 膨胀
-  pos: 动词5
+  pos: [动词5, 自动词]
   category: null
 - id: 153
   kanji: 眺める
   kana: ながめる3
   meaning: 眺望
-  pos: 动词1
+  pos: [动词1, 他动词]
   category: null
 - id: 154
   kanji: 迷路
@@ -650,13 +650,13 @@
   kanji: 違う
   kana: ちがう0
   meaning: 不同，错误
-  pos: 动词5
+  pos: [动词5, 自动词]
   category: null
 - id: 160
   kanji: 育つ
   kana: そだつ2
   meaning: 成长，发育
-  pos: 动词5
+  pos: [动词5, 自动词]
   category: null
 - id: 161
   kanji: 根本
@@ -680,7 +680,7 @@
   kanji: 抱く
   kana: だく0
   meaning: 抱、怀抱
-  pos: 动词5
+  pos: [动词5, 他动词]
   category: null
 - id: 165
   kanji: 今年
@@ -710,13 +710,13 @@
   kanji: 止まる
   kana: とまる0
   meaning: 停下、停止
-  pos: 动词5
+  pos: [动词5, 自动词]
   category: null
 - id: 170
   kanji: 止める
   kana: とめる0
   meaning: 使停止、停下
-  pos: 动词1
+  pos: [动词1, 他动词]
   category: null
 - id: 171
   kanji: 無い
@@ -776,7 +776,7 @@
   kanji: 願う
   kana: ねがう2
   meaning: 祈求、希望
-  pos: 动词5
+  pos: [动词5, 他动词]
   category: null
 - id: 183
   kanji: 一日
@@ -794,13 +794,13 @@
   kanji: 使う
   kana: つかう0
   meaning: 使用
-  pos: 动词5
+  pos: [动词5, 他动词]
   category: null
 - id: 186
   kanji: 遊ぶ
   kana: あそぶ0
   meaning: 玩耍
-  pos: 动词5
+  pos: [动词5, 自动词]
   category: null
 - id: 187
   kanji: 息子
@@ -812,19 +812,19 @@
   kanji: 聞く
   kana: きく0
   meaning: 听、问
-  pos: 动词5
+  pos: [动词5, 他动词]
   category: null
 - id: 189
   kanji: 追いつく
   kana: おいつく3
   meaning: 赶上
-  pos: 动词5
+  pos: [动词5, 自动词]
   category: null
 - id: 190
   kanji: 歩く
   kana: あるく2
   meaning: 走
-  pos: 动词5
+  pos: [动词5, 自动词]
   category: null
 - id: 191
   kanji: ''
@@ -836,7 +836,7 @@
   kanji: 出会う
   kana: であう2
   meaning: 偶然遇见
-  pos: 动词5
+  pos: [动词5, 自动词]
   category: null
 - id: 193
   kanji: ''
@@ -908,13 +908,13 @@
   kanji: 掃除
   kana: そうじ0
   meaning: 打扫；扫除
-  pos: 名词
+  pos: 名词サ变
   category: null
 - id: 207
   kanji: 撮る
   kana: とる1
   meaning: 拍摄；录像
-  pos: 动词1
+  pos: [动词5, 他动词]
   category: null
 - id: 208
   kanji: ''
@@ -932,7 +932,7 @@
   kanji: 残業
   kana: ざんぎょう0
   meaning: 加班
-  pos: 名词
+  pos: 名词サ变
   category: null
 - id: 211
   kanji: ''
@@ -1028,79 +1028,79 @@
   kanji: 脱ぐ
   kana: ぬぐ1
   meaning: 脱掉
-  pos: 动词5
+  pos: [动词5, 他动词]
   category: null
 - id: 232
   kanji: 読む
   kana: よむ1
   meaning: 阅读
-  pos: 动词5
+  pos: [动词5, 他动词]
   category: null
 - id: 233
   kanji: 要る
   kana: いる0
   meaning: 需要
-  pos: 动词5
+  pos: [动词5, 自动词]
   category: null
 - id: 234
   kanji: 待つ
   kana: まつ1
   meaning: 等待，期待
-  pos: 动词5
+  pos: [动词5, 他动词]
   category: null
 - id: 235
   kanji: 言う
   kana: いう0
   meaning: 说（单方面），称作
-  pos: 动词5
+  pos: [动词5, 他动词]
   category: null
 - id: 236
   kanji: 休む
   kana: やすむ2
   meaning: 休息
-  pos: 动词5
+  pos: [动词5, 自动词]
   category: null
 - id: 237
   kanji: 並ぶ
   kana: ならぶ0
   meaning: 排列，并列，匹敌
-  pos: 动词5
+  pos: [动词5, 自动词]
   category: null
 - id: 238
   kanji: 磨く
   kana: みがく0
   meaning: 刷（牙），打磨
-  pos: 动词5
+  pos: [动词5, 他动词]
   category: null
 - id: 239
   kanji: 飛ぶ
   kana: とぶ0
   meaning: 飞翔
-  pos: 动词5
+  pos: [动词5, 自动词]
   category: null
 - id: 240
   kanji: 吹く
   kana: ふく1,2
   meaning: 吹
-  pos: 动词5
+  pos: [动词5, 自动词, 他动词]
   category: null
 - id: 241
   kanji: 無くす
   kana: なくす0
   meaning: 消除，丢失
-  pos: 动词5
+  pos: [动词5, 他动词]
   category: null
 - id: 242
   kanji: 押す
   kana: おす0
   meaning: 按，推，盖章
-  pos: 动词5
+  pos: [动词5, 他动词]
   category: null
 - id: 243
   kanji: 働く
   kana: はたらく0
   meaning: 干（坏事），劳动
-  pos: 动词5
+  pos: [动词5, 自动词]
   category: null
 - id: 244
   kanji: 実習
@@ -1130,7 +1130,7 @@
   kanji: 泊まる
   kana: とまる0
   meaning: 住宿
-  pos: 动词5
+  pos: [动词5, 自动词]
   category: null
 - id: 249
   kanji: 見物
@@ -1190,19 +1190,19 @@
   kanji: 開く
   kana: あく0
   meaning: 开（自动词）
-  pos: 动词5
+  pos: [动词5, 自动词]
   category: null
 - id: 259
   kanji: 開ける
   kana: あける0
   meaning: 开（他动词）
-  pos: 动词1
+  pos: [动词1, 他动词]
   category: null
 - id: 260
   kanji: 温める
   kana: あたためる4
   meaning: 加热
-  pos: 动词1
+  pos: [动词1, 他动词]
   category: null
 - id: 261
   kanji: 厚い
@@ -1340,7 +1340,7 @@
   kanji: 作る
   kana: つくる2
   meaning: 做；制作；创造
-  pos: 动词5
+  pos: [动词5, 他动词]
   category: null
 - id: 295
   kanji: 動物
@@ -1406,7 +1406,7 @@
   kanji: 結婚
   kana: けっこん0
   meaning: 结婚
-  pos: 名词
+  pos: 名词サ变
   category: null
 - id: 306
   kanji: 家内
@@ -1478,37 +1478,37 @@
   kanji: 走る
   kana: はしる2
   meaning: 跑
-  pos: 动词5
+  pos: [动词5, 自动词]
   category: null
 - id: 318
   kanji: 通る
   kana: とおる1
   meaning: 通过
-  pos: 动词5
+  pos: [动词5, 自动词]
   category: null
 - id: 319
   kanji: 呼ぶ
   kana: よぶ0
   meaning: 叫
-  pos: 动词5
+  pos: [动词5, 他动词]
   category: null
 - id: 320
   kanji: 立つ
   kana: たつ1
   meaning: 站立
-  pos: 动词5
+  pos: [动词5, 自动词]
   category: null
 - id: 321
   kanji: 閉まる
   kana: しまる2
   meaning: 关闭
-  pos: 动词5
+  pos: [动词5, 自动词]
   category: null
 - id: 322
   kanji: 置く
   kana: おく0
   meaning: 放置
-  pos: 动词5
+  pos: [动词5, 他动词]
   category: null
 - id: 333
   kanji: 丁寧
@@ -1526,7 +1526,7 @@
   kanji: 手伝う
   kana: てつだう3
   meaning: 帮助
-  pos: 动词5
+  pos: [动词5, 他动词]
   category: null
 - id: 336
   kanji: ''
@@ -1544,7 +1544,7 @@
   kanji: 訳す
   kana: やくす2
   meaning: 翻译
-  pos: 动词5
+  pos: [动词5, 他动词]
   category: null
 - id: 339
   kanji: 詳しい
@@ -1556,13 +1556,13 @@
   kanji: 続く
   kana: つづく0
   meaning: 继续
-  pos: 动词5
+  pos: [动词5, 自动词]
   category: null
 - id: 358
   kanji: 続ける
   kana: つづける0
   meaning: 继续
-  pos: 动词1
+  pos: [动词1, 他动词]
   category: null
 - id: 359
   kanji: ''
@@ -1574,23 +1574,23 @@
   kanji: 戻る
   kana: もどる2
   meaning: 返回
-  pos: 动词5
+  pos: [动词5, 自动词]
   category: null
 - id: 361
   kanji: 付く
   kana: つく1,2
   meaning: 附着
-  pos: 动词5
+  pos: [动词5, 自动词]
   category: null
 - id: 362
   kanji: 差す
   kana: さす1
   meaning: 撑/指
-  pos: 动词5
+  pos: [动词5, 他动词]
   category: null
 - id: 363
   kanji: 貼る
   kana: はる0
   meaning: 贴
-  pos: 动词5
+  pos: [动词5, 他动词]
   category: null
