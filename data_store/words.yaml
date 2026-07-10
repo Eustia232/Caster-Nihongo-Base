@@ -1975,3 +1975,31 @@
   pos:
   - 名词
   category: null
+- id: 373
+  kanji: 洗濯
+  kana: せんたく0
+  meaning: 洗衣
+  pos:
+  - 名词サ变
+  category: null
+- id: 374
+  kanji: 腰
+  kana: こし0
+  meaning: 腰
+  pos:
+  - 名词
+  category: null
+- id: 375
+  kanji: お供
+  kana: おとも2
+  meaning: 陪同
+  pos:
+  - 名词サ变
+  category: null
+- id: 376
+  kanji: 選択
+  kana: せんたく0
+  meaning: 选择
+  pos:
+  - 名词サ变
+  category: null
