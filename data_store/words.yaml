@@ -2003,3 +2003,63 @@
   pos:
   - 名词サ变
   category: null
+- id: 377
+  kanji: 考える
+  kana: かんがえる4,3
+  meaning: 思考
+  pos:
+  - 动词1
+  - 他动词
+  category: null
+- id: 378
+  kanji: 困る
+  kana: こまる2
+  meaning: 困扰
+  pos:
+  - 动词5
+  - 自动词
+  category: null
+- id: 379
+  kanji: 座る
+  kana: すわる0
+  meaning: 坐
+  pos:
+  - 动词5
+  - 自动词
+  category: null
+- id: 380
+  kanji: 親切
+  kana: しんせつ1,0
+  meaning: 亲切
+  pos:
+  - 形容动词
+  - 名词
+  category: null
+- id: 381
+  kanji: 放課後
+  kana: ほうかご0
+  meaning: 放学后
+  pos:
+  - 名词
+  category: null
+- id: 382
+  kanji: 笑顔
+  kana: えがお1
+  meaning: 笑容
+  pos:
+  - 名词
+  category: null
+- id: 383
+  kanji: ''
+  kana: メニュー1
+  meaning: 菜单
+  pos:
+  - 名词
+  category: null
+- id: 384
+  kanji: ''
+  kana: オムライス3
+  meaning: 蛋包饭
+  pos:
+  - 名词
+  category: null
