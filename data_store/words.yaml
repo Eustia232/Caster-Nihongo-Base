@@ -2063,3 +2063,63 @@
   pos:
   - 名词
   category: null
+- id: 385
+  kanji: 今宵
+  kana: こよい0
+  meaning: 今宵（雅）；今夜（文语）
+  pos:
+  - 名词
+  category: null
+- id: 386
+  kanji: 頭上
+  kana: ずじょう0
+  meaning: 头顶；头上
+  pos:
+  - 名词
+  category: null
+- id: 387
+  kanji: 照らす
+  kana: てらす0,2
+  meaning: 照耀；照亮
+  pos:
+  - 动词5
+  - 他动词
+  category: null
+- id: 388
+  kanji: 出来る
+  kana: できる2
+  meaning: 能；会；完成
+  pos:
+  - 动词1
+  - 自动词
+  category: null
+- id: 389
+  kanji: 夜明け
+  kana: よあけ3
+  meaning: 黎明；拂晓
+  pos:
+  - 名词
+  category: null
+- id: 390
+  kanji: 地べた
+  kana: じべた1
+  meaning: 地面（卑微语感）；地上
+  pos:
+  - 名词
+  category: null
+- id: 391
+  kanji: 這いずる
+  kana: はいずる3
+  meaning: 爬行；匍匐
+  pos:
+  - 动词5
+  - 自动词
+  category: null
+- id: 392
+  kanji: 回る
+  kana: まわる0
+  meaning: 旋转；转
+  pos:
+  - 动词5
+  - 自动词
+  category: null
