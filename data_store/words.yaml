@@ -2123,3 +2123,102 @@
   - 动词5
   - 自动词
   category: null
+- id: 401
+  kanji: 教室
+  kana: きょうしつ0
+  meaning: 教室
+  pos:
+  - 名词
+  category: null
+- id: 402
+  kanji: 趣味
+  kana: しゅみ1
+  meaning: 兴趣
+  pos:
+  - 名词
+  category: null
+- id: 403
+  kanji: 箱
+  kana: はこ0
+  meaning: 箱子
+  pos:
+  - 名词
+  category: null
+- id: 404
+  kanji: 運動場
+  kana: うんどうじょう0
+  meaning: 运动场
+  pos:
+  - 名词
+  category: null
+- id: 405
+  kanji: 交差点
+  kana: こうさてん0,3
+  meaning: 十字路口
+  pos:
+  - 名词
+  category: null
+- id: 406
+  kanji: 紹介
+  kana: しょうかい0
+  meaning: 介绍
+  pos:
+  - 名词
+  - 名词サ变
+  category: null
+- id: 407
+  kanji: 塩
+  kana: しお2
+  meaning: 盐
+  pos:
+  - 名词
+  category: null
+- id: 408
+  kanji: 紙
+  kana: かみ2
+  meaning: 纸
+  pos:
+  - 名词
+  category: null
+- id: 409
+  kanji: 場合
+  kana: ばあい0
+  meaning: 情况
+  pos:
+  - 名词
+  category: null
+- id: 410
+  kanji: 映画館
+  kana: えいがかん3
+  meaning: 电影院
+  pos:
+  - 名词
+  category: null
+- id: 411
+  kanji: 窓
+  kana: まど1
+  meaning: 窗户
+  pos:
+  - 名词
+  category: null
+- id: 412
+  kanji: 主人
+  kana: しゅじん1
+  meaning: 丈夫
+  pos:
+  - 名词
+  category: null
+- id: 414
+  kanji: 奥さん
+  kana: おくさん1
+  meaning: 妻子
+  pos:
+  - 名词
+  category: null
+- id: 415
+  kanji: 砂糖
+  kana: さとう2
+  meaning: 砂糖
+  pos:
+  - 名词
+  category: null
