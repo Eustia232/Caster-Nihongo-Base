@@ -2222,3 +2222,34 @@
   pos:
   - 名词
   category: null
+- id: 439
+  kanji: 散歩
+  kana: さんぽ0
+  meaning: 散步
+  pos:
+  - 名词
+  - 名词サ变
+  category: null
+- id: 440
+  kanji: ''
+  kana: ベンチ1
+  meaning: 长椅
+  pos:
+  - 名词
+  category: null
+- id: 441
+  kanji: 間に合う
+  kana: まにあう3
+  meaning: 来得及
+  pos:
+  - 动词5
+  - 自动词
+  category: null
+- id: 442
+  kanji: 着く
+  kana: つく1,2
+  meaning: 到达
+  pos:
+  - 动词5
+  - 自动词
+  category: null
