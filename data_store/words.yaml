@@ -2253,3 +2253,85 @@
   - 动词5
   - 自动词
   category: null
+- id: 443
+  kanji: 氷
+  kana: こおり0
+  meaning: 冰
+  pos:
+  - 名词
+  category: null
+- id: 444
+  kanji: 売る
+  kana: うる0
+  meaning: 卖；出售
+  pos:
+  - 动词5
+  - 他动词
+  category: null
+- id: 446
+  kanji: 売れる
+  kana: うれる0
+  meaning: 好卖；畅销
+  pos:
+  - 动词1
+  - 自动词
+  category: null
+- id: 447
+  kanji: 受ける
+  kana: うける2
+  meaning: 接受；承接；受欢迎
+  pos:
+  - 动词1
+  - 他动词
+  category: null
+- id: 448
+  kanji: 動く
+  kana: うごく2
+  meaning: 动；移动；运转
+  pos:
+  - 动词5
+  - 自动词
+  category: null
+- id: 449
+  kanji: 腕
+  kana: うで2
+  meaning: 胳膊；手腕；本领
+  pos:
+  - 名词
+  category: null
+- id: 450
+  kanji: 腕時計
+  kana: うでどけい3
+  meaning: 手表
+  pos:
+  - 名词
+  category: null
+- id: 451
+  kanji: 動物園
+  kana: どうぶつえん4
+  meaning: 动物园
+  pos:
+  - 名词
+  category: null
+- id: 453
+  kanji: 都会
+  kana: とかい0
+  meaning: 城市；都市
+  pos:
+  - 名词
+  category: null
+- id: 454
+  kanji: 通り
+  kana: とおり3
+  meaning: 大街；马路；往来
+  pos:
+  - 名词
+  category: null
+- id: 455
+  kanji: 大事
+  kana: だいじ(名)1,3,(形動)0,3
+  meaning: 重要；要紧
+  pos:
+  - 名词
+  - 形容动词
+  category: null
