@@ -4,7 +4,7 @@ import sys
 import random
 import re
 from datetime import datetime, timezone
-from typing import Dict, Set, Tuple
+from typing import Dict, List, Set, Tuple
 
 from rich.console import Console
 from rich.table import Table
@@ -207,6 +207,47 @@ def import_cmd(
         raise typer.Exit(1)
 
 
+def normalize_kana(s: str) -> str:
+    """规范化假名字符串：去除音调标注、词性标注、方括号数字等。
+
+    用于复习时比较用户输入与标准答案。
+    """
+    s = s.strip()
+    # 去掉方括号内的数字标注
+    s = re.sub(r"\[\d+\]", "", s)
+    # 去掉圆括号内的词性标注，如 (名)、(形動)、(副;名)、（名）等
+    s = re.sub(r"[（\(][^）\)]*[）\)]", "", s)
+    # 将全角数字与全角逗号规范为 ASCII 形式，便于后续统一处理
+    s = s.translate(str.maketrans("０１２３４５６７８９，", "0123456789,"))
+    # 去掉尾部由数字与逗号组成的序列（例如 "3,2"、"３，２"）
+    s = re.sub(r"[,，\d]+$", "", s)
+    return s.strip()
+
+
+def extract_readings(kana: str) -> List[str]:
+    """从可能含多读音+词性标注的 kana 字段中提取所有纯假名读音。
+
+    例如:
+      "だいじ(名)1,3,(形動)0,3" -> ["だいじ"]
+      "たべる2"                  -> ["たべる"]
+      "きっさてん3,0"            -> ["きっさてん"]
+    """
+    cleaned = normalize_kana(kana)
+    if not cleaned:
+        return []
+    # normalize_kana 已经去除了所有括号内容和尾部数字/逗号
+    # 但中间可能残留逗号分隔的多段假名（不同读音的情况）
+    # 按逗号分割，过滤空串，去重保序
+    parts = [p.strip() for p in cleaned.split(",") if p.strip()]
+    seen: set = set()
+    result: List[str] = []
+    for p in parts:
+        if p not in seen:
+            seen.add(p)
+            result.append(p)
+    return result if result else [cleaned]
+
+
 @app.command()
 def review():
     """开始复习会话"""
@@ -268,15 +309,6 @@ def review():
     BATCH_SIZE = 10
     idx = 0
 
-    def normalize(s: str) -> str:
-        # 去掉方括号内的数字标注
-        s = re.sub(r"\[\d+\]", "", s)
-        # 将全角数字与全角逗号规范为 ASCII 形式，便于后续统一处理
-        s = s.translate(str.maketrans("０１２３４５６７８９，", "0123456789,"))
-        # 去掉尾部由数字与逗号组成的序列（例如 "3,2"、"３，２"）
-        s = re.sub(r"[,，\d\uFF10-\uFF19]+$", "", s)
-        return s.strip()
-
     # 使用一个可变的待处理列表，每次随机抽取 up to BATCH_SIZE 个不重复单词进行本批复习
     while due_words:
         batch = random.sample(due_words, k=min(BATCH_SIZE, len(due_words)))
@@ -320,7 +352,7 @@ def review():
                 if user_answer.strip() == "":
                     rating = 1
                     console.print("[yellow]已跳过，记为错误。[/yellow]")
-                elif normalize(user_answer) == normalize(word.kana):
+                elif normalize_kana(user_answer) in [normalize_kana(r) for r in extract_readings(word.kana)]:
                     # Treat correct answer as Easy to increase spacing
                     rating = 4
                     console.print("[bold green]回答正确！[/bold green]")
@@ -344,7 +376,7 @@ def review():
                 if user_answer.strip() == "":
                     rating = 1
                     console.print("[yellow]已跳过，记为错误。[/yellow]")
-                elif normalize(user_answer) == normalize(word.kana):
+                elif normalize_kana(user_answer) in [normalize_kana(r) for r in extract_readings(word.kana)]:
                     # Treat correct answer as Easy to increase spacing
                     rating = 4
                     console.print("[bold green]回答正确！[/bold green]")
