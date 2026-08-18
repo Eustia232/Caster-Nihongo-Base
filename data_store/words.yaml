@@ -2335,3 +2335,66 @@
   - 名词
   - 形容动词
   category: null
+- id: 456
+  kanji: 助ける
+  kana: たすける3
+  meaning: 帮助
+  pos:
+  - 他动词
+  category: null
+- id: 457
+  kanji: 高さ
+  kana: たかさ1
+  meaning: 高度
+  pos:
+  - 名词
+  category: null
+- id: 458
+  kanji: 太陽
+  kana: たいよう1
+  meaning: 太阳
+  pos:
+  - 名词
+  category: null
+- id: 460
+  kanji: 計画
+  kana: けいかく0
+  meaning: 计划
+  pos:
+  - 名词サ变
+  category: null
+- id: 462
+  kanji: 悲しい
+  kana: かなしい0,3
+  meaning: 悲伤的
+  pos:
+  - 形容词
+  category: null
+- id: 463
+  kanji: 買う
+  kana: かう0
+  meaning: 买
+  pos:
+  - 他动词
+  category: null
+- id: 464
+  kanji: 飼う
+  kana: かう1
+  meaning: 饲养
+  pos:
+  - 他动词
+  category: null
+- id: 465
+  kanji: 酸っぱい
+  kana: すっぱい3
+  meaning: 酸的
+  pos:
+  - 形容词
+  category: null
+- id: 466
+  kanji: 叶う
+  kana: かなう2
+  meaning: 实现
+  pos:
+  - 自动词
+  category: null
