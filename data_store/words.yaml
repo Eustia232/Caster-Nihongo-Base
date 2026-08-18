@@ -2398,3 +2398,39 @@
   pos:
   - 自动词
   category: null
+- id: 467
+  kanji: 絵
+  kana: え1
+  meaning: 画，图画
+  pos:
+  - 名词
+  category: null
+- id: 468
+  kanji: 牛乳
+  kana: ぎゅうにゅう0
+  meaning: 牛奶
+  pos:
+  - 名词
+  category: null
+- id: 469
+  kanji: 入れる
+  kana: いれる0
+  meaning: 放入，装入
+  pos:
+  - 他动词
+  category: null
+- id: 470
+  kanji: 住む
+  kana: すむ1
+  meaning: 居住
+  pos:
+  - 自动词
+  category: null
+- id: 471
+  kanji: 暮らす
+  kana: くらす0
+  meaning: 生活，度日
+  pos:
+  - 自动词
+  - 他动词
+  category: null
