@@ -7,4 +7,4 @@ export
 
 new.txt
 __pycache__/
-   
+.worktrees/
