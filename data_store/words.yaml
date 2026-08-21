@@ -2434,3 +2434,24 @@
   - 自动词
   - 他动词
   category: null
+- id: 472
+  kanji: 借りる
+  kana: かりる0
+  meaning: 借
+  pos:
+  - 他动词
+  category: null
+- id: 473
+  kanji: 返す
+  kana: かえす1
+  meaning: 归还
+  pos:
+  - 他动词
+  category: null
+- id: 474
+  kanji: 野菜
+  kana: やさい0
+  meaning: 蔬菜
+  pos:
+  - 名词
+  category: null
