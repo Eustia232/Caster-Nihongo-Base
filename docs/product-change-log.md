@@ -1,6 +1,8 @@
 # Product Change Log
 
 ## 2026-08-18
+- data: 将词汇例句集审核结果同步回 `data_store/words.yaml`，更新 204 条单词的 meaning 字段（补充常见义项、修正不准确释义），kanji/kana/pos/category 及新增词条均未改动。
+- docs: 生成日语词汇例句集 `docs/vocab-examples.md`，覆盖全部 332 词，每个常见释义配双语对照例句（N5-N4 级别），同时审核修正释义 173 处。
 - fix: 修复复习时带词性标注的假名（如 `だいじ(名)1,3,(形動)0,3`）无法匹配用户输入的问题。将 `normalize` 和 `extract_readings` 提取为模块级函数 `normalize_kana` / `extract_readings`，增加去除圆括号词性标注的逻辑，支持半角/全角括号及复合词性标注。新增 23 个单元测试覆盖各种匹配场景。
 
 ## 2026-04-17

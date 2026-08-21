@@ -8,7 +8,7 @@
 - id: 2
   kanji: 時計
   kana: とけい0
-  meaning: 钟表
+  meaning: 钟表；手表
   pos:
   - 名词
   category: null
@@ -29,21 +29,21 @@
 - id: 5
   kanji: 喫茶店
   kana: きっさてん3,0
-  meaning: 咖啡店
+  meaning: 咖啡馆；茶室
   pos:
   - 名词
   category: null
 - id: 6
   kanji: 建物
   kana: たてもの2,3
-  meaning: 建筑物
+  meaning: 建筑物；楼房
   pos:
   - 名词
   category: null
 - id: 7
   kanji: 売り場
   kana: うりば0
-  meaning: 售卖处
+  meaning: 售货处；柜台
   pos:
   - 名词
   category: null
@@ -57,21 +57,21 @@
 - id: 9
   kanji: 受付
   kana: うけつけ0
-  meaning: 接待处
+  meaning: 接待处；前台
   pos:
   - 名词
   category: null
 - id: 10
   kanji: 服
   kana: ふく2
-  meaning: 衣服
+  meaning: 衣服；服装
   pos:
   - 名词
   category: null
 - id: 11
   kanji: 隣
   kana: となり0
-  meaning: 旁边
+  meaning: 旁边；隔壁
   pos:
   - 名词
   category: null
@@ -85,7 +85,7 @@
 - id: 13
   kanji: 庭
   kana: にわ0
-  meaning: 庭院
+  meaning: 庭院；院子
   pos:
   - 名词
   category: null
@@ -113,14 +113,14 @@
 - id: 17
   kanji: 兄弟
   kana: きょうだい1
-  meaning: 兄弟
+  meaning: 兄弟姐妹
   pos:
   - 名词
   category: null
 - id: 18
   kanji: 両親
   kana: りょうしん1
-  meaning: 父母
+  meaning: 父母；双亲
   pos:
   - 名词
   category: null
@@ -148,7 +148,7 @@
 - id: 22
   kanji: 近く
   kana: ちかく2,1
-  meaning: 附近；近处
+  meaning: 附近；不久、快要
   pos:
   - 副词
   category: null
@@ -204,7 +204,7 @@
 - id: 30
   kanji: 昨夜（正式）
   kana: さくや2
-  meaning: 昨夜（正式）
+  meaning: 昨晚（正式用语）
   pos:
   - 名词
   category: null
@@ -218,7 +218,7 @@
 - id: 45
   kanji: 新幹線
   kana: しんかんせん3
-  meaning: 新干线
+  meaning: 新干线（日本高速铁路）
   pos:
   - 名词
   category: null
@@ -239,7 +239,7 @@
 - id: 48
   kanji: 卵
   kana: たまご2,0
-  meaning: 鸡蛋
+  meaning: 鸡蛋；蛋
   pos:
   - 名词
   category: null
@@ -253,7 +253,7 @@
 - id: 69
   kanji: ''
   kana: まっすぐ3
-  meaning: 笔直
+  meaning: 笔直地；直接地
   pos:
   - 副词
   category: null
@@ -295,7 +295,7 @@
 - id: 75
   kanji: 角
   kana: かど1
-  meaning: 角；拐角
+  meaning: 拐角；角落
   pos:
   - 名词
   category: null
@@ -309,14 +309,14 @@
 - id: 77
   kanji: 三つ
   kana: みっつ3
-  meaning: 三（个）
+  meaning: 三个
   pos:
   - 名词
   category: null
 - id: 78
   kanji: 外
   kana: ほか0
-  meaning: 其他
+  meaning: 其他；另外
   pos:
   - 名词
   category: null
@@ -330,14 +330,14 @@
 - id: 80
   kanji: 階段
   kana: かいだん0
-  meaning: 楼梯
+  meaning: 楼梯；台阶
   pos:
   - 名词
   category: null
 - id: 81
   kanji: 引く
   kana: ひく0
-  meaning: 拉；染上/患（病，如感冒）
+  meaning: 拉；吸引；染上/患（病）；查（字典等）
   pos:
   - 动词5
   - 他动词
@@ -345,7 +345,7 @@
 - id: 82
   kanji: 切る
   kana: きる1
-  meaning: 切；切断（如关掉电源）；结束
+  meaning: 切；切断（电源等）；结束；剪
   pos:
   - 动词5
   - 他动词
@@ -361,7 +361,7 @@
 - id: 84
   kanji: 持つ
   kana: もつ1
-  meaning: 持有；维持（某种状态）
+  meaning: 拿；持有；拥有；维持（状态）
   pos:
   - 动词5
   - 他动词
@@ -369,7 +369,7 @@
 - id: 85
   kanji: 乗る
   kana: のる0
-  meaning: 乘坐；兴致高涨（引申用法）
+  meaning: 乘坐；骑；登上；兴致高涨
   pos:
   - 动词5
   - 自动词
@@ -377,7 +377,7 @@
 - id: 86
   kanji: 出す
   kana: だす1
-  meaning: 拿出；提出；寄出
+  meaning: 拿出；提出；寄出；发出
   pos:
   - 动词5
   - 他动词
@@ -385,7 +385,7 @@
 - id: 87
   kanji: 取る
   kana: とる1
-  meaning: 取；取得
+  meaning: 取；拿；取得；选择
   pos:
   - 动词5
   - 他动词
@@ -401,7 +401,7 @@
 - id: 89
   kanji: 思う
   kana: おもう2
-  meaning: 认为，觉得
+  meaning: 认为；觉得；想念
   pos:
   - 动词5
   - 他动词
@@ -409,7 +409,7 @@
 - id: 90
   kanji: 運転手
   kana: うんてんしゅ3
-  meaning: 司机
+  meaning: 司机；驾驶员
   pos:
   - 名词
   category: null
@@ -444,28 +444,28 @@
 - id: 95
   kanji: 狭い
   kana: せまい2
-  meaning: 狭窄的
+  meaning: 狭窄的、窄小的
   pos:
   - 形容词
   category: null
 - id: 96
   kanji: 軽い
   kana: かるい0
-  meaning: 轻的
+  meaning: 轻的、轻松的
   pos:
   - 形容词
   category: null
 - id: 97
   kanji: 細い
   kana: ほそい2
-  meaning: 细的
+  meaning: 细的、纤细的
   pos:
   - 形容词
   category: null
 - id: 98
   kanji: 辛い
   kana: からい2
-  meaning: 辣的
+  meaning: 辣的；辛苦的
   pos:
   - 形容词
   category: null
@@ -479,7 +479,7 @@
 - id: 100
   kanji: ''
   kana: まずい2
-  meaning: 难吃；不妙
+  meaning: 难吃的；不妙的
   pos:
   - 形容词
   category: null
@@ -493,28 +493,28 @@
 - id: 102
   kanji: 嫌い
   kana: きらい0
-  meaning: 讨厌
+  meaning: 讨厌的、不喜欢的
   pos:
   - 形容动词
   category: null
 - id: 103
   kanji: 立派
   kana: りっぱ0
-  meaning: 出色
+  meaning: 出色的、了不起的；漂亮的
   pos:
   - 形容动词
   category: null
 - id: 104
   kanji: 賑やか
   kana: にぎやか2
-  meaning: 热闹
+  meaning: 热闹的
   pos:
   - 形容动词
   category: null
 - id: 105
   kanji: 田舎
   kana: いなか0
-  meaning: 农村
+  meaning: 乡下；农村
   pos:
   - 名词
   category: null
@@ -542,7 +542,7 @@
 - id: 109
   kanji: 警官
   kana: けいかん0
-  meaning: 警察
+  meaning: 警察；警官
   pos:
   - 名词
   category: null
@@ -577,21 +577,21 @@
 - id: 114
   kanji: お菓子
   kana: おかし2
-  meaning: 点心、零食
+  meaning: 点心；零食
   pos:
   - 名词
   category: null
 - id: 115
   kanji: 横
   kana: よこ0
-  meaning: 旁边、横
+  meaning: 旁边；横向
   pos:
   - 名词
   category: null
 - id: 116
   kanji: 玄関
   kana: げんかん1
-  meaning: 玄关、门口
+  meaning: 玄关；门口
   pos:
   - 名词
   category: null
@@ -619,84 +619,84 @@
 - id: 138
   kanji: 薄い
   kana: うすい0,2
-  meaning: 薄
+  meaning: 薄的、淡的
   pos:
   - 形容词
   category: null
 - id: 139
   kanji: 古い
   kana: ふるい2
-  meaning: 旧
+  meaning: 旧的、古老的
   pos:
   - 形容词
   category: null
 - id: 140
   kanji: 忙しい
   kana: いそがしい4
-  meaning: 忙
+  meaning: 忙的、忙碌的
   pos:
   - 形容词
   category: null
 - id: 141
   kanji: 低い
   kana: ひくい2
-  meaning: 低
+  meaning: 低的、矮的
   pos:
   - 形容词
   category: null
 - id: 142
   kanji: 明るい
   kana: あかるい0,3
-  meaning: 明亮
+  meaning: 明亮的；开朗的
   pos:
   - 形容词
   category: null
 - id: 143
   kanji: 暗い
   kana: くらい0
-  meaning: 暗
+  meaning: 暗的；阴沉的
   pos:
   - 形容词
   category: null
 - id: 144
   kanji: 黄色い
   kana: きいろい0
-  meaning: 黄色
+  meaning: 黄色的
   pos:
   - 形容词
   category: null
 - id: 145
   kanji: 欲しい
   kana: ほしい2
-  meaning: 想要
+  meaning: 想要的
   pos:
   - 形容词
   category: null
 - id: 146
   kanji: 近い
   kana: ちかい2
-  meaning: 近
+  meaning: 近的
   pos:
   - 形容词
   category: null
 - id: 147
   kanji: 遅い
   kana: おそい0,2
-  meaning: 慢
+  meaning: 慢的；晚的
   pos:
   - 形容词
   category: null
 - id: 148
   kanji: 重い
   kana: おもい0
-  meaning: 重
+  meaning: 重的
   pos:
   - 形容词
   category: null
 - id: 149
   kanji: 流す
   kana: ながす2
-  meaning: 使流动
+  meaning: 使流动；冲洗；播放；流传
   pos:
   - 动词5
   - 他动词
@@ -704,7 +704,7 @@
 - id: 150
   kanji: 呑み込む
   kana: のみこむ0,3
-  meaning: 吞下，理解
+  meaning: 吞下；理解；忍住
   pos:
   - 动词5
   - 他动词
@@ -719,7 +719,7 @@
 - id: 152
   kanji: 膨らむ
   kana: ふくらむ0
-  meaning: 膨胀
+  meaning: 膨胀；鼓起；增大
   pos:
   - 动词5
   - 自动词
@@ -727,7 +727,7 @@
 - id: 153
   kanji: 眺める
   kana: ながめる3
-  meaning: 眺望
+  meaning: 眺望；凝视；观赏
   pos:
   - 动词1
   - 他动词
@@ -742,21 +742,21 @@
 - id: 155
   kanji: 先
   kana: さき0
-  meaning: 前方
+  meaning: 前方；前面；将来
   pos:
   - 名词
   category: null
 - id: 156
   kanji: 恐れ
   kana: おそれ3
-  meaning: 恐惧
+  meaning: 恐惧；害怕
   pos:
   - 名词
   category: null
 - id: 157
   kanji: ''
   kana: あくび0
-  meaning: 打哈欠
+  meaning: 哈欠
   pos:
   - 名词
   category: null
@@ -770,7 +770,7 @@
 - id: 159
   kanji: 違う
   kana: ちがう0
-  meaning: 不同，错误
+  meaning: 不同；不对/错误
   pos:
   - 动词5
   - 自动词
@@ -778,7 +778,7 @@
 - id: 160
   kanji: 育つ
   kana: そだつ2
-  meaning: 成长，发育
+  meaning: 成长；发育；培养起来
   pos:
   - 动词5
   - 自动词
@@ -786,7 +786,7 @@
 - id: 161
   kanji: 根本
   kana: ねもと3
-  meaning: 根部，基础
+  meaning: 根部；根基
   pos:
   - 名词
   category: null
@@ -800,14 +800,14 @@
 - id: 163
   kanji: 霞
   kana: かすみ0
-  meaning: 雾气
+  meaning: 薄雾；霞
   pos:
   - 名词
   category: null
 - id: 164
   kanji: 抱く
   kana: だく0
-  meaning: 抱、怀抱
+  meaning: 抱；怀抱；抱有（感情、想法）
   pos:
   - 动词5
   - 他动词
@@ -822,28 +822,28 @@
 - id: 166
   kanji: 言葉
   kana: ことば3
-  meaning: 语言、词语
+  meaning: 语言；词语；话语
   pos:
   - 名词
   category: null
 - id: 167
   kanji: 顔
   kana: かお0
-  meaning: 脸、面庞
+  meaning: 脸；面孔；表情
   pos:
   - 名词
   category: null
 - id: 168
   kanji: 刀
   kana: かたな3,2
-  meaning: 刀
+  meaning: 刀；日本刀
   pos:
   - 名词
   category: null
 - id: 169
   kanji: 止まる
   kana: とまる0
-  meaning: 停下、停止
+  meaning: 停下；停止；停留
   pos:
   - 动词5
   - 自动词
@@ -851,7 +851,7 @@
 - id: 170
   kanji: 止める
   kana: とめる0
-  meaning: 使停止、停下
+  meaning: 使停止；阻止；关掉
   pos:
   - 动词1
   - 他动词
@@ -873,7 +873,7 @@
 - id: 173
   kanji: 四日
   kana: よっか0
-  meaning: 四日、四天
+  meaning: 四号；四天
   pos:
   - 名词
   category: null
@@ -887,21 +887,21 @@
 - id: 175
   kanji: 昼
   kana: ひる2
-  meaning: 白天、中午
+  meaning: 白天；中午
   pos:
   - 名词
   category: null
 - id: 176
   kanji: 問題
   kana: もんだい0
-  meaning: 问题
+  meaning: 问题；题目
   pos:
   - 名词
   category: null
 - id: 177
   kanji: 荷物
   kana: にもつ1
-  meaning: 行李
+  meaning: 行李；包裹
   pos:
   - 名词
   category: null
@@ -915,14 +915,14 @@
 - id: 180
   kanji: 休み
   kana: やすみ3
-  meaning: 休息、假期
+  meaning: 休息；假期；休假
   pos:
   - 名词
   category: null
 - id: 181
   kanji: 願う
   kana: ねがう2
-  meaning: 祈求、希望
+  meaning: 祈求；希望；请求
   pos:
   - 动词5
   - 他动词
@@ -930,21 +930,21 @@
 - id: 183
   kanji: 一日
   kana: ついたち4
-  meaning: 一号、每月第一天
+  meaning: 一号；每月第一天
   pos:
   - 名词
   category: null
 - id: 184
   kanji: 例えば
   kana: たとえば2
-  meaning: 例如
+  meaning: 例如、比如
   pos:
   - 副词
   category: null
 - id: 185
   kanji: 使う
   kana: つかう0
-  meaning: 使用
+  meaning: 使用；花费；雇用
   pos:
   - 动词5
   - 他动词
@@ -952,7 +952,7 @@
 - id: 186
   kanji: 遊ぶ
   kana: あそぶ0
-  meaning: 玩耍
+  meaning: 玩耍；游玩；消遣
   pos:
   - 动词5
   - 自动词
@@ -967,7 +967,7 @@
 - id: 188
   kanji: 聞く
   kana: きく0
-  meaning: 听、问
+  meaning: 听；问；听从
   pos:
   - 动词5
   - 他动词
@@ -975,7 +975,7 @@
 - id: 189
   kanji: 追いつく
   kana: おいつく3
-  meaning: 赶上
+  meaning: 赶上；追上
   pos:
   - 动词5
   - 自动词
@@ -983,7 +983,7 @@
 - id: 190
   kanji: 歩く
   kana: あるく2
-  meaning: 走
+  meaning: 走路；步行
   pos:
   - 动词5
   - 自动词
@@ -991,14 +991,14 @@
 - id: 191
   kanji: ''
   kana: いつか0
-  meaning: 某个时候
+  meaning: 某个时候、总有一天
   pos:
   - 副词
   category: null
 - id: 192
   kanji: 出会う
   kana: であう2
-  meaning: 偶然遇见
+  meaning: 偶然遇见；邂逅
   pos:
   - 动词5
   - 自动词
@@ -1006,7 +1006,7 @@
 - id: 193
   kanji: ''
   kana: まなこ1
-  meaning: 眼睛
+  meaning: 眼睛；瞳仁
   pos:
   - 名词
   category: null
@@ -1034,7 +1034,7 @@
 - id: 199
   kanji: 五日
   kana: いつか3,0
-  meaning: 五日，五号
+  meaning: 五号；五天
   pos:
   - 名词
   category: null
@@ -1048,7 +1048,7 @@
 - id: 201
   kanji: ''
   kana: うち0
-  meaning: 家，里面
+  meaning: 家；里面；内部
   pos:
   - 名词
   category: null
@@ -1083,14 +1083,14 @@
 - id: 206
   kanji: 掃除
   kana: そうじ0
-  meaning: 打扫；扫除
+  meaning: 打扫、扫除
   pos:
   - 名词サ变
   category: null
 - id: 207
   kanji: 撮る
   kana: とる1
-  meaning: 拍摄；录像
+  meaning: 拍摄（照片）；录像
   pos:
   - 动词5
   - 他动词
@@ -1105,7 +1105,7 @@
 - id: 209
   kanji: 興味
   kana: きょうみ1
-  meaning: 兴趣；趣味
+  meaning: 兴趣
   pos:
   - 名词
   category: null
@@ -1126,7 +1126,7 @@
 - id: 212
   kanji: 洋服
   kana: ようふく0
-  meaning: 西装；衣服
+  meaning: 西式服装；衣服
   pos:
   - 名词
   category: null
@@ -1168,63 +1168,63 @@
 - id: 220
   kanji: 二日
   kana: ふつか0
-  meaning: 二日
+  meaning: 二号；两天
   pos:
   - 名词
   category: 日期
 - id: 221
   kanji: 三日
   kana: みっか0
-  meaning: 三日
+  meaning: 三日；三天
   pos:
   - 名词
   category: 日期
 - id: 224
   kanji: 六日
   kana: むいか0
-  meaning: 六日
+  meaning: 六日；六天
   pos:
   - 名词
   category: 日期
 - id: 225
   kanji: 七日
   kana: なのか0
-  meaning: 七日
+  meaning: 七日；七天
   pos:
   - 名词
   category: 日期
 - id: 226
   kanji: 八日
   kana: ようか0
-  meaning: 八日
+  meaning: 八日；八天
   pos:
   - 名词
   category: 日期
 - id: 227
   kanji: 九日
   kana: ここのか4
-  meaning: 九日
+  meaning: 九日；九天
   pos:
   - 名词
   category: 日期
 - id: 228
   kanji: 十日
   kana: とおか0
-  meaning: 十日
+  meaning: 十日；十天
   pos:
   - 名词
   category: 日期
 - id: 230
   kanji: 二十日
   kana: はつか0
-  meaning: 二十日
+  meaning: 二十日；二十天
   pos:
   - 名词
   category: 日期
 - id: 231
   kanji: 脱ぐ
   kana: ぬぐ1
-  meaning: 脱掉
+  meaning: 脱掉（衣服、鞋等）
   pos:
   - 动词5
   - 他动词
@@ -1232,7 +1232,7 @@
 - id: 232
   kanji: 読む
   kana: よむ1
-  meaning: 阅读
+  meaning: 阅读；读
   pos:
   - 动词5
   - 他动词
@@ -1240,7 +1240,7 @@
 - id: 233
   kanji: 要る
   kana: いる0
-  meaning: 需要
+  meaning: 需要；必要
   pos:
   - 动词5
   - 自动词
@@ -1248,7 +1248,7 @@
 - id: 234
   kanji: 待つ
   kana: まつ1
-  meaning: 等待，期待
+  meaning: 等待；期待
   pos:
   - 动词5
   - 他动词
@@ -1256,7 +1256,7 @@
 - id: 235
   kanji: 言う
   kana: いう0
-  meaning: 说（单方面），称作
+  meaning: 说；称作；叫做
   pos:
   - 动词5
   - 他动词
@@ -1264,7 +1264,7 @@
 - id: 236
   kanji: 休む
   kana: やすむ2
-  meaning: 休息
+  meaning: 休息；请假；停业
   pos:
   - 动词5
   - 自动词
@@ -1272,7 +1272,7 @@
 - id: 237
   kanji: 並ぶ
   kana: ならぶ0
-  meaning: 排列，并列，匹敌
+  meaning: 排列；并列；匹敌
   pos:
   - 动词5
   - 自动词
@@ -1280,7 +1280,7 @@
 - id: 238
   kanji: 磨く
   kana: みがく0
-  meaning: 刷（牙），打磨
+  meaning: 刷（牙）；打磨；磨练
   pos:
   - 动词5
   - 他动词
@@ -1288,7 +1288,7 @@
 - id: 239
   kanji: 飛ぶ
   kana: とぶ0
-  meaning: 飞翔
+  meaning: 飞；飞翔；跳跃
   pos:
   - 动词5
   - 自动词
@@ -1296,7 +1296,7 @@
 - id: 240
   kanji: 吹く
   kana: ふく1,2
-  meaning: 吹
+  meaning: 吹（风）；吹奏；刮
   pos:
   - 动词5
   - 自动词
@@ -1305,7 +1305,7 @@
 - id: 241
   kanji: 無くす
   kana: なくす0
-  meaning: 消除，丢失
+  meaning: 丢失；消除
   pos:
   - 动词5
   - 他动词
@@ -1313,7 +1313,7 @@
 - id: 242
   kanji: 押す
   kana: おす0
-  meaning: 按，推，盖章
+  meaning: 按；推；盖章
   pos:
   - 动词5
   - 他动词
@@ -1321,7 +1321,7 @@
 - id: 243
   kanji: 働く
   kana: はたらく0
-  meaning: 干（坏事），劳动
+  meaning: 工作；劳动；起作用
   pos:
   - 动词5
   - 自动词
@@ -1329,14 +1329,14 @@
 - id: 244
   kanji: 実習
   kana: じっしゅう0
-  meaning: 实习
+  meaning: 实习、实践
   pos:
   - 名词サ变
   category: null
 - id: 245
   kanji: 研修
   kana: けんしゅう0
-  meaning: 进修，培训
+  meaning: 进修、培训
   pos:
   - 名词サ变
   category: null
@@ -1350,14 +1350,14 @@
 - id: 247
   kanji: 見学
   kana: けんがく0
-  meaning: 参观，考察，
+  meaning: 参观、考察
   pos:
   - 名词サ变
   category: null
 - id: 248
   kanji: 泊まる
   kana: とまる0
-  meaning: 住宿
+  meaning: 住宿；过夜
   pos:
   - 动词5
   - 自动词
@@ -1365,28 +1365,28 @@
 - id: 249
   kanji: 見物
   kana: けんぶつ0
-  meaning: 观光，游览
+  meaning: 观光、游览
   pos:
   - 名词サ变
   category: null
 - id: 250
   kanji: 所
   kana: ところ0
-  meaning: 地方，部分
+  meaning: 地方；场所；部分
   pos:
   - 名词
   category: null
 - id: 251
   kanji: 残念
   kana: ざんねん3
-  meaning: 遗憾
+  meaning: 遗憾的、可惜的
   pos:
   - 形容动词
   category: null
 - id: 252
   kanji: 水準
   kana: すいじゅん0
-  meaning: 水平
+  meaning: 水平；水准；标准
   pos:
   - 名词
   category: null
@@ -1400,7 +1400,7 @@
 - id: 254
   kanji: 家庭
   kana: かてい0
-  meaning: 家庭（侧重环境）
+  meaning: 家庭（侧重生活环境、氛围）
   pos:
   - 名词
   category: null
@@ -1414,7 +1414,7 @@
 - id: 256
   kanji: 赤字
   kana: あかじ0
-  meaning: 赤字
+  meaning: 赤字；亏损
   pos:
   - 名词
   category: null
@@ -1428,7 +1428,7 @@
 - id: 258
   kanji: 開く
   kana: あく0
-  meaning: 开（自动词）
+  meaning: 开；打开（自动词）
   pos:
   - 动词5
   - 自动词
@@ -1436,7 +1436,7 @@
 - id: 259
   kanji: 開ける
   kana: あける0
-  meaning: 开（他动词）
+  meaning: 打开；开启；开业
   pos:
   - 动词1
   - 他动词
@@ -1444,7 +1444,7 @@
 - id: 260
   kanji: 温める
   kana: あたためる4
-  meaning: 加热
+  meaning: 加热；温暖；重温
   pos:
   - 动词1
   - 他动词
@@ -1473,7 +1473,7 @@
 - id: 264
   kanji: 社員
   kana: しゃいん1
-  meaning: 职员
+  meaning: 职员；员工
   pos:
   - 名词
   category: null
@@ -1487,7 +1487,7 @@
 - id: 266
   kanji: 方
   kana: かた2
-  meaning: 方向；方法
+  meaning: 方向；方法；人（敬称）
   pos:
   - 名词
   category: null
@@ -1501,7 +1501,7 @@
 - id: 268
   kanji: 食堂
   kana: しょくどう0
-  meaning: 食堂
+  meaning: 食堂；餐厅
   pos:
   - 名词
   category: null
@@ -1536,21 +1536,21 @@
 - id: 273
   kanji: 売店
   kana: ばいてん0
-  meaning: 小卖部
+  meaning: 小卖部；售货处
   pos:
   - 名词
   category: null
 - id: 285
   kanji: 都市
   kana: とし1
-  meaning: 都市
+  meaning: 城市；都市
   pos:
   - 名词
   category: null
 - id: 286
   kanji: 間
   kana: あいだ0
-  meaning: 之间；间隔
+  meaning: 之间；间隔；期间
   pos:
   - 名词
   category: null
@@ -1599,7 +1599,7 @@
 - id: 293
   kanji: 丸い
   kana: まるい0,2
-  meaning: 圆
+  meaning: 圆的
   pos:
   - 形容词
   category: null
@@ -1649,7 +1649,7 @@
 - id: 300
   kanji: 道
   kana: みち0
-  meaning: 道路
+  meaning: 道路；路
   pos:
   - 名词
   category: null
@@ -1691,7 +1691,7 @@
 - id: 306
   kanji: 家内
   kana: かない1
-  meaning: 妻子（自谦）
+  meaning: 妻子（自谦语）
   pos:
   - 名词
   category: null
@@ -1712,7 +1712,7 @@
 - id: 309
   kanji: 町
   kana: まち2
-  meaning: 城镇；街道
+  meaning: 城镇；街道；街区
   pos:
   - 名词
   category: null
@@ -1733,14 +1733,14 @@
 - id: 312
   kanji: 緑
   kana: みどり1
-  meaning: 绿色；绿
+  meaning: 绿色；绿意
   pos:
   - 名词
   category: null
 - id: 313
   kanji: 眠い
   kana: ねむい0,2
-  meaning: 困的
+  meaning: 困的、想睡的
   pos:
   - 形容词
   category: null
@@ -1754,21 +1754,21 @@
 - id: 315
   kanji: 暇
   kana: ひま0
-  meaning: 空闲
+  meaning: 空闲；闲暇
   pos:
   - 名词
   category: null
 - id: 316
   kanji: 晴れ
   kana: はれ2
-  meaning: 晴天
+  meaning: 晴天；晴朗
   pos:
   - 名词
   category: null
 - id: 317
   kanji: 走る
   kana: はしる2
-  meaning: 跑
+  meaning: 跑；奔跑
   pos:
   - 动词5
   - 自动词
@@ -1776,7 +1776,7 @@
 - id: 318
   kanji: 通る
   kana: とおる1
-  meaning: 通过
+  meaning: 通过；经过；通行
   pos:
   - 动词5
   - 自动词
@@ -1784,7 +1784,7 @@
 - id: 319
   kanji: 呼ぶ
   kana: よぶ0
-  meaning: 叫
+  meaning: 叫；呼唤；称呼
   pos:
   - 动词5
   - 他动词
@@ -1792,7 +1792,7 @@
 - id: 320
   kanji: 立つ
   kana: たつ1
-  meaning: 站立
+  meaning: 站立；站起来；离开
   pos:
   - 动词5
   - 自动词
@@ -1800,7 +1800,7 @@
 - id: 321
   kanji: 閉まる
   kana: しまる2
-  meaning: 关闭
+  meaning: 关闭（自动词）
   pos:
   - 动词5
   - 自动词
@@ -1808,7 +1808,7 @@
 - id: 322
   kanji: 置く
   kana: おく0
-  meaning: 放置
+  meaning: 放置；搁
   pos:
   - 动词5
   - 他动词
@@ -1816,21 +1816,21 @@
 - id: 333
   kanji: 丁寧
   kana: ていねい1
-  meaning: 礼貌
+  meaning: 礼貌的；仔细的
   pos:
   - 形容动词
   category: null
 - id: 334
   kanji: 文
   kana: ぶん1
-  meaning: 句子
+  meaning: 句子；文章
   pos:
   - 名词
   category: null
 - id: 335
   kanji: 手伝う
   kana: てつだう3
-  meaning: 帮助
+  meaning: 帮忙；帮助
   pos:
   - 动词5
   - 他动词
@@ -1838,14 +1838,14 @@
 - id: 336
   kanji: ''
   kana: イメージ2,1
-  meaning: 印象
+  meaning: 印象；形象；意象
   pos:
   - 名词
   category: null
 - id: 337
   kanji: 実は
   kana: じつは2
-  meaning: 其实
+  meaning: 其实、实际上
   pos:
   - 副词
   category: null
@@ -1860,14 +1860,14 @@
 - id: 339
   kanji: 詳しい
   kana: くわしい3
-  meaning: 详细的
+  meaning: 详细的；精通的
   pos:
   - 形容词
   category: null
 - id: 357
   kanji: 続く
   kana: つづく0
-  meaning: 继续
+  meaning: 继续；持续；接连
   pos:
   - 动词5
   - 自动词
@@ -1875,7 +1875,7 @@
 - id: 358
   kanji: 続ける
   kana: つづける0
-  meaning: 继续
+  meaning: 继续；持续；保持
   pos:
   - 动词1
   - 他动词
@@ -1883,14 +1883,14 @@
 - id: 359
   kanji: ''
   kana: おしゃべり2
-  meaning: 聊天
+  meaning: 聊天、闲谈
   pos:
   - 名词サ变
   category: null
 - id: 360
   kanji: 戻る
   kana: もどる2
-  meaning: 返回
+  meaning: 返回；回到
   pos:
   - 动词5
   - 自动词
@@ -1898,7 +1898,7 @@
 - id: 361
   kanji: 付く
   kana: つく1,2
-  meaning: 附着
+  meaning: 附着；跟随；到达
   pos:
   - 动词5
   - 自动词
@@ -1906,7 +1906,7 @@
 - id: 362
   kanji: 差す
   kana: さす1
-  meaning: 撑/指
+  meaning: 撑（伞）；指；照射
   pos:
   - 动词5
   - 他动词
@@ -1914,7 +1914,7 @@
 - id: 363
   kanji: 貼る
   kana: はる0
-  meaning: 贴
+  meaning: 贴；粘贴
   pos:
   - 动词5
   - 他动词
@@ -1922,77 +1922,77 @@
 - id: 364
   kanji: 花火
   kana: はなび1
-  meaning: 烟花
+  meaning: 烟花；焰火
   pos:
   - 名词
   category: null
 - id: 365
   kanji: 浴衣
   kana: ゆかた0
-  meaning: 浴衣
+  meaning: 浴衣；夏季和服
   pos:
   - 名词
   category: null
 - id: 366
   kanji: 着る
   kana: きる0
-  meaning: 穿
+  meaning: 穿（上身衣物）
   pos:
   - 动词1
   category: null
 - id: 368
   kanji: 夏祭り
   kana: なつまつり3
-  meaning: 夏日祭
+  meaning: 夏日祭；夏季庙会
   pos:
   - 名词
   category: null
 - id: 369
   kanji: 送る
   kana: おくる0
-  meaning: 送
+  meaning: 送；寄送；度过
   pos:
   - 动词5
   category: null
 - id: 370
   kanji: 紅葉
   kana: もみじ1
-  meaning: 红叶
+  meaning: 红叶；枫叶；赏枫
   pos:
   - 名词
   category: null
 - id: 371
   kanji: 抹茶
   kana: まっちゃ0
-  meaning: 抹茶
+  meaning: 抹茶；绿茶粉
   pos:
   - 名词
   category: null
 - id: 372
   kanji: ''
   kana: パフェ1
-  meaning: 芭菲
+  meaning: 芭菲；日式圣代
   pos:
   - 名词
   category: null
 - id: 373
   kanji: 洗濯
   kana: せんたく0
-  meaning: 洗衣
+  meaning: 洗衣服
   pos:
   - 名词サ变
   category: null
 - id: 374
   kanji: 腰
   kana: こし0
-  meaning: 腰
+  meaning: 腰；腰部
   pos:
   - 名词
   category: null
 - id: 375
   kanji: お供
   kana: おとも2
-  meaning: 陪同
+  meaning: 陪同、随行
   pos:
   - 名词サ变
   category: null
@@ -2006,7 +2006,7 @@
 - id: 377
   kanji: 考える
   kana: かんがえる4,3
-  meaning: 思考
+  meaning: 思考；考虑；认为
   pos:
   - 动词1
   - 他动词
@@ -2014,7 +2014,7 @@
 - id: 378
   kanji: 困る
   kana: こまる2
-  meaning: 困扰
+  meaning: 为难；困扰；发愁
   pos:
   - 动词5
   - 自动词
@@ -2022,7 +2022,7 @@
 - id: 379
   kanji: 座る
   kana: すわる0
-  meaning: 坐
+  meaning: 坐；坐下
   pos:
   - 动词5
   - 自动词
@@ -2030,7 +2030,7 @@
 - id: 380
   kanji: 親切
   kana: しんせつ1,0
-  meaning: 亲切
+  meaning: 亲切的、热心的
   pos:
   - 形容动词
   - 名词
@@ -2045,14 +2045,14 @@
 - id: 382
   kanji: 笑顔
   kana: えがお1
-  meaning: 笑容
+  meaning: 笑容；笑脸
   pos:
   - 名词
   category: null
 - id: 383
   kanji: ''
   kana: メニュー1
-  meaning: 菜单
+  meaning: 菜单；菜品
   pos:
   - 名词
   category: null
@@ -2066,7 +2066,7 @@
 - id: 385
   kanji: 今宵
   kana: こよい0
-  meaning: 今宵（雅）；今夜（文语）
+  meaning: 今晚；今夜
   pos:
   - 名词
   category: null
@@ -2088,7 +2088,7 @@
 - id: 388
   kanji: 出来る
   kana: できる2
-  meaning: 能；会；完成
+  meaning: 能做；完成；建成；发生
   pos:
   - 动词1
   - 自动词
@@ -2096,14 +2096,14 @@
 - id: 389
   kanji: 夜明け
   kana: よあけ3
-  meaning: 黎明；拂晓
+  meaning: 黎明；拂晓；天亮
   pos:
   - 名词
   category: null
 - id: 390
   kanji: 地べた
   kana: じべた1
-  meaning: 地面（卑微语感）；地上
+  meaning: 地面；地上
   pos:
   - 名词
   category: null
@@ -2118,7 +2118,7 @@
 - id: 392
   kanji: 回る
   kana: まわる0
-  meaning: 旋转；转
+  meaning: 旋转；转；绕
   pos:
   - 动词5
   - 自动词
@@ -2133,35 +2133,35 @@
 - id: 402
   kanji: 趣味
   kana: しゅみ1
-  meaning: 兴趣
+  meaning: 兴趣；爱好
   pos:
   - 名词
   category: null
 - id: 403
   kanji: 箱
   kana: はこ0
-  meaning: 箱子
+  meaning: 箱子；盒子
   pos:
   - 名词
   category: null
 - id: 404
   kanji: 運動場
   kana: うんどうじょう0
-  meaning: 运动场
+  meaning: 运动场；操场
   pos:
   - 名词
   category: null
 - id: 405
   kanji: 交差点
   kana: こうさてん0,3
-  meaning: 十字路口
+  meaning: 十字路口；交叉路口
   pos:
   - 名词
   category: null
 - id: 406
   kanji: 紹介
   kana: しょうかい0
-  meaning: 介绍
+  meaning: 介绍；引荐
   pos:
   - 名词
   - 名词サ变
@@ -2169,21 +2169,21 @@
 - id: 407
   kanji: 塩
   kana: しお2
-  meaning: 盐
+  meaning: 盐；食盐
   pos:
   - 名词
   category: null
 - id: 408
   kanji: 紙
   kana: かみ2
-  meaning: 纸
+  meaning: 纸；纸张
   pos:
   - 名词
   category: null
 - id: 409
   kanji: 場合
   kana: ばあい0
-  meaning: 情况
+  meaning: 情况；场合
   pos:
   - 名词
   category: null
@@ -2204,28 +2204,28 @@
 - id: 412
   kanji: 主人
   kana: しゅじん1
-  meaning: 丈夫
+  meaning: 丈夫；主人
   pos:
   - 名词
   category: null
 - id: 414
   kanji: 奥さん
   kana: おくさん1
-  meaning: 妻子
+  meaning: 妻子；太太；夫人
   pos:
   - 名词
   category: null
 - id: 415
   kanji: 砂糖
   kana: さとう2
-  meaning: 砂糖
+  meaning: 砂糖；白糖
   pos:
   - 名词
   category: null
 - id: 439
   kanji: 散歩
   kana: さんぽ0
-  meaning: 散步
+  meaning: 散步；溜达
   pos:
   - 名词
   - 名词サ变
@@ -2233,14 +2233,14 @@
 - id: 440
   kanji: ''
   kana: ベンチ1
-  meaning: 长椅
+  meaning: 长椅；长凳
   pos:
   - 名词
   category: null
 - id: 441
   kanji: 間に合う
   kana: まにあう3
-  meaning: 来得及
+  meaning: 来得及；赶得上
   pos:
   - 动词5
   - 自动词
@@ -2248,7 +2248,7 @@
 - id: 442
   kanji: 着く
   kana: つく1,2
-  meaning: 到达
+  meaning: 到达；抵达
   pos:
   - 动词5
   - 自动词
@@ -2256,7 +2256,7 @@
 - id: 443
   kanji: 氷
   kana: こおり0
-  meaning: 冰
+  meaning: 冰；冰块
   pos:
   - 名词
   category: null
@@ -2271,7 +2271,7 @@
 - id: 446
   kanji: 売れる
   kana: うれる0
-  meaning: 好卖；畅销
+  meaning: 畅销；卖得好；出名
   pos:
   - 动词1
   - 自动词
@@ -2279,7 +2279,7 @@
 - id: 447
   kanji: 受ける
   kana: うける2
-  meaning: 接受；承接；受欢迎
+  meaning: 接受；参加；受欢迎
   pos:
   - 动词1
   - 他动词
@@ -2295,7 +2295,7 @@
 - id: 449
   kanji: 腕
   kana: うで2
-  meaning: 胳膊；手腕；本领
+  meaning: 胳膊；手臂；本领
   pos:
   - 名词
   category: null
@@ -2323,14 +2323,14 @@
 - id: 454
   kanji: 通り
   kana: とおり3
-  meaning: 大街；马路；往来
+  meaning: 大街；马路；道路
   pos:
   - 名词
   category: null
 - id: 455
   kanji: 大事
   kana: だいじ(名)1,3,(形動)0,3
-  meaning: 重要；要紧
+  meaning: 重要；要紧；珍贵
   pos:
   - 名词
   - 形容动词
@@ -2338,7 +2338,7 @@
 - id: 456
   kanji: 助ける
   kana: たすける3
-  meaning: 帮助
+  meaning: 帮助；救助；帮忙
   pos:
   - 他动词
   category: null
@@ -2373,14 +2373,14 @@
 - id: 463
   kanji: 買う
   kana: かう0
-  meaning: 买
+  meaning: 购买；承担；评价
   pos:
   - 他动词
   category: null
 - id: 464
   kanji: 飼う
   kana: かう1
-  meaning: 饲养
+  meaning: 饲养；养（动物）
   pos:
   - 他动词
   category: null
@@ -2394,7 +2394,7 @@
 - id: 466
   kanji: 叶う
   kana: かなう2
-  meaning: 实现
+  meaning: 实现；如愿；比得上
   pos:
   - 自动词
   category: null
