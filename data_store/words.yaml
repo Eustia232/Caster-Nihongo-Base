@@ -2455,3 +2455,45 @@
   pos:
   - 名词
   category: null
+- id: 475
+  kanji: ''
+  kana: ユーモア1,0
+  meaning: 幽默
+  pos:
+  - 名词
+  category: null
+- id: 476
+  kanji: 必ず
+  kana: かならず0
+  meaning: 一定，必定
+  pos:
+  - 副词
+  category: null
+- id: 477
+  kanji: ''
+  kana: ルール1
+  meaning: 规则
+  pos:
+  - 名词
+  category: null
+- id: 478
+  kanji: 床
+  kana: ゆか0
+  meaning: 地板
+  pos:
+  - 名词
+  category: null
+- id: 479
+  kanji: 訳
+  kana: やく1,2
+  meaning: 翻译
+  pos:
+  - 名词
+  category: null
+- id: 480
+  kanji: ''
+  kana: ロボット1,2
+  meaning: 机器人
+  pos:
+  - 名词
+  category: null
