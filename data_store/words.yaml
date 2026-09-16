@@ -2627,3 +2627,101 @@
   - 动词5
   - 他动词
   category: null
+- id: 505
+  kanji: 向こう
+  kana: むこう2,0
+  meaning: 对面；那边
+  pos:
+  - 名词
+  category: null
+- id: 506
+  kanji: 週
+  kana: しゅう1
+  meaning: 周；星期
+  pos:
+  - 名词
+  category: null
+- id: 507
+  kanji: 文章
+  kana: ぶんしょう1
+  meaning: 文章
+  pos:
+  - 名词
+  category: null
+- id: 508
+  kanji: お子さん
+  kana: おこさん0
+  meaning: （别人的）孩子
+  pos:
+  - 名词
+  category: null
+- id: 509
+  kanji: 布団
+  kana: ふとん0
+  meaning: 被子；被褥
+  pos:
+  - 名词
+  category: null
+- id: 510
+  kanji: 辺
+  kana: へん0
+  meaning: 附近；一带
+  pos:
+  - 名词
+  category: null
+- id: 511
+  kanji: 紅茶
+  kana: こうちゃ0
+  meaning: 红茶
+  pos:
+  - 名词
+  category: null
+- id: 512
+  kanji: 駅員
+  kana: えきいん2,0
+  meaning: 车站工作人员
+  pos:
+  - 名词
+  category: null
+- id: 513
+  kanji: 食事
+  kana: しょくじ0
+  meaning: 饭食；用餐
+  pos:
+  - 名词サ变
+  category: null
+- id: 514
+  kanji: 側
+  kana: かわ2
+  meaning: 旁边；身旁
+  pos:
+  - 名词
+  category: null
+- id: 515
+  kanji: 質問
+  kana: しつもん0
+  meaning: 问题；提问
+  pos:
+  - 名词サ变
+  category: null
+- id: 516
+  kanji: 夕方
+  kana: ゆうがた0
+  meaning: 傍晚
+  pos:
+  - 名词
+  category: null
+- id: 517
+  kanji: 医者
+  kana: いしゃ0
+  meaning: 医生
+  pos:
+  - 名词
+  category: null
+- id: 518
+  kanji: 牛肉
+  kana: ぎゅうにく0
+  meaning: 牛肉
+  pos:
+  - 名词
+  category: null
