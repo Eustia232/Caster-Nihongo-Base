@@ -2725,3 +2725,100 @@
   pos:
   - 名词
   category: null
+- id: 519
+  kanji: 引っ張る
+  kana: ひっぱる3
+  meaning: 拉；拽；牵
+  pos:
+  - 动词5
+  - 他动词
+  category: null
+- id: 520
+  kanji: 真面目
+  kana: まじめ0
+  meaning: 认真；正经；严肃
+  pos:
+  - 形容动词
+  category: null
+- id: 521
+  kanji: 交番
+  kana: こうばん0
+  meaning: 派出所；岗亭
+  pos:
+  - 名词
+  category: null
+- id: 522
+  kanji: 涙
+  kana: なみだ1
+  meaning: 眼泪；泪水
+  pos:
+  - 名词
+  category: null
+- id: 523
+  kanji: 輝く
+  kana: かがやく3
+  meaning: 闪耀；发光
+  pos:
+  - 动词5
+  - 自动词
+  category: null
+- id: 524
+  kanji: 席
+  kana: せき1
+  meaning: 座位；席位
+  pos:
+  - 名词
+  category: null
+- id: 525
+  kanji: 数学
+  kana: すうがく0
+  meaning: 数学
+  pos:
+  - 名词
+  category: null
+- id: 526
+  kanji: 緊張
+  kana: きんちょう0
+  meaning: 紧张
+  pos:
+  - 名词サ变
+  category: null
+- id: 527
+  kanji: 夕日
+  kana: ゆうひ0
+  meaning: 夕阳；落日
+  pos:
+  - 名词
+  category: null
+- id: 528
+  kanji: 尋ねる
+  kana: たずねる3
+  meaning: 询问；打听
+  pos:
+  - 动词1
+  - 他动词
+  category: null
+- id: 529
+  kanji: 開く
+  kana: ひらく2
+  meaning: 开；召开（会议等）；开放
+  pos:
+  - 动词5
+  - 他动词
+  category: null
+- id: 530
+  kanji: 解く
+  kana: とく1
+  meaning: 解开；解答；解除
+  pos:
+  - 动词5
+  - 他动词
+  category: null
+- id: 531
+  kanji: 悩む
+  kana: なやむ2
+  meaning: 烦恼；苦恼
+  pos:
+  - 动词5
+  - 自动词
+  category: null
