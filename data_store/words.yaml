@@ -2581,3 +2581,49 @@
   pos:
   - 名词
   category: null
+- id: 493
+  kanji: 見上げる
+  kana: みあげる0,3
+  meaning: 仰望；抬头看
+  pos:
+  - 动词1
+  - 他动词
+  category: null
+- id: 494
+  kanji: 嫌う
+  kana: きらう0
+  meaning: 讨厌；厌恶
+  pos:
+  - 动词5
+  - 他动词
+  category: null
+- id: 495
+  kanji: 気持ち
+  kana: きもち0
+  meaning: 心情；感受
+  pos:
+  - 名词
+  category: null
+- id: 496
+  kanji: 謝る
+  kana: あやまる3
+  meaning: 道歉；认错
+  pos:
+  - 动词5
+  - 他动词
+  category: null
+- id: 497
+  kanji: ''
+  kana: ずるい2
+  meaning: 狡猾的
+  pos:
+  - 形容词
+  category: null
+- id: 498
+  kanji: ''
+  kana: しまう0
+  meaning: 收拾；收起来
+  pos:
+  - 动词5
+  - 他动词
+  category: null
