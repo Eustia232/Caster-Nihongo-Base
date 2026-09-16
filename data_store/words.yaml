@@ -2822,3 +2822,87 @@
   - 动词5
   - 自动词
   category: null
+- id: 545
+  kanji: ''
+  kana: シャツ1
+  meaning: 衬衫
+  pos:
+  - 名词
+  category: null
+- id: 546
+  kanji: 息
+  kana: いき1
+  meaning: 呼吸；气息
+  pos:
+  - 名词
+  category: null
+- id: 547
+  kanji: 耳元
+  kana: みみもと0,3
+  meaning: 耳边；耳旁
+  pos:
+  - 名词
+  category: null
+- id: 548
+  kanji: 満足
+  kana: まんぞく1
+  meaning: 满足；满意
+  pos:
+  - 名词サ变
+  category: null
+- id: 549
+  kanji: 招く
+  kana: まねく2
+  meaning: 招待；邀请；招致
+  pos:
+  - 动词5
+  - 他动词
+  category: null
+- id: 550
+  kanji: 漂う
+  kana: ただよう3
+  meaning: 飘荡；弥漫；洋溢
+  pos:
+  - 动词5
+  - 自动词
+  category: null
+- id: 551
+  kanji: 落とす
+  kana: おとす2
+  meaning: 使落下；弄丢
+  pos:
+  - 动词5
+  - 他动词
+  category: null
+- id: 552
+  kanji: 逸らす
+  kana: そらす2
+  meaning: 移开；避开（视线等）
+  pos:
+  - 动词5
+  - 他动词
+  category: null
+- id: 553
+  kanji: 触る
+  kana: さわる0
+  meaning: 摸；触碰
+  pos:
+  - 动词5
+  - 自动词
+  category: null
+- id: 554
+  kanji: 絡み合う
+  kana: からみあう4,0
+  meaning: 缠绕；交织；纠缠
+  pos:
+  - 动词5
+  - 自动词
+  category: null
+- id: 555
+  kanji: 響く
+  kana: ひびく2
+  meaning: 响；回响；影响到
+  pos:
+  - 动词5
+  - 自动词
+  category: null
