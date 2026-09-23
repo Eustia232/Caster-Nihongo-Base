@@ -1032,13 +1032,13 @@
     "archived_reason": "auto:6_consecutive"
   },
   "152": {
-    "stability": 8.418651292110802,
-    "difficulty": 9.76379726048954,
-    "due": "2026-09-23T03:45:02.003527Z",
-    "last_review": "2026-09-14T03:45:02.003527Z",
+    "stability": 16.139520647257076,
+    "difficulty": 9.670097681289644,
+    "due": "2026-10-07T09:10:32.717116Z",
+    "last_review": "2026-09-23T09:10:32.717116Z",
     "step": null,
     "state": 2,
-    "consecutive_successes": 2,
+    "consecutive_successes": 3,
     "archived": false,
     "archived_at": null,
     "archived_reason": null
@@ -2076,13 +2076,13 @@
     "archived_reason": null
   },
   "241": {
-    "stability": 0.9000765556921685,
-    "difficulty": 9.768462132239003,
-    "due": "2026-09-23T01:45:58.792837Z",
-    "last_review": "2026-09-22T08:45:58.792837Z",
+    "stability": 2.126200286796451,
+    "difficulty": 9.676321335794754,
+    "due": "2026-09-25T09:10:32.717116Z",
+    "last_review": "2026-09-23T09:10:32.717116Z",
     "step": null,
-    "state": 3,
-    "consecutive_successes": 0,
+    "state": 2,
+    "consecutive_successes": 1,
     "archived": false,
     "archived_at": null,
     "archived_reason": null
@@ -2652,10 +2652,10 @@
     "archived_reason": null
   },
   "292": {
-    "stability": 1.438090625485576,
-    "difficulty": 9.885312964861141,
-    "due": "2026-09-23T01:45:58.792837Z",
-    "last_review": "2026-09-22T08:45:58.792837Z",
+    "stability": 0.3863471045632927,
+    "difficulty": 9.947531520718533,
+    "due": "2026-09-24T02:10:32.717116Z",
+    "last_review": "2026-09-23T09:10:32.717116Z",
     "step": null,
     "state": 3,
     "consecutive_successes": 0,
@@ -3228,13 +3228,13 @@
     "archived_reason": null
   },
   "373": {
-    "stability": 0.39027114372415633,
-    "difficulty": 9.9017890112182,
-    "due": "2026-09-23T01:45:58.792837Z",
-    "last_review": "2026-09-22T08:45:58.792837Z",
+    "stability": 1.3090043506536124,
+    "difficulty": 9.854199844696238,
+    "due": "2026-09-24T09:10:32.717116Z",
+    "last_review": "2026-09-23T09:10:32.717116Z",
     "step": null,
-    "state": 3,
-    "consecutive_successes": 0,
+    "state": 2,
+    "consecutive_successes": 1,
     "archived": false,
     "archived_at": null,
     "archived_reason": null
@@ -3528,13 +3528,13 @@
     "archived_reason": null
   },
   "402": {
-    "stability": 12.652879008605533,
-    "difficulty": 9.596202682529416,
-    "due": "2026-09-22T10:01:22.821069Z",
-    "last_review": "2026-09-07T10:01:22.821069Z",
+    "stability": 1.5348504130407994,
+    "difficulty": 9.852502936866015,
+    "due": "2026-09-24T02:10:32.717116Z",
+    "last_review": "2026-09-23T09:10:32.717116Z",
     "step": null,
-    "state": 2,
-    "consecutive_successes": 4,
+    "state": 3,
+    "consecutive_successes": 0,
     "archived": false,
     "archived_at": null,
     "archived_reason": null
@@ -3564,10 +3564,10 @@
     "archived_reason": null
   },
   "406": {
-    "stability": 1.026984868122934,
-    "difficulty": 9.929655489386205,
-    "due": "2026-09-23T01:45:58.792837Z",
-    "last_review": "2026-09-22T08:45:58.792837Z",
+    "stability": 0.3092084315534953,
+    "difficulty": 9.962106607000756,
+    "due": "2026-09-24T02:10:32.717116Z",
+    "last_review": "2026-09-23T09:10:32.717116Z",
     "step": null,
     "state": 3,
     "consecutive_successes": 0,
@@ -4056,13 +4056,13 @@
     "archived_reason": null
   },
   "473": {
-    "stability": 4.5164030795130286,
-    "difficulty": 9.358565087022798,
-    "due": "2026-09-22T10:14:18.586360Z",
-    "last_review": "2026-09-18T10:14:18.586360Z",
+    "stability": 9.845175591215257,
+    "difficulty": 9.1294557992696,
+    "due": "2026-10-03T09:10:32.717116Z",
+    "last_review": "2026-09-23T09:10:32.717116Z",
     "step": null,
     "state": 2,
-    "consecutive_successes": 2,
+    "consecutive_successes": 3,
     "archived": false,
     "archived_at": null,
     "archived_reason": null
@@ -4104,13 +4104,13 @@
     "archived_reason": null
   },
   "480": {
-    "stability": 1.9409423864413307,
-    "difficulty": 7.875451645700947,
-    "due": "2026-09-23T01:45:58.792837Z",
-    "last_review": "2026-09-22T08:45:58.792837Z",
+    "stability": 5.236782100301537,
+    "difficulty": 7.1507549589443515,
+    "due": "2026-09-29T09:10:32.717116Z",
+    "last_review": "2026-09-23T09:10:32.717116Z",
     "step": null,
-    "state": 3,
-    "consecutive_successes": 0,
+    "state": 2,
+    "consecutive_successes": 1,
     "archived": false,
     "archived_at": null,
     "archived_reason": null
@@ -4332,13 +4332,13 @@
     "archived_reason": null
   },
   "516": {
-    "stability": 0.1449652583364814,
-    "difficulty": 9.44205284832859,
-    "due": "2026-09-23T08:45:58.792837Z",
-    "last_review": "2026-09-22T08:45:58.792837Z",
+    "stability": 1.058274871586145,
+    "difficulty": 9.24084127987411,
+    "due": "2026-09-24T09:10:32.717116Z",
+    "last_review": "2026-09-23T09:10:32.717116Z",
     "step": null,
     "state": 2,
-    "consecutive_successes": 1,
+    "consecutive_successes": 2,
     "archived": false,
     "archived_at": null,
     "archived_reason": null
@@ -4368,13 +4368,13 @@
     "archived_reason": null
   },
   "494": {
-    "stability": 8.2956,
+    "stability": 60.28892780734585,
     "difficulty": 1.0,
-    "due": "2026-09-23T07:28:28.493812Z",
-    "last_review": "2026-09-16T07:28:28.493812Z",
+    "due": "2026-11-19T09:10:32.717116Z",
+    "last_review": "2026-09-23T09:10:32.717116Z",
     "step": null,
     "state": 2,
-    "consecutive_successes": 1,
+    "consecutive_successes": 2,
     "archived": false,
     "archived_at": null,
     "archived_reason": null
@@ -4392,13 +4392,13 @@
     "archived_reason": null
   },
   "505": {
-    "stability": 8.2956,
+    "stability": 60.28892780734585,
     "difficulty": 1.0,
-    "due": "2026-09-23T07:28:28.493812Z",
-    "last_review": "2026-09-16T07:28:28.493812Z",
+    "due": "2026-11-25T09:10:32.717116Z",
+    "last_review": "2026-09-23T09:10:32.717116Z",
     "step": null,
     "state": 2,
-    "consecutive_successes": 1,
+    "consecutive_successes": 2,
     "archived": false,
     "archived_at": null,
     "archived_reason": null
@@ -4464,13 +4464,13 @@
     "archived_reason": null
   },
   "518": {
-    "stability": 8.2956,
+    "stability": 60.28892780734585,
     "difficulty": 1.0,
-    "due": "2026-09-23T07:41:30.771169Z",
-    "last_review": "2026-09-16T07:41:30.771169Z",
+    "due": "2026-11-24T09:10:32.717116Z",
+    "last_review": "2026-09-23T09:10:32.717116Z",
     "step": null,
     "state": 2,
-    "consecutive_successes": 1,
+    "consecutive_successes": 2,
     "archived": false,
     "archived_at": null,
     "archived_reason": null
@@ -4536,13 +4536,13 @@
     "archived_reason": null
   },
   "554": {
-    "stability": 3.348709732599786,
-    "difficulty": 5.200020369516838,
-    "due": "2026-09-23T03:52:51.209630Z",
-    "last_review": "2026-09-20T03:52:51.209630Z",
+    "stability": 0.7367390854842125,
+    "difficulty": 8.40750770461851,
+    "due": "2026-09-24T02:10:32.717116Z",
+    "last_review": "2026-09-23T09:10:32.717116Z",
     "step": null,
-    "state": 2,
-    "consecutive_successes": 1,
+    "state": 3,
+    "consecutive_successes": 0,
     "archived": false,
     "archived_at": null,
     "archived_reason": null
@@ -4560,10 +4560,10 @@
     "archived_reason": null
   },
   "528": {
-    "stability": 0.3450249826240538,
-    "difficulty": 9.456905135089718,
-    "due": "2026-09-23T02:42:30.912419Z",
-    "last_review": "2026-09-22T09:42:30.912419Z",
+    "stability": 0.13138252914653498,
+    "difficulty": 9.80671678024591,
+    "due": "2026-09-24T02:10:32.717116Z",
+    "last_review": "2026-09-23T09:10:32.717116Z",
     "step": null,
     "state": 3,
     "consecutive_successes": 0,
@@ -4596,13 +4596,13 @@
     "archived_reason": null
   },
   "550": {
-    "stability": 0.12039082007241815,
-    "difficulty": 9.44205284832859,
-    "due": "2026-09-23T08:45:58.792837Z",
-    "last_review": "2026-09-22T08:45:58.792837Z",
+    "stability": 0.9614633938170772,
+    "difficulty": 9.24084127987411,
+    "due": "2026-09-24T09:10:32.717116Z",
+    "last_review": "2026-09-23T09:10:32.717116Z",
     "step": null,
     "state": 2,
-    "consecutive_successes": 1,
+    "consecutive_successes": 2,
     "archived": false,
     "archived_at": null,
     "archived_reason": null
@@ -4620,13 +4620,13 @@
     "archived_reason": null
   },
   "552": {
-    "stability": 0.04623151882660977,
-    "difficulty": 9.592868765339693,
-    "due": "2026-09-23T01:45:58.792837Z",
-    "last_review": "2026-09-22T08:45:58.792837Z",
+    "stability": 0.5132742678191249,
+    "difficulty": 9.44205284832859,
+    "due": "2026-09-24T09:10:32.717116Z",
+    "last_review": "2026-09-23T09:10:32.717116Z",
     "step": null,
-    "state": 1,
-    "consecutive_successes": 0,
+    "state": 2,
+    "consecutive_successes": 1,
     "archived": false,
     "archived_at": null,
     "archived_reason": null
@@ -4668,13 +4668,13 @@
     "archived_reason": null
   },
   "549": {
-    "stability": 0.21206543842211434,
-    "difficulty": 8.39265541785738,
-    "due": "2026-09-23T08:45:58.792837Z",
-    "last_review": "2026-09-22T08:45:58.792837Z",
+    "stability": 0.09925695888838457,
+    "difficulty": 9.456905135089718,
+    "due": "2026-09-24T02:10:32.717116Z",
+    "last_review": "2026-09-23T09:10:32.717116Z",
     "step": null,
-    "state": 2,
-    "consecutive_successes": 1,
+    "state": 3,
+    "consecutive_successes": 0,
     "archived": false,
     "archived_at": null,
     "archived_reason": null
@@ -4740,13 +4740,13 @@
     "archived_reason": null
   },
   "523": {
-    "stability": 0.041653895716353896,
-    "difficulty": 9.592868765339693,
-    "due": "2026-09-23T01:45:58.792837Z",
-    "last_review": "2026-09-22T08:45:58.792837Z",
+    "stability": 0.4822344508177689,
+    "difficulty": 9.44205284832859,
+    "due": "2026-09-24T09:10:32.717116Z",
+    "last_review": "2026-09-23T09:10:32.717116Z",
     "step": null,
-    "state": 1,
-    "consecutive_successes": 0,
+    "state": 2,
+    "consecutive_successes": 1,
     "archived": false,
     "archived_at": null,
     "archived_reason": null
@@ -4812,13 +4812,13 @@
     "archived_reason": null
   },
   "521": {
-    "stability": 0.08335671711031604,
-    "difficulty": 8.806304468856837,
-    "due": "2026-09-23T01:45:58.792837Z",
-    "last_review": "2026-09-22T08:45:58.792837Z",
+    "stability": 1.0770947135340145,
+    "difficulty": 8.39265541785738,
+    "due": "2026-09-24T09:10:32.717116Z",
+    "last_review": "2026-09-23T09:10:32.717116Z",
     "step": null,
-    "state": 1,
-    "consecutive_successes": 0,
+    "state": 2,
+    "consecutive_successes": 1,
     "archived": false,
     "archived_at": null,
     "archived_reason": null
