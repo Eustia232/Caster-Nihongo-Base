@@ -2906,3 +2906,115 @@
   - 动词5
   - 自动词
   category: null
+- id: 557
+  kanji: 弾く
+  kana: ひく0
+  meaning: 弹；弹奏（乐器）
+  pos:
+  - 动词5
+  - 他动词
+  category: null
+- id: 558
+  kanji: ''
+  kana: なる1
+  meaning: 变成；成为
+  pos:
+  - 动词5
+  - 自动词
+  category: null
+- id: 559
+  kanji: 被る
+  kana: かぶる2
+  meaning: 戴（帽子等）；蒙受
+  pos:
+  - 动词5
+  - 他动词
+  category: null
+- id: 561
+  kanji: ''
+  kana: いただく0
+  meaning: 得到；领受；吃；喝（自谦语）
+  pos:
+  - 动词5
+  - 他动词
+  category: null
+- id: 562
+  kanji: 鳴く
+  kana: なく0
+  meaning: （鸟兽虫）叫；鸣叫
+  pos:
+  - 动词5
+  - 自动词
+  category: null
+- id: 563
+  kanji: 造る
+  kana: つくる2
+  meaning: 建造；制造；酿造
+  pos:
+  - 动词5
+  - 他动词
+  category: null
+- id: 564
+  kanji: 曲がる
+  kana: まがる0
+  meaning: 拐弯；弯曲
+  pos:
+  - 动词5
+  - 自动词
+  category: null
+- id: 565
+  kanji: ''
+  kana: やる0
+  meaning: 做；干；给予（口语）
+  pos:
+  - 动词5
+  - 他动词
+  category: null
+- id: 566
+  kanji: 消す
+  kana: けす0
+  meaning: 熄灭；关掉；擦掉
+  pos:
+  - 动词5
+  - 他动词
+  category: null
+- id: 567
+  kanji: 頼む
+  kana: たのむ2
+  meaning: 请求；委托；拜托
+  pos:
+  - 动词5
+  - 他动词
+  category: null
+- id: 568
+  kanji: 掛かる
+  kana: かかる2
+  meaning: 挂；花费（时间、金钱）
+  pos:
+  - 动词5
+  - 自动词
+  category: null
+- id: 569
+  kanji: 貸す
+  kana: かす0
+  meaning: 借出；借给
+  pos:
+  - 动词5
+  - 他动词
+  category: null
+- id: 571
+  kanji: 曇る
+  kana: くもる2
+  meaning: 天阴；（玻璃等）变模糊
+  pos:
+  - 动词5
+  - 自动词
+  category: null
+- id: 572
+  kanji: 吸う
+  kana: すう0
+  meaning: 吸；吸入；吸烟
+  pos:
+  - 动词5
+  - 他动词
+  category: null
