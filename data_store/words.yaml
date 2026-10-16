@@ -3018,3 +3018,101 @@
   - 动词5
   - 他动词
   category: null
+- id: 573
+  kanji: 鍵
+  kana: かぎ2
+  meaning: 钥匙；锁
+  pos:
+  - 名词
+  category: null
+- id: 574
+  kanji: 片仮名
+  kana: かたかな3
+  meaning: 片假名
+  pos:
+  - 名词
+  category: null
+- id: 575
+  kanji: 雑誌
+  kana: ざっし0
+  meaning: 杂志
+  pos:
+  - 名词
+  category: null
+- id: 576
+  kanji: お客さん
+  kana: おきゃくさん0
+  meaning: 客人；顾客
+  pos:
+  - 名词
+  category: null
+- id: 577
+  kanji: お弁当
+  kana: おべんとう0
+  meaning: 盒饭；便当
+  pos:
+  - 名词
+  category: null
+- id: 578
+  kanji: 日曜日
+  kana: にちようび3
+  meaning: 星期日
+  pos:
+  - 名词
+  category: null
+- id: 579
+  kanji: 鼻
+  kana: はな0
+  meaning: 鼻子
+  pos:
+  - 名词
+  category: null
+- id: 580
+  kanji: お風呂
+  kana: おふろ2
+  meaning: 浴池；洗澡
+  pos:
+  - 名词
+  category: null
+- id: 581
+  kanji: 半
+  kana: はん1
+  meaning: 半；一半
+  pos:
+  - 名词
+  category: null
+- id: 582
+  kanji: 漢字
+  kana: かんじ0
+  meaning: 汉字
+  pos:
+  - 名词
+  category: null
+- id: 583
+  kanji: 小学校
+  kana: しょうがっこう3
+  meaning: 小学
+  pos:
+  - 名词
+  category: null
+- id: 584
+  kanji: 音楽会
+  kana: おんがっかい3
+  meaning: 音乐会
+  pos:
+  - 名词
+  category: null
+- id: 585
+  kanji: 果物屋
+  kana: くだものや0,4
+  meaning: 水果店
+  pos:
+  - 名词
+  category: null
+- id: 586
+  kanji: 留学
+  kana: りゅうがく0
+  meaning: 留学
+  pos:
+  - 名词サ变
+  category: null
