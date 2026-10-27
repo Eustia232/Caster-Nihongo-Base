@@ -3116,3 +3116,102 @@
   pos:
   - 名词サ变
   category: null
+- id: 587
+  kanji: 中学生
+  kana: ちゅうがくせい3,4
+  meaning: 中学生
+  pos:
+  - 名词
+  category: null
+- id: 588
+  kanji: 今週
+  kana: こんしゅう0
+  meaning: 本周；这周
+  pos:
+  - 名词
+  category: null
+- id: 589
+  kanji: 昔
+  kana: むかし0
+  meaning: 从前；以前；过去
+  pos:
+  - 名词
+  category: null
+- id: 590
+  kanji: 風呂
+  kana: ふろ2,1
+  meaning: 澡堂；浴池；洗澡水
+  pos:
+  - 名词
+  category: null
+- id: 591
+  kanji: 零
+  kana: れい1
+  meaning: 零；〇
+  pos:
+  - 名词
+  category: null
+- id: 592
+  kanji: ''
+  kana: そば1
+  meaning: 荞麦面；旁边
+  pos:
+  - 名词
+  category: null
+- id: 593
+  kanji: 静か
+  kana: しずか1
+  meaning: 安静；平静
+  pos:
+  - 形容动词
+  category: null
+- id: 594
+  kanji: 大変
+  kana: たいへん0
+  meaning: 非常；厉害；辛苦
+  pos:
+  - 形容动词
+  - 副词
+  category: null
+- id: 595
+  kanji: ''
+  kana: ひらがな3
+  meaning: 平假名
+  pos:
+  - 名词
+  category: null
+- id: 596
+  kanji: 封筒
+  kana: ふうとう0
+  meaning: 信封
+  pos:
+  - 名词
+  category: null
+- id: 597
+  kanji: 病気
+  kana: びょうき0
+  meaning: 疾病；生病
+  pos:
+  - 名词
+  category: null
+- id: 598
+  kanji: 皿
+  kana: さら0
+  meaning: 盘子；碟子
+  pos:
+  - 名词
+  category: null
+- id: 599
+  kanji: 縦
+  kana: たて1
+  meaning: 纵；竖；纵向
+  pos:
+  - 名词
+  category: null
+- id: 600
+  kanji: 東側
+  kana: ひがしがわ0
+  meaning: 东侧；东边
+  pos:
+  - 名词
+  category: null
