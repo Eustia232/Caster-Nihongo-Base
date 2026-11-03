@@ -3215,3 +3215,75 @@
   pos:
   - 名词
   category: null
+- id: 601
+  kanji: 穿く
+  kana: はく0
+  meaning: 穿（鞋袜、下装）
+  pos:
+  - 动词5
+  - 他动词
+  category: null
+- id: 602
+  kanji: 探す
+  kana: さがす0
+  meaning: 寻找；搜寻
+  pos:
+  - 动词5
+  - 他动词
+  category: null
+- id: 603
+  kanji: 履く
+  kana: はく0
+  meaning: 穿（鞋、袜、裤等）
+  pos:
+  - 动词5
+  - 他动词
+  category: null
+- id: 604
+  kanji: 渡る
+  kana: わたる0
+  meaning: 渡过；横穿
+  pos:
+  - 动词5
+  - 自动词
+  category: null
+- id: 605
+  kanji: 習う
+  kana: ならう2
+  meaning: 学习；（向人）学
+  pos:
+  - 动词5
+  - 他动词
+  category: null
+- id: 606
+  kanji: 咲く
+  kana: さく0
+  meaning: （花）开；绽放
+  pos:
+  - 动词5
+  - 自动词
+  category: null
+- id: 607
+  kanji: 洗う
+  kana: あらう0
+  meaning: 洗；洗涤
+  pos:
+  - 动词5
+  - 他动词
+  category: null
+- id: 609
+  kanji: ''
+  kana: もらう0
+  meaning: 得到；收到
+  pos:
+  - 动词5
+  - 他动词
+  category: null
+- id: 610
+  kanji: 見える
+  kana: みえる2
+  meaning: 看得见；能看见
+  pos:
+  - 动词1
+  - 自动词
+  category: null
