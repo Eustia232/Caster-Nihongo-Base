@@ -3287,3 +3287,107 @@
   - 动词1
   - 自动词
   category: null
+- id: 611
+  kanji: 出る
+  kana: でる1
+  meaning: 出去；出来；离开
+  pos:
+  - 动词1
+  - 自动词
+  category: null
+- id: 612
+  kanji: 出かける
+  kana: でかける0
+  meaning: 外出；出门
+  pos:
+  - 动词1
+  - 自动词
+  category: null
+- id: 613
+  kanji: 始める
+  kana: はじめる0
+  meaning: 开始；着手
+  pos:
+  - 动词1
+  - 他动词
+  category: null
+- id: 615
+  kanji: 付ける
+  kana: つける2
+  meaning: 附加；安装；涂抹
+  pos:
+  - 动词1
+  - 他动词
+  category: null
+- id: 616
+  kanji: 浴びる
+  kana: あびる0
+  meaning: 淋浴；遭受（阳光、批评等）
+  pos:
+  - 动词1
+  - 他动词
+  category: null
+- id: 618
+  kanji: 答える
+  kana: こたえる3,2
+  meaning: 回答；答复
+  pos:
+  - 动词1
+  - 自动词
+  category: null
+- id: 619
+  kanji: 教える
+  kana: おしえる0
+  meaning: 教；告诉
+  pos:
+  - 动词1
+  - 他动词
+  category: null
+- id: 620
+  kanji: 聞こえる
+  kana: きこえる0
+  meaning: 听得见；能听到
+  pos:
+  - 动词1
+  - 自动词
+  category: null
+- id: 621
+  kanji: 生まれる
+  kana: うまれる0
+  meaning: 出生；产生
+  pos:
+  - 动词1
+  - 自动词
+  category: null
+- id: 622
+  kanji: 覚える
+  kana: おぼえる3
+  meaning: 记住；学会
+  pos:
+  - 动词1
+  - 他动词
+  category: null
+- id: 623
+  kanji: 降りる
+  kana: おりる2
+  meaning: 下（车、楼）；下来
+  pos:
+  - 动词1
+  - 自动词
+  category: null
+- id: 624
+  kanji: 捨てる
+  kana: すてる0
+  meaning: 扔掉；抛弃
+  pos:
+  - 动词1
+  - 他动词
+  category: null
+- id: 625
+  kanji: 閉める
+  kana: しめる2
+  meaning: 关闭；合上
+  pos:
+  - 动词1
+  - 他动词
+  category: null
