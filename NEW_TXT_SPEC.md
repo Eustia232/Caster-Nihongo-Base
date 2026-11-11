@@ -3,6 +3,7 @@ new.txt import format
 
 Purpose
 - Short machine-readable specification for `new.txt` files used to import words.
+- 声明：本文件是自包含的规范。参考本文件来编写、校验或导入 `new.txt` 时，不需要阅读仓库源代码；只需按本文件列出的字段、格式与规则执行即可。
 
 Format
 - Each non-empty line is a single word record. Fields are separated by `|` (pipe).
