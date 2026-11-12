@@ -3391,3 +3391,94 @@
   - 动词1
   - 他动词
   category: null
+- id: 626
+  kanji: 掛ける
+  kana: かける2
+  meaning: 挂；悬挂；打电话；戴（眼镜）
+  pos:
+  - 动词1
+  - 他动词
+  category: null
+- id: 627
+  kanji: 消える
+  kana: きえる0
+  meaning: 熄灭；消失
+  pos:
+  - 动词1
+  - 自动词
+  category: null
+- id: 628
+  kanji: 寝る
+  kana: ねる0
+  meaning: 睡觉；就寝
+  pos:
+  - 动词1
+  - 自动词
+  category: null
+- id: 629
+  kanji: 晴れる
+  kana: はれる2
+  meaning: 天晴；放晴
+  pos:
+  - 动词1
+  - 自动词
+  category: null
+- id: 630
+  kanji: 見せる
+  kana: みせる2
+  meaning: 给…看；出示；展示
+  pos:
+  - 动词1
+  - 他动词
+  category: null
+- id: 631
+  kanji: 締める
+  kana: しめる2
+  meaning: 系紧；拧紧；握紧
+  pos:
+  - 动词1
+  - 他动词
+  category: null
+- id: 632
+  kanji: 並べる
+  kana: ならべる0
+  meaning: 排列；摆放；列举
+  pos:
+  - 动词1
+  - 他动词
+  category: null
+- id: 634
+  kanji: ''
+  kana: もちろん2
+  meaning: 当然；不用说
+  pos:
+  - 副词
+  category: null
+- id: 635
+  kanji: 少し
+  kana: すこし2
+  meaning: 一点；少许；稍微
+  pos:
+  - 副词
+  category: null
+- id: 636
+  kanji: 大勢
+  kana: おおぜい3
+  meaning: 很多（人）；大群（人）
+  pos:
+  - 名词
+  category: null
+- id: 637
+  kanji: 少しも
+  kana: すこしも2,0
+  meaning: （后接否定）一点也不；丝毫不
+  pos:
+  - 副词
+  category: null
+- id: 638
+  kanji: ''
+  kana: だんだん0,1
+  meaning: 渐渐地；逐渐
+  pos:
+  - 副词
+  category: null
