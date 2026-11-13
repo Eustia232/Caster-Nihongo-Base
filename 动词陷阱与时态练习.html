@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>动词陷阱特训：长得像一段的五段动词 ＋ 时态语境填空</title>
+<style>
+  :root{
+    --bg:#f6f7fb; --card:#ffffff; --ink:#2b2f36; --muted:#6b7280;
+    --line:#e5e7eb; --accent:#7c3aed; --accent-soft:#f5f3ff;
+    --g1:#2e7d32; --g1-bg:#e8f5e9;
+    --g5:#1565c0; --g5-bg:#e3f2fd;
+    --sp:#b91c1c; --sp-bg:#fee2e2;
+    --ok:#16a34a; --ok-bg:#dcfce7;
+    --ng:#dc2626; --ng-bg:#fee2e2;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic","Noto Sans CJK JP","Noto Sans SC","Microsoft YaHei",sans-serif;
+    line-height:1.75;
+  }
+  .wrap{max-width:920px; margin:0 auto; padding:24px 16px 80px;}
+  header.top{
+    background:linear-gradient(135deg,#4c1d95,#7c3aed 60%,#8b5cf6);
+    color:#fff; border-radius:16px; padding:28px 28px 24px; margin-bottom:20px;
+  }
+  header.top h1{margin:0 0 8px; font-size:25px;}
+  header.top p{margin:4px 0; opacity:.92; font-size:14.5px;}
+  .jp{font-family:"Hiragino Mincho ProN","Yu Mincho","Noto Serif CJK JP",serif;}
+  section.card{
+    background:var(--card); border:1px solid var(--line); border-radius:14px;
+    padding:22px 24px; margin:18px 0; box-shadow:0 1px 3px rgba(0,0,0,.04);
+  }
+  h2{font-size:20px; margin:0 0 14px; padding-bottom:8px; border-bottom:2px solid var(--line);}
+  h2 .num{display:inline-block; background:var(--accent); color:#fff; border-radius:8px;
+    font-size:14px; padding:1px 10px; margin-right:10px; vertical-align:2px;}
+  h3{font-size:16.5px; margin:18px 0 8px;}
+  p{margin:8px 0; font-size:15px;}
+  table{border-collapse:collapse; width:100%; margin:10px 0 14px; font-size:14.5px;}
+  th,td{border:1px solid var(--line); padding:7px 10px; text-align:left; vertical-align:top;}
+  th{background:#f3f4f6; font-weight:600; white-space:nowrap;}
+  .badge{display:inline-block; border-radius:6px; padding:1px 9px; font-size:12.5px; font-weight:600; margin-right:6px;}
+  .b1{color:var(--g1); background:var(--g1-bg);}
+  .b5{color:var(--g5); background:var(--g5-bg);}
+  .bsp{color:var(--sp); background:var(--sp-bg);}
+  .star{display:inline-block; background:#fef3c7; color:#92400e; border-radius:6px;
+    padding:0 7px; font-size:12px; font-weight:700; margin-left:6px;}
+  .note{border-left:4px solid var(--accent); background:var(--accent-soft);
+    border-radius:0 10px 10px 0; padding:10px 14px; margin:12px 0; font-size:14.5px;}
+  .warn{border-left:4px solid var(--sp); background:var(--sp-bg);
+    border-radius:0 10px 10px 0; padding:10px 14px; margin:12px 0; font-size:14.5px;}
+  .formula{background:#0f172a; color:#e2e8f0; border-radius:10px; padding:12px 16px;
+    font-size:15px; margin:10px 0; letter-spacing:.3px;}
+  .formula .hl{color:#fbbf24; font-weight:700;}
+  .pill{display:inline-block; background:#eef2ff; color:#3730a3; border-radius:999px;
+    padding:2px 12px; font-size:13px; margin:2px 4px 2px 0;}
+  .scorebar{position:sticky; top:0; z-index:5; background:rgba(255,255,255,.95);
+    border:1px solid var(--line); border-radius:12px; padding:10px 16px; margin:16px 0;
+    display:flex; align-items:center; gap:14px; flex-wrap:wrap;
+    box-shadow:0 2px 8px rgba(0,0,0,.06); backdrop-filter:blur(4px);}
+  .scorebar .big{font-size:18px; font-weight:700;}
+  .scorebar button{margin-left:auto; background:var(--accent); color:#fff; border:none;
+    border-radius:8px; padding:7px 16px; font-size:14px; cursor:pointer;}
+  .scorebar button:hover{filter:brightness(1.1);}
+  .qcard{border:1px solid var(--line); border-radius:12px; padding:16px 18px; margin:14px 0;}
+  .qhead{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap;}
+  .qno{font-weight:700; color:var(--accent);}
+  .qverb{font-size:16.5px; font-weight:700;}
+  .qsent{width:100%; margin-top:4px; font-size:15.5px;}
+  .opts{display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:10px;}
+  @media (max-width:560px){ .opts{grid-template-columns:1fr;} }
+  .opt{text-align:left; border:1.5px solid var(--line); background:#fafafa; border-radius:10px;
+    padding:9px 14px; font-size:15px; cursor:pointer; transition:.15s; font-family:inherit;}
+  .opt:hover:not(:disabled){border-color:var(--accent); background:var(--accent-soft);}
+  .opt:disabled{cursor:default; opacity:.85;}
+  .opt.correct{border-color:var(--ok); background:var(--ok-bg); font-weight:700;}
+  .opt.wrong{border-color:var(--ng); background:var(--ng-bg);}
+  .exp{display:none; margin-top:10px; background:#f8fafc; border:1px dashed var(--line);
+    border-radius:8px; padding:9px 13px; font-size:14px;}
+  .exp.show{display:block;}
+  .exp .verdict{font-weight:700;}
+  .exp .verdict.ok{color:var(--ok);}
+  .exp .verdict.ng{color:var(--ng);}
+  .final{display:none; background:var(--accent-soft); border:1px solid #ddd6fe;
+    border-radius:12px; padding:16px 20px; margin:16px 0; font-size:15.5px;}
+  footer{color:var(--muted); font-size:13px; text-align:center; margin-top:30px;}
+  .kchip{font-size:12.5px; color:var(--muted);}
+  @media print{ .scorebar{display:none;} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <h1>动词陷阱特训</h1>
+  <p>① 完整清单：长得像“动词1（一段）”但其实是“动词5（五段）”的动词 ｜ ② 陷阱动词选择题 ｜ ③ 时态语境填空（四个选项都对，只有一个符合语义）</p>
+  <p>配套：上一份基础讲解见 <span class="jp">动词变形练习.html</span>；例词尽量取自词库 <span class="jp">words.yaml</span>。</p>
+</header>
+
+<!-- ============ 1 完整清单 ============ -->
+<section class="card">
+  <h2><span class="num">1</span>完整清单：长得像“一段”的“五段”动词</h2>
+  <p>
+    一段动词的特征是「<b>る 前面是 い 段或 え 段假名</b>」。但日语里有一批五段动词偏偏也长这样——
+    如果按“一段”去变形（去 る 加 ます）就全错了。下面是<b>常用范围内的完整清单</b>；
+    <span class="star">★ 词库已有</span> 表示已收录在 <span class="jp">words.yaml</span>（共 4 个）。
+  </p>
+
+  <h3>る 前面是 <b>い 段</b>（き・し・ち・に・ひ・み・り…）</h3>
+  <table>
+    <tr><th>动词</th><th>读音</th><th>意思</th><th>ます形（看 ります！）</th><th>て形</th></tr>
+    <tr><td class="jp-cell">要る<span class="star">★ 词库已有</span></td><td class="jp-cell">いる</td><td>需要</td><td class="jp-cell">要ります</td><td class="jp-cell">要って</td></tr>
+    <tr><td class="jp-cell">入る<span class="star">★ 词库已有</span></td><td class="jp-cell">はいる</td><td>进入；加入</td><td class="jp-cell">入ります</td><td class="jp-cell">入って</td></tr>
+    <tr><td class="jp-cell">切る<span class="star">★ 词库已有</span></td><td class="jp-cell">きる</td><td>切；剪</td><td class="jp-cell">切ります</td><td class="jp-cell">切って</td></tr>
+    <tr><td class="jp-cell">走る<span class="star">★ 词库已有</span></td><td class="jp-cell">はしる</td><td>跑</td><td class="jp-cell">走ります</td><td class="jp-cell">走って</td></tr>
+    <tr><td class="jp-cell">知る</td><td class="jp-cell">しる</td><td>知道</td><td class="jp-cell">知ります</td><td class="jp-cell">知って</td></tr>
+    <tr><td class="jp-cell">散る</td><td class="jp-cell">ちる</td><td>（花）凋谢</td><td class="jp-cell">散ります</td><td class="jp-cell">散って</td></tr>
+    <tr><td class="jp-cell">帰る</td><td class="jp-cell">かえる</td><td>回去；回家</td><td class="jp-cell">帰ります</td><td class="jp-cell">帰って</td></tr>
+    <tr><td class="jp-cell">減る</td><td class="jp-cell">へる</td><td>减少</td><td class="jp-cell">減ります</td><td class="jp-cell">減って</td></tr>
+    <tr><td class="jp-cell">滑る</td><td class="jp-cell">すべる</td><td>打滑；滑</td><td class="jp-cell">滑ります</td><td class="jp-cell">滑って</td></tr>
+    <tr><td class="jp-cell">握る</td><td class="jp-cell">にぎる</td><td>握</td><td class="jp-cell">握ります</td><td class="jp-cell">握って</td></tr>
+    <tr><td class="jp-cell">参る</td><td class="jp-cell">まいる</td><td>（自谦）去；吃不消</td><td class="jp-cell">参ります</td><td class="jp-cell">参って</td></tr>
+    <tr><td class="jp-cell">照る</td><td class="jp-cell">てる</td><td>（太阳）照耀</td><td class="jp-cell">照ります</td><td class="jp-cell">照って</td></tr>
+    <tr><td class="jp-cell">混じる／交じる</td><td class="jp-cell">まじる</td><td>混杂（对比：一段 混ぜる“掺入”）</td><td class="jp-cell">混じります</td><td class="jp-cell">混じって</td></tr>
+    <tr><td class="jp-cell">齧る</td><td class="jp-cell">かじる</td><td>啃；略懂一点</td><td class="jp-cell">齧ります</td><td class="jp-cell">齧って</td></tr>
+    <tr><td class="jp-cell">捻る</td><td class="jp-cell">ひねる</td><td>拧；扭转</td><td class="jp-cell">捻ります</td><td class="jp-cell">捻って</td></tr>
+    <tr><td class="jp-cell">弄る</td><td class="jp-cell">いじる</td><td>摆弄；玩弄</td><td class="jp-cell">弄ります</td><td class="jp-cell">弄って</td></tr>
+    <tr><td class="jp-cell">罵る</td><td class="jp-cell">ののしる</td><td>骂</td><td class="jp-cell">罵ります</td><td class="jp-cell">罵って</td></tr>
+    <tr><td class="jp-cell">湿る</td><td class="jp-cell">しみる</td><td>受潮（对比：一段 錆びる“生锈”）</td><td class="jp-cell">湿ります</td><td class="jp-cell">湿って</td></tr>
+  </table>
+
+  <h3>る 前面是 <b>え 段</b>（这类陷阱少，但存在）</h3>
+  <p class="kchip">注意：え段＋る 的动词大部分仍是真正的一段（食べる・寝る・見せる・教える・開ける…），所以え段不能作为判断依据，只能记这几个特例。</p>
+  <table>
+    <tr><th>动词</th><th>读音</th><th>意思</th><th>ます形</th><th>て形</th></tr>
+    <tr><td class="jp-cell">蹴る</td><td class="jp-cell">ける</td><td>踢</td><td class="jp-cell">蹴ります</td><td class="jp-cell">蹴って</td></tr>
+    <tr><td class="jp-cell">焦る</td><td class="jp-cell">あせる</td><td>焦急</td><td class="jp-cell">焦ります</td><td class="jp-cell">焦って</td></tr>
+    <tr><td class="jp-cell">擦る</td><td class="jp-cell">すれる</td><td>擦；蹭</td><td class="jp-cell">擦ります</td><td class="jp-cell">擦って</td></tr>
+  </table>
+
+  <div class="warn">
+    <b>⚠️ 怎么判断？没有百分之百的形态规律，但有两个实用技巧：</b><br>
+    ① <b>看ます形</b>：接「<b>ります</b>」＝五段（切<b>り</b>ます），接「<b>ます</b>」＝一段（着ます・居ます）。听到或看到 ります 的动词，一定是五段。<br>
+    ② <b>短词要怀疑</b>：きる・いる・しる・へる・かえる 这类只有一个汉字、读起来很短的动词，容易是陷阱，直接背上面的清单最保险。
+  </div>
+</section>
+
+<!-- ============ 2 同音对比 ============ -->
+<section class="card">
+  <h2><span class="num">2</span>同音/近音对比：一类还是五类，读音一样但变形完全不同</h2>
+  <table>
+    <tr><th>读音</th><th><span class="badge b5">动词5</span>（陷阱）</th><th><span class="badge b1">动词1</span>（正常）</th></tr>
+    <tr>
+      <td class="jp-cell"><b>きる</b></td>
+      <td class="jp-cell">切る：切ります・切って・切らない<br>「包みを<b>切って</b>ください。」请把包装剪开。</td>
+      <td class="jp-cell">着る：着ます・着て・着ない<br>「浴衣を<b>着て</b>行きます。」穿着浴衣去。</td>
+    </tr>
+    <tr>
+      <td class="jp-cell"><b>いる</b></td>
+      <td class="jp-cell">要る：要ります・要って<br>「旅行にお金が<b>要る</b>。」旅行需要钱。</td>
+      <td class="jp-cell">居る：居ます・居て・居ない<br>「今、部屋に<b>居ます</b>。」现在在房间。</td>
+    </tr>
+    <tr>
+      <td class="jp-cell"><b>かえる</b></td>
+      <td class="jp-cell">帰る：帰ります・帰って・帰らない<br>「六時に家へ<b>帰って</b>。」六点回家。</td>
+      <td class="jp-cell">変える：変えます・変えて・変えない<br>「計画を<b>変えました</b>。」改变了计划。</td>
+    </tr>
+  </table>
+  <div class="note">
+    <b>记忆锚点：</b>这类陷阱词的 ます形都以「<b>り</b>」结尾（切ります・要ります・帰ります・走ります・入ります・知ります…）。
+    复习词库时，只要看到 动词5 标签却以 る 结尾的词，就顺手把「＋ります」读一遍。
+  </div>
+</section>
+
+<!-- ============ 3 陷阱动词选择题 ============ -->
+<section class="card" id="quizA-section">
+  <h2><span class="num">3</span>选择题 A：陷阱动词变形（10 题・点击作答）</h2>
+  <div class="scorebar" id="barA">
+    <span>进度 <b id="progA">0</b>/10</span>
+    <span class="big">得分 <span id="scoreA">0</span></span>
+    <span id="verdictA" class="kchip"></span>
+    <button id="resetA">重做</button>
+  </div>
+  <div id="quizA"></div>
+  <div class="final" id="finalA"></div>
+</section>
+
+<!-- ============ 4 时态语境填空 ============ -->
+<section class="card" id="quizB-section">
+  <h2><span class="num">4</span>选择题 B：时态语境填空（10 题・四个选项语法上都对，只有一个符合语义）</h2>
+  <p class="kchip">做法：先找句子里的“时间线索词”（今・昨日・もう・これから・子供の時…），再决定时态。选项本身都是正确的活用形，考的是<b>语义匹配</b>。</p>
+  <div class="note">
+    <b>本节生词（词库外补充）</b>：<span class="jp">暑い（あつい）</span>热　<span class="jp">プール</span>游泳池　<span class="jp">納豆（なっとう）</span>纳豆　
+    <span class="jp">苦手（にがて）</span>吃不惯；不擅长　<span class="jp">夏休み（なつやすみ）</span>暑假　<span class="jp">子供（こども）</span>小孩　
+    <span class="jp">海（うみ）</span>海　<span class="jp">誰か（だれか）</span>有人　<span class="jp">もう</span>已经　<span class="jp">これから</span>从现在起
+  </div>
+  <div class="scorebar" id="barB">
+    <span>进度 <b id="progB">0</b>/10</span>
+    <span class="big">得分 <span id="scoreB">0</span></span>
+    <span id="verdictB" class="kchip"></span>
+    <button id="resetB">重做</button>
+  </div>
+  <div id="quizB"></div>
+  <div class="final" id="finalB"></div>
+</section>
+
+<footer>词汇来源：data_store/words.yaml ＋ 常用补充词｜配套文档：动词变形练习.html・文章练习集.md</footer>
+</div>
+
+<script>
+function buildQuiz(cfg){
+  let answered = 0, correctCount = 0;
+  const quizDiv = document.getElementById(cfg.container);
+  const scoreEl = document.getElementById(cfg.score);
+  const progEl  = document.getElementById(cfg.prog);
+  const verdEl  = document.getElementById(cfg.verdict);
+  const finEl   = document.getElementById(cfg.final);
+
+  quizDiv.innerHTML = '';
+  answered = 0; correctCount = 0;
+  scoreEl.textContent = '0';
+  progEl.textContent = '0';
+  verdEl.textContent = '';
+  finEl.style.display = 'none';
+
+  cfg.data.forEach((item, qi) => {
+    const card = document.createElement('div');
+    card.className = 'qcard';
+
+    const head = document.createElement('div');
+    head.className = 'qhead';
+    const no = document.createElement('span');
+    no.className = 'qno'; no.textContent = 'Q' + (qi+1);
+    const cat = document.createElement('span');
+    cat.className = 'pill'; cat.textContent = item.cat || cfg.label;
+    const verb = document.createElement('span');
+    verb.className = 'qverb jp'; verb.textContent = item.v || '';
+    const q = document.createElement('div');
+    q.className = 'qsent';
+    q.textContent = item.q;
+    head.appendChild(no); head.appendChild(cat);
+    if (item.v) head.appendChild(verb);
+    head.appendChild(q);
+    card.appendChild(head);
+
+    const opts = document.createElement('div');
+    opts.className = 'opts';
+    const exp = document.createElement('div');
+    exp.className = 'exp';
+
+    item.opts.forEach((text, oi) => {
+      const b = document.createElement('button');
+      b.className = 'opt jp';
+      b.textContent = text;
+      b.addEventListener('click', () => {
+        if (opts.dataset.done) return;
+        opts.dataset.done = '1';
+        answered++;
+        [...opts.children].forEach((btn, i) => {
+          btn.disabled = true;
+          if (i === item.ans) btn.classList.add('correct');
+        });
+        const isRight = (oi === item.ans);
+        if (isRight) { correctCount++; } else { b.classList.add('wrong'); }
+        exp.innerHTML = '<span class="verdict ' + (isRight ? 'ok' : 'ng') + '">' +
+          (isRight ? '✓ 正确！' : '✗ 不对，正确答案是「' + item.opts[item.ans] + '」') + '</span>' +
+          '<span>　' + item.exp + '</span>';
+        exp.classList.add('show');
+        scoreEl.textContent = correctCount;
+        progEl.textContent = answered;
+        if (answered === cfg.data.length){
+          const pct = Math.round(correctCount / cfg.data.length * 100);
+          let msg;
+          if (pct === 100) msg = '满分！这一组完全掌握了。';
+          else if (pct >= 80) msg = '很棒！看看错题解析，把漏掉的词记进清单。';
+          else if (pct >= 60) msg = '不错，但陷阱词的「ります」和语境线索词还要多留意。';
+          else msg = '建议回到第 1～2 节（陷阱清单/同音对比）或本节的线索词提示，再重做一遍。';
+          finEl.innerHTML = '<b>完成！得分：' + correctCount + ' / ' + cfg.data.length + '（' + pct + '%）</b><br>' + msg;
+          finEl.style.display = 'block';
+          finEl.scrollIntoView({behavior:'smooth', block:'center'});
+        }
+      });
+      opts.appendChild(b);
+    });
+    card.appendChild(opts);
+    card.appendChild(exp);
+    quizDiv.appendChild(card);
+  });
+
+  document.getElementById(cfg.reset).addEventListener('click', () => {
+    buildQuiz(cfg);
+    document.getElementById(cfg.section).scrollIntoView({behavior:'smooth'});
+  });
+}
+
+/* ======== A 陷阱动词 ======== */
+const QUIZ_A = [
+  {cat:"て形", v:"知る（しる）", q:"「知る」的て形是？", opts:["知いて","知って","知して","知んだ"], ans:1,
+   exp:"陷阱动词：知る 是五段 → し+って（促音便）。按一段变「知いて」是错的。"},
+  {cat:"ます形", v:"散る（ちる）", q:"「散る（花谢）」的ます形是？", opts:["散ります","散ます","散ちます","散った"], ans:0,
+   exp:"五段：ちる→散ります。判据：ます形以「ります」结尾的一定是五段。"},
+  {cat:"ない形", v:"帰る（かえる）", q:"「帰る」的ない形是？", opts:["帰りない","帰ない","帰らない","帰むない"], ans:2,
+   exp:"五段：る→らない（帰らない）。帰りない 是按一段乱变的结果。"},
+  {cat:"た形", v:"滑る（すべる）", q:"「滑る」的た形是？", opts:["滑いた","滑った","滑りた","滑んだ"], ans:1,
+   exp:"五段 る→って→った：滑った。"},
+  {cat:"て形", v:"握る（にぎる）", q:"「握る」的て形是？", opts:["握いて","握って","握んで","握りて"], ans:1,
+   exp:"五段 る→って：握って。"},
+  {cat:"ます形", v:"減る（へる）", q:"「減る」的ます形是？", opts:["減ります","減ます","減みます","減った"], ans:0,
+   exp:"五段：減ります。长得像一段（へる），但一定接「ります」。"},
+  {cat:"て形", v:"入る（はいる）", q:"「入る」的て形是？", opts:["入いて","入って","入れて","入んだ"], ans:1,
+   exp:"五段：入って。注意「入れて」是另一个动词「入れる（他动词）」的て形，两者勿混。"},
+  {cat:"た形", v:"蹴る（ける）", q:"「蹴る」的た形是？", opts:["蹴た","蹴った","蹴いて","蹴んだ"], ans:1,
+   exp:"え段陷阱：蹴る 是五段 → 蹴った。一段动词才是「けた」这种变法。"},
+  {cat:"ます形", v:"要る（いる）", q:"「要る」的ます形是？", opts:["要ます","要ります","要って","要った"], ans:1,
+   exp:"要る（五段）→要ります。与一段的「居る（いる）→居ます」同音不同类。"},
+  {cat:"分类", v:"きる", q:"「着る」和「切る」读音都是 きる，哪一个是动词5？", opts:["着る","切る","两个都是","两个都不是"], ans:1,
+   exp:"切る（切）＝五段（切ります・切って）；着る（穿）＝一段（着ます・着て）。同音不同类，只能记。"}
+];
+
+/* ======== B 时态语境填空 ======== */
+const QUIZ_B = [
+  {cat:"て形接续", v:"洗う", q:"毎朝六時に起きて、顔を＿＿から、朝ご飯を食べます。", opts:["洗います","洗って","洗った","洗いたいです"], ans:1,
+   exp:"线索词「～から（…之后）」要求て形：洗ってから。四个选项语法都成立，但只有 て形 能接 から 表先后。"},
+  {cat:"进行·现在", v:"降る", q:"今、雨が＿＿。", opts:["降ります","降りました","降っています","降りたいです"], ans:2,
+   exp:"线索词「今」＋眼前正在发生 → 降っています（正在进行）。「降ります」表示将来或习惯，「降りました」是过去。"},
+  {cat:"过去", v:"泳ぐ", q:"昨日は暑くて、プールで三時間＿＿。", opts:["泳ぎます","泳いでいます","泳ぎました","泳ぎたかったです"], ans:2,
+   exp:"线索词「昨日」→ 过去：泳ぎました。注意泳ぐ的て形/た形是「泳いで／泳いだ」（ぐ→いで）。"},
+  {cat:"将来", v:"行く", q:"明日は友達の誕生日です。パーティーに＿＿。", opts:["行きました","行きます","行っています","行きたかったです"], ans:1,
+   exp:"线索词「明日」→ 将来/计划：行きます。「行きました」过去、「行きたかったです」是过去的愿望，都与明天矛盾。"},
+  {cat:"经验否定", v:"食べる", q:"私は納豆が苦手です。今まで一度も＿＿。", opts:["食べます","食べました","食べたことがありません","食べたいです"], ans:2,
+   exp:"线索词「今まで一度も」→ 经验的否定：食べたことがありません（一次也没吃过）。"},
+  {cat:"た後で", v:"する", q:"昨日の夜、宿題を＿＿後で、テレビを見ました。", opts:["します","して","した","しないで"], ans:2,
+   exp:"「～た後で（…之后）」接た形：した後で。て形接的是「てから」，两者别混。"},
+  {cat:"完了确认", v:"食べる", q:"もう晩ご飯を＿＿か。", opts:["食べます","食べました","食べています","食べたいです"], ans:1,
+   exp:"「もう…か（已经…了吗）」→ 询问已完成的动作：食べましたか。"},
+  {cat:"将来", v:"帰る", q:"これからうちへ＿＿。", opts:["帰りました","帰ります","帰っています","帰りたかったです"], ans:1,
+   exp:"线索词「これから（从现在起）」→ 将来：帰ります。帰る 正是第一节的陷阱词（帰ります・帰って）。"},
+  {cat:"过去习惯", v:"泳ぐ", q:"子供の時、夏休みは毎日海で＿＿。", opts:["泳ぎます","泳ぎました","泳いでいます","泳げます"], ans:1,
+   exp:"线索词「子供の時」→ 回忆过去的习惯：泳ぎました。现在的习惯才用 泳ぎます。"},
+  {cat:"推量+过去", v:"開ける", q:"窓が開いています。誰かが＿＿ね。", opts:["開けます","開けました","開けています","開けたくないです"], ans:1,
+   exp:"窗已经开着（结果在眼前）→ 推测有人「打开了」：開けましたね。正在开的话应该是 開けています。"}
+];
+
+buildQuiz({data:QUIZ_A, container:'quizA', score:'scoreA', prog:'progA', verdict:'verdictA', final:'finalA', reset:'resetA', section:'quizA-section', label:'陷阱动词'});
+buildQuiz({data:QUIZ_B, container:'quizB', score:'scoreB', prog:'progB', verdict:'verdictB', final:'finalB', reset:'resetB', section:'quizB-section', label:'时态填空'});
+</script>
+</body>
+</html>

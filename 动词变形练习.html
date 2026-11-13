@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>日语动词变形讲解与练习（て形・た形・ます形・ない形・可能形）</title>
+<style>
+  :root{
+    --bg:#f6f7fb; --card:#ffffff; --ink:#2b2f36; --muted:#6b7280;
+    --line:#e5e7eb; --accent:#2563eb; --accent-soft:#eff6ff;
+    --g1:#2e7d32; --g1-bg:#e8f5e9;      /* 动词1 一段 */
+    --g5:#1565c0; --g5-bg:#e3f2fd;      /* 动词5 五段 */
+    --gs:#e65100; --gs-bg:#fff3e0;      /* サ变 */
+    --gk:#ad1457; --gk-bg:#fce4ec;      /* カ变 */
+    --sp:#b91c1c; --sp-bg:#fee2e2;      /* 特殊/陷阱 */
+    --ok:#16a34a; --ok-bg:#dcfce7;
+    --ng:#dc2626; --ng-bg:#fee2e2;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic","Noto Sans CJK JP","Noto Sans SC","Microsoft YaHei",sans-serif;
+    line-height:1.75;
+  }
+  .wrap{max-width:920px; margin:0 auto; padding:24px 16px 80px;}
+  header.top{
+    background:linear-gradient(135deg,#1e3a8a,#2563eb 60%,#3b82f6);
+    color:#fff; border-radius:16px; padding:28px 28px 24px; margin-bottom:20px;
+  }
+  header.top h1{margin:0 0 8px; font-size:26px;}
+  header.top p{margin:4px 0; opacity:.92; font-size:14.5px;}
+  .jp{font-family:"Hiragino Mincho ProN","Yu Mincho","Noto Serif CJK JP",serif;}
+  section.card{
+    background:var(--card); border:1px solid var(--line); border-radius:14px;
+    padding:22px 24px; margin:18px 0; box-shadow:0 1px 3px rgba(0,0,0,.04);
+  }
+  h2{font-size:20px; margin:0 0 14px; padding-bottom:8px; border-bottom:2px solid var(--line);}
+  h2 .num{display:inline-block; background:var(--accent); color:#fff; border-radius:8px;
+    font-size:14px; padding:1px 10px; margin-right:10px; vertical-align:2px;}
+  h3{font-size:16.5px; margin:18px 0 8px;}
+  p{margin:8px 0; font-size:15px;}
+  table{border-collapse:collapse; width:100%; margin:10px 0 14px; font-size:14.5px;}
+  th,td{border:1px solid var(--line); padding:7px 10px; text-align:left; vertical-align:top;}
+  th{background:#f3f4f6; font-weight:600; white-space:nowrap;}
+  td.jp-cell{white-space:nowrap;}
+  .badge{display:inline-block; border-radius:6px; padding:1px 9px; font-size:12.5px; font-weight:600; margin-right:6px;}
+  .b1{color:var(--g1); background:var(--g1-bg);}
+  .b5{color:var(--g5); background:var(--g5-bg);}
+  .bs{color:var(--gs); background:var(--gs-bg);}
+  .bk{color:var(--gk); background:var(--gk-bg);}
+  .bsp{color:var(--sp); background:var(--sp-bg);}
+  .note{
+    border-left:4px solid var(--accent); background:var(--accent-soft);
+    border-radius:0 10px 10px 0; padding:10px 14px; margin:12px 0; font-size:14.5px;
+  }
+  .warn{
+    border-left:4px solid var(--sp); background:var(--sp-bg);
+    border-radius:0 10px 10px 0; padding:10px 14px; margin:12px 0; font-size:14.5px;
+  }
+  .formula{
+    background:#0f172a; color:#e2e8f0; border-radius:10px; padding:12px 16px;
+    font-size:15px; margin:10px 0; letter-spacing:.3px;
+  }
+  .formula .hl{color:#fbbf24; font-weight:700;}
+  .pill{display:inline-block; background:#eef2ff; color:#3730a3; border-radius:999px;
+    padding:2px 12px; font-size:13px; margin:2px 4px 2px 0;}
+  /* ---- quiz ---- */
+  .scorebar{
+    position:sticky; top:0; z-index:5; background:rgba(255,255,255,.95);
+    border:1px solid var(--line); border-radius:12px; padding:10px 16px; margin:18px 0;
+    display:flex; align-items:center; gap:14px; flex-wrap:wrap;
+    box-shadow:0 2px 8px rgba(0,0,0,.06); backdrop-filter:blur(4px);
+  }
+  .scorebar .big{font-size:18px; font-weight:700;}
+  .scorebar button{
+    margin-left:auto; background:var(--accent); color:#fff; border:none; border-radius:8px;
+    padding:7px 16px; font-size:14px; cursor:pointer;
+  }
+  .scorebar button:hover{filter:brightness(1.1);}
+  .qcard{border:1px solid var(--line); border-radius:12px; padding:16px 18px; margin:14px 0;}
+  .qhead{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap;}
+  .qno{font-weight:700; color:var(--accent);}
+  .qverb{font-size:17px; font-weight:700;}
+  .opts{display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:10px;}
+  @media (max-width:560px){ .opts{grid-template-columns:1fr;} }
+  .opt{
+    text-align:left; border:1.5px solid var(--line); background:#fafafa; border-radius:10px;
+    padding:9px 14px; font-size:15px; cursor:pointer; transition:.15s; font-family:inherit;
+  }
+  .opt:hover:not(:disabled){border-color:var(--accent); background:var(--accent-soft);}
+  .opt:disabled{cursor:default; opacity:.85;}
+  .opt.correct{border-color:var(--ok); background:var(--ok-bg); font-weight:700;}
+  .opt.wrong{border-color:var(--ng); background:var(--ng-bg);}
+  .exp{display:none; margin-top:10px; background:#f8fafc; border:1px dashed var(--line);
+    border-radius:8px; padding:9px 13px; font-size:14px;}
+  .exp.show{display:block;}
+  .exp .verdict{font-weight:700;}
+  .exp .verdict.ok{color:var(--ok);}
+  .exp .verdict.ng{color:var(--ng);}
+  .final{display:none; background:var(--accent-soft); border:1px solid #bfdbfe; border-radius:12px;
+    padding:16px 20px; margin:16px 0; font-size:15.5px;}
+  footer{color:var(--muted); font-size:13px; text-align:center; margin-top:30px;}
+  .kchip{font-size:12.5px; color:var(--muted);}
+  @media print{ .scorebar{display:none;} .opts{grid-template-columns:1fr 1fr;} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <h1>日语动词变形・讲解与选择题</h1>
+  <p>ます形 / て形 / た形 / ない形 / 可能形 —— 例词全部取自词库 <span class="jp">words.yaml</span> 与少量 N5 基础补充词。</p>
+  <p>用法：先看规则（第 1～7 节），再拉到底部做 29 道选择题（可点击作答、即时判分）。</p>
+</header>
+
+<!-- ============ 1 分类 ============ -->
+<section class="card">
+  <h2><span class="num">1</span>先分清：动词的三类（对应词库的 词性 标签）</h2>
+  <p>变形规则完全由动词的“类”决定，所以第一步永远是<b>判断动词类别</b>。本项目词库的词性标签与教科书分类对应如下：</p>
+  <table>
+    <tr><th>标签</th><th>教科书叫法</th><th>长什么样</th><th>词库里的例子</th></tr>
+    <tr><td><span class="badge b1">动词1</span></td><td>一段动词（る动词）</td><td>词尾 <b>る</b>，且 る 前面是 い 段 / え 段假名 → 去掉 る 直接接续</td><td class="jp-cell"><span class="jp">見る・寝る・開ける・見せる・教える・借りる</span></td></tr>
+    <tr><td><span class="badge b5">动词5</span></td><td>五段动词（う动词）</td><td>词尾在 う 段：<b>う・く・ぐ・す・つ・ぬ・ぶ・む・る</b></td><td class="jp-cell"><span class="jp">買う・歩く・脱ぐ・消す・待つ・遊ぶ・読む・切る</span></td></tr>
+    <tr><td><span class="badge bs">名词サ变</span></td><td>サ变动词</td><td>名词＋<b>する</b></td><td class="jp-cell"><span class="jp">掃除する・勉強する・旅行する・洗濯する</span></td></tr>
+    <tr><td><span class="badge bk">カ变</span></td><td>カ变动词</td><td>只有 <b>来る（くる）</b> 一个</td><td class="jp-cell"><span class="jp">来る</span></td></tr>
+  </table>
+
+  <div class="warn">
+    <b>⚠️ 最大的陷阱：长得像“动词1”的“动词5”。</b><br>
+    以下词词尾 る 前面是 い 段，看起来像动词1，但在词库里都标着 <b>动词5</b>，变形走五段规则：<br>
+    <span class="jp"><b>切る（きる）・要る（いる）・入る（はいる）・走る（はしる）</b></span><br>
+    尤其是 <span class="jp">要る（いる）</span>：和一段动词 <span class="jp">居る（いる）“在”</span> 同音，但类不同——
+    <span class="jp">要る→要ります（五段）</span>，<span class="jp">居る→居ます（一段）</span>。这种词只能靠记。
+  </div>
+</section>
+
+<!-- ============ 2 ます形 ============ -->
+<section class="card">
+  <h2><span class="num">2</span>ます形（现在・肯定）：礼貌体</h2>
+  <div class="formula">
+    动词1：去 <span class="hl">る</span> ＋ <span class="hl">ます</span>　｜　动词5：词尾 う段 → <span class="hl">い段</span> ＋ <span class="hl">ます</span>　｜　サ变：<span class="hl">します</span>　｜　カ变：<span class="hl">来ます（きます）</span>
+  </div>
+  <table>
+    <tr><th>类别</th><th>原形</th><th>ます形</th><th>否定 ません</th><th>过去 ました</th><th>过去否定 ませんでした</th></tr>
+    <tr><td><span class="badge b1">动词1</span></td><td class="jp-cell">寝る</td><td class="jp-cell">寝ます</td><td class="jp-cell">寝ません</td><td class="jp-cell">寝ました</td><td class="jp-cell">寝ませんでした</td></tr>
+    <tr><td><span class="badge b5">动词5</span></td><td class="jp-cell">歩く</td><td class="jp-cell">歩<b>き</b>ます</td><td class="jp-cell">歩きません</td><td class="jp-cell">歩きました</td><td class="jp-cell">歩きませんでした</td></tr>
+    <tr><td><span class="badge b5">动词5</span></td><td class="jp-cell">買う</td><td class="jp-cell">買<b>い</b>ます</td><td class="jp-cell">買いません</td><td class="jp-cell">買いました</td><td class="jp-cell">買いませんでした</td></tr>
+    <tr><td><span class="badge b5">动词5</span></td><td class="jp-cell">読む</td><td class="jp-cell">読<b>み</b>ます</td><td class="jp-cell">読みません</td><td class="jp-cell">読みました</td><td class="jp-cell">読みませんでした</td></tr>
+    <tr><td><span class="badge bs">サ变</span></td><td class="jp-cell">掃除する</td><td class="jp-cell">掃除します</td><td class="jp-cell">掃除しません</td><td class="jp-cell">掃除しました</td><td class="jp-cell">掃除しませんでした</td></tr>
+    <tr><td><span class="badge bk">カ变</span></td><td class="jp-cell">来る</td><td class="jp-cell">来ます（きます）</td><td class="jp-cell">来ません</td><td class="jp-cell">来ました</td><td class="jp-cell">来ませんでした</td></tr>
+  </table>
+  <h3>从ます形还能变出两个常用形（只记“去 ます 加什么”）</h3>
+  <p>
+    <span class="pill">去 ます＋たい＝想做…</span><span class="jp">見たい（想看）・行きたい（想去）</span>　
+    <span class="pill">去 ます＋ましょう＝…吧</span><span class="jp">行きましょう（去吧）</span>
+  </p>
+</section>
+
+<!-- ============ 3 て形 ============ -->
+<section class="card">
+  <h2><span class="num">3</span>て形：用途最广的形</h2>
+  <h3>动词5：按词尾分五组（音便）</h3>
+  <table>
+    <tr><th>词尾</th><th>规则</th><th>例（词库词）</th><th>音便名</th></tr>
+    <tr><td><b>く</b></td><td>→ <b>いて</b></td><td class="jp-cell">歩く→歩<b>いて</b>、聞く→聞いて、引く→引いて、磨く→磨いて</td><td>イ音便</td></tr>
+    <tr><td><b>ぐ</b></td><td>→ <b>いで</b></td><td class="jp-cell">脱ぐ→脱<b>いで</b></td><td>イ音便</td></tr>
+    <tr><td><b>う / つ / る</b></td><td>→ <b>って</b></td><td class="jp-cell">買う→買<b>って</b>、待つ→待って、切る→切って、走る→走って、歌う→歌って</td><td>促音便</td></tr>
+    <tr><td><b>む / ぶ / ぬ</b></td><td>→ <b>んで</b></td><td class="jp-cell">読む→読<b>んで</b>、遊ぶ→遊んで、呑み込む→呑み込んで</td><td>撥音便</td></tr>
+    <tr><td><b>す</b></td><td>→ <b>して</b></td><td class="jp-cell">消す→消<b>して</b>、探す→探して、流す→流して</td><td>—</td></tr>
+  </table>
+  <h3>动词1・サ变・カ变：非常简单</h3>
+  <p>
+    <span class="badge b1">动词1</span> 去 る＋て：<span class="jp">見る→見て、寝る→寝て、見せる→見せて</span>　
+    <span class="badge bs">サ变</span> <span class="jp">掃除する→掃除して</span>　
+    <span class="badge bk">カ变</span> <span class="jp">来る→来て（きて）</span>
+  </p>
+  <div class="warn">
+    <b>⚠️ 唯一的特殊词：<span class="jp">行く → 行って</span></b>（不是行いて！）。た形同理：<span class="jp">行った</span>。
+  </div>
+  <h3>て形常接什么</h3>
+  <p>
+    <span class="pill">～ています</span>正在做　<span class="pill">～てもいいです</span>可以做　<span class="pill">～てはいけません</span>不可以　
+    <span class="pill">～てから</span>…之后　<span class="pill">～てください</span>请做…
+  </p>
+</section>
+
+<!-- ============ 4 た形 ============ -->
+<section class="card">
+  <h2><span class="num">4</span>た形（过去・完了）：把 て形 换个音就完事</h2>
+  <div class="formula">规则与て形<b>完全相同</b>，只是：<span class="hl">て → た</span>，<span class="hl">で → だ</span></div>
+  <table>
+    <tr><th>类别</th><th>て形</th><th>た形</th></tr>
+    <tr><td><span class="badge b5">动词5</span></td><td class="jp-cell">歩いて</td><td class="jp-cell">歩<b>いた</b></td></tr>
+    <tr><td><span class="badge b5">动词5</span></td><td class="jp-cell">買って</td><td class="jp-cell">買<b>った</b></td></tr>
+    <tr><td><span class="badge b5">动词5</span></td><td class="jp-cell">読んで</td><td class="jp-cell">読<b>んだ</b></td></tr>
+    <tr><td><span class="badge b5">动词5</span></td><td class="jp-cell">脱いで</td><td class="jp-cell">脱<b>いだ</b></td></tr>
+    <tr><td><span class="badge b5">动词5</span></td><td class="jp-cell">消して</td><td class="jp-cell">消<b>した</b></td></tr>
+    <tr><td><span class="badge b1">动词1</span></td><td class="jp-cell">見て</td><td class="jp-cell">見<b>た</b></td></tr>
+    <tr><td><span class="badge bs">サ变</span></td><td class="jp-cell">掃除して</td><td class="jp-cell">掃除<b>した</b></td></tr>
+    <tr><td><span class="badge bk">カ变</span></td><td class="jp-cell">来て（きて）</td><td class="jp-cell">来た（きた）</td></tr>
+  </table>
+  <p><span class="pill">～たことがあります</span>做过（经验）　<span class="pill">～たり～たりする</span>又…又…　<span class="pill">～た後で</span>…之后</p>
+</section>
+
+<!-- ============ 5 ない形 ============ -->
+<section class="card">
+  <h2><span class="num">5</span>ない形（否定）</h2>
+  <div class="formula">
+    动词1：去 <span class="hl">る</span> ＋ <span class="hl">ない</span>　｜　动词5：词尾 う段 → <span class="hl">あ段</span> ＋ <span class="hl">ない</span>　｜　サ变：<span class="hl">しない</span>　｜　カ变：<span class="hl">来ない（こない）</span>
+  </div>
+  <table>
+    <tr><th>类别</th><th>原形</th><th>ない形</th><th>注意</th></tr>
+    <tr><td><span class="badge b1">动词1</span></td><td class="jp-cell">食べる</td><td class="jp-cell">食べない</td><td>去る即可</td></tr>
+    <tr><td><span class="badge b5">动词5</span></td><td class="jp-cell">待つ</td><td class="jp-cell">待<b>た</b>ない</td><td>つ→た（あ段）</td></tr>
+    <tr><td><span class="badge b5">动词5</span></td><td class="jp-cell">読む</td><td class="jp-cell">読<b>ま</b>ない</td><td>む→ま</td></tr>
+    <tr><td><span class="badge b5">动词5</span></td><td class="jp-cell">消す</td><td class="jp-cell">消<b>さ</b>ない</td><td>す→さ</td></tr>
+    <tr><td><span class="badge b5">动词5</span></td><td class="jp-cell">買う</td><td class="jp-cell">買<b>わ</b>ない</td><td class="bsp">う→<b>わ</b>（不是 買あない！）</td></tr>
+    <tr><td><span class="badge b1">动词1</span></td><td class="jp-cell">借りる</td><td class="jp-cell">借りない</td><td>去る即可</td></tr>
+    <tr><td><span class="badge bs">サ变</span></td><td class="jp-cell">掃除する</td><td class="jp-cell">掃除しない</td><td>する→しない</td></tr>
+    <tr><td><span class="badge bk">カ变</span></td><td class="jp-cell">来る</td><td class="jp-cell">来ない（こない）</td><td>来（き）→来（こ）</td></tr>
+  </table>
+  <div class="warn">
+    <b>⚠️ 特殊：</b><span class="jp">ある → <b>ない</b></span>（不是 あらない）。另外 ます形的否定也可以说 <span class="jp">ありません</span>。
+  </div>
+  <h3>ない形常接什么</h3>
+  <p>
+    <span class="pill">～ないでください</span>请不要做　<span class="pill">～なければなりません</span>必须做　<span class="pill">～なくてもいいです</span>不做也行
+  </p>
+</section>
+
+<!-- ============ 6 可能形 ============ -->
+<section class="card">
+  <h2><span class="num">6</span>可能形（N4）：能做…</h2>
+  <div class="formula">
+    动词1：<span class="hl">る → られる</span>　｜　动词5：词尾 う段 → <span class="hl">え段</span> ＋ <span class="hl">る</span>　｜　サ变：<span class="hl">～できる</span>　｜　カ变：<span class="hl">来られる（こられる）</span>
+  </div>
+  <table>
+    <tr><th>类别</th><th>原形</th><th>可能形</th><th>例句</th></tr>
+    <tr><td><span class="badge b1">动词1</span></td><td class="jp-cell">見る</td><td class="jp-cell">見られる（口语：見れる）</td><td class="jp-cell">星が見られます。能看见星星。</td></tr>
+    <tr><td><span class="badge b5">动词5</span></td><td class="jp-cell">取る</td><td class="jp-cell">取れる</td><td class="jp-cell">写真が取れます。能拍到照片。</td></tr>
+    <tr><td><span class="badge b5">动词5</span></td><td class="jp-cell">歩く</td><td class="jp-cell">歩ける</td><td class="jp-cell">ここを歩けます。</td></tr>
+    <tr><td><span class="badge bs">サ变</span></td><td class="jp-cell">掃除する</td><td class="jp-cell">掃除できる</td><td class="jp-cell">明日掃除できます。</td></tr>
+    <tr><td><span class="badge bk">カ变</span></td><td class="jp-cell">来る</td><td class="jp-cell">来られる（こられる）</td><td class="jp-cell">明日来られますか。</td></tr>
+  </table>
+  <p class="kchip">注意：可能形的对象常用 が 标记（星<b>が</b>見られます）。</p>
+</section>
+
+<!-- ============ 7 速查表 ============ -->
+<section class="card">
+  <h2><span class="num">7</span>一张表看全貌（每类选一个代表词）</h2>
+  <table>
+    <tr><th>形</th><th><span class="badge b5">动词5</span> 行く（补充）</th><th><span class="badge b1">动词1</span> 見る</th><th><span class="badge bs">サ变</span> 掃除する</th><th><span class="badge bk">カ变</span> 来る</th></tr>
+    <tr><td>ます形</td><td class="jp-cell">行きます</td><td class="jp-cell">見ます</td><td class="jp-cell">掃除します</td><td class="jp-cell">来ます（きます）</td></tr>
+    <tr><td>て形</td><td class="jp-cell bsp">行って</td><td class="jp-cell">見て</td><td class="jp-cell">掃除して</td><td class="jp-cell">来て（きて）</td></tr>
+    <tr><td>た形</td><td class="jp-cell bsp">行った</td><td class="jp-cell">見た</td><td class="jp-cell">掃除した</td><td class="jp-cell">来た（きた）</td></tr>
+    <tr><td>ない形</td><td class="jp-cell">行かない</td><td class="jp-cell">見ない</td><td class="jp-cell">掃除しない</td><td class="jp-cell">来ない（こない）</td></tr>
+    <tr><td>可能形</td><td class="jp-cell">行ける</td><td class="jp-cell">見られる</td><td class="jp-cell">（掃除）できる</td><td class="jp-cell">来られる（こられる）</td></tr>
+    <tr><td>たい形</td><td class="jp-cell">行きたい</td><td class="jp-cell">見たい</td><td class="jp-cell">掃除したい</td><td class="jp-cell">来たい（きたい）</td></tr>
+  </table>
+  <p class="kchip">记忆口诀：ます变“い段”、て/た看音便、ない变“あ段”（う→わ）、可能变“え段”。</p>
+</section>
+
+<!-- ============ 8 quiz ============ -->
+<section class="card" id="quiz-section">
+  <h2><span class="num">8</span>选择题（29 题・点击作答・即时判分）</h2>
+  <p class="kchip">点击选项即判定正误并显示解析；做完可点上方按钮重做。</p>
+  <div class="scorebar">
+    <span>进度 <b id="prog">0</b>/29</span>
+    <span class="big">得分 <span id="score">0</span></span>
+    <span id="verdict" class="kchip"></span>
+    <button id="reset">重做全部</button>
+  </div>
+  <div id="quiz"></div>
+  <div class="final" id="final"></div>
+</section>
+
+<footer>词汇来源：data_store/words.yaml（词库）＋ N5 基础补充词（行く・来る・食べる・する・ある・見る）｜配套文档：文章练习集.md</footer>
+</div>
+
+<script>
+const QUIZ = [
+  // ---- ます形 ----
+  {cat:"ます形", v:"寝る（ねる）", q:"「寝る」的ます形是？", opts:["寝ります","寝ます","寝みます","寝った"], ans:1,
+   exp:"动词1：去掉 る 直接加 ます（寝＋ます）。"},
+  {cat:"ます形", v:"買う（かう）", q:"「買う」的ます形是？", opts:["買うます","買います","買えます","買って"], ans:1,
+   exp:"动词5：う段→い段＋ます（買う→買います）。「買えます」是可能形（买得起）的误用。"},
+  {cat:"ます形", v:"遊ぶ（あそぶ）", q:"「遊ぶ」的ます形是？", opts:["遊びます","遊みます","遊びって","遊ぶます"], ans:0,
+   exp:"动词5：ぶ→び（い段）＋ます。"},
+  {cat:"ます形", v:"来る（くる）", q:"「来る」的ます形（假名写法）是？", opts:["くるます","こます","きます","きります"], ans:2,
+   exp:"カ变：来る→来ます（きます）。注意读 き 不是 こ。"},
+  {cat:"ます形", v:"掃除する（そうじする）", q:"「掃除する」的ます形是？", opts:["掃除るます","掃除します","掃除すます","掃除して"], ans:1,
+   exp:"サ变：する→します。"},
+  // ---- て形 ----
+  {cat:"て形", v:"歩く（あるく）", q:"「歩く」的て形是？", opts:["歩くて","歩って","歩いて","歩きて"], ans:2,
+   exp:"く→いて（イ音便）。同组：聞く→聞いて、引く→引いて。"},
+  {cat:"て形", v:"脱ぐ（ぬぐ）", q:"「脱ぐ」的て形是？", opts:["脱いで","脱ぐて","脱って","脱きて"], ans:0,
+   exp:"ぐ→いで（イ音便，浊音保留）。"},
+  {cat:"て形", v:"待つ（まつ）", q:"「待つ」的て形是？", opts:["待ちて","待って","待つて","待いて"], ans:1,
+   exp:"つ→って（促音便）。う・つ・る 同组：買う→買って、切る→切って。"},
+  {cat:"て形", v:"読む（よむ）", q:"「読む」的て形是？", opts:["読みて","読んで","読って","読むて"], ans:1,
+   exp:"む→んで（撥音便）。ぶ・ぬ 同组：遊ぶ→遊んで。"},
+  {cat:"て形", v:"消す（けす）", q:"「消す」的て形是？", opts:["消して","消って","消いて","消すて"], ans:0,
+   exp:"す→して。同组：探す→探して、流す→流して。"},
+  {cat:"て形", v:"行く（いく）", q:"「行く」的て形是？", opts:["行いて","行くて","行って","行きて"], ans:2,
+   exp:"特殊！行く→行って（不是行いて）。唯一需要单独记的五段动词。"},
+  {cat:"て形", v:"走る（はしる）", q:"「走る」的て形是？", opts:["走いて","走りて","走って","走るて"], ans:2,
+   exp:"走る 是动词5（虽然 る 前是い段）：る→って（促音便）。"},
+  {cat:"て形", v:"見せる（みせる）", q:"「見せる」的て形是？", opts:["見せって","見せて","見して","見きて"], ans:1,
+   exp:"动词1：去 る 加 て。"},
+  // ---- た形 ----
+  {cat:"た形", v:"見る（みる）", q:"「見る」的た形是？", opts:["見た","見って","見いた","見だ"], ans:0,
+   exp:"て→た：見て→見た。"},
+  {cat:"た形", v:"買う（かう）", q:"「買う」的た形是？", opts:["買いた","買ってた","買った","買うた"], ans:2,
+   exp:"て→た：買って→買った。"},
+  {cat:"た形", v:"読む（よむ）", q:"「読む」的た形是？", opts:["読んだ","読みた","読って","読んでた"], ans:0,
+   exp:"で→だ：読んで→読んだ。"},
+  {cat:"た形", v:"待つ（まつ）", q:"「待つ」的た形是？", opts:["待ちた","待った","待いた","待つた"], ans:1,
+   exp:"て→た：待って→待った。"},
+  // ---- ない形 ----
+  {cat:"ない形", v:"食べる（たべる）", q:"「食べる」的ない形是？", opts:["食べない","食べらない","食べてない","食べないでした"], ans:0,
+   exp:"动词1：去 る 加 ない。"},
+  {cat:"ない形", v:"買う（かう）", q:"「買う」的ない形是？", opts:["買あない","買わない","買いない","買ない"], ans:1,
+   exp:"动词5 う段→あ段，但 う→<b>わ</b>（不是あ）：買わない。这是ない形最著名的陷阱。"},
+  {cat:"ない形", v:"待つ（まつ）", q:"「待つ」的ない形是？", opts:["待ちない","待ってない","待たない","待たないでした"], ans:2,
+   exp:"つ→た（あ段）＋ない。"},
+  {cat:"ない形", v:"借りる（かりる）", q:"「借りる」的ない形是？", opts:["借らない","借りない","借れない","借みない"], ans:1,
+   exp:"动词1：去 る 加 ない。别被「借らない」迷惑——那是动词5的变法。"},
+  {cat:"ない形", v:"来る（くる）", q:"「来る」的ない形（假名写法）是？", opts:["きない","こない","くない","こなかった"], ans:1,
+   exp:"カ变：来る→来ない（こない）。き→こ。"},
+  {cat:"ない形", v:"ある（补足）", q:"「ある（有・在）」的ない形是？", opts:["あらない","ない","ありました","ありない"], ans:1,
+   exp:"特殊：ある→ない（不是あらない）。礼貌体可用 ありません。"},
+  // ---- 可能形 ----
+  {cat:"可能形", v:"取る（とる）", q:"「取る」的可能形是？", opts:["取られる","取れる","取せる","取るれる"], ans:1,
+   exp:"动词5：う段→え段＋る（とる→とれる）。"},
+  {cat:"可能形", v:"食べる（たべる）", q:"「食べる」的可能形是？", opts:["食べれる","食べられる","食べらない","食べるれる"], ans:1,
+   exp:"动词1：る→られる（食べられる）。口语里有人说 食べれる，但考试请写 食べられる。"},
+  {cat:"可能形", v:"掃除する（そうじする）", q:"「掃除する」的可能形是？", opts:["掃除される","掃除れる","掃除できる","掃除られる"], ans:2,
+   exp:"サ变：～する→～できる。"},
+  // ---- 分类 & 综合 ----
+  {cat:"分类", v:"切る（きる）", q:"「切る」属于哪类动词？", opts:["动词1（一段）","动词5（五段）","サ变","カ变"], ans:1,
+   exp:"陷阱词：る 前是い段但属于动词5。变形：切ります・切って・切った・切らない・切れる。"},
+  {cat:"分类", v:"要る（いる）", q:"「要る（需要）」属于哪类动词？", opts:["动词1（一段）","动词5（五段）","サ变","カ变"], ans:1,
+   exp:"陷阱词：与一段动词「居る（いる，在）」同音，但 要る 是动词5（要ります・要って）。居る 是动词1（居ます・居て）。"},
+  {cat:"综合", v:"歩く（あるく）", q:"「歩く」的过去否定（礼貌体）是？", opts:["歩きませんでした","歩かなかったでした","歩くませんでした","歩いていませんでした"], ans:0,
+   exp:"ます形过去否定：い段＋ませんでした（歩き＋ませんでした）。"}
+];
+
+let answered = 0, correctCount = 0;
+const quizDiv = document.getElementById('quiz');
+
+function build(){
+  quizDiv.innerHTML = '';
+  answered = 0; correctCount = 0;
+  document.getElementById('score').textContent = '0';
+  document.getElementById('prog').textContent = '0';
+  document.getElementById('verdict').textContent = '';
+  document.getElementById('final').style.display = 'none';
+
+  QUIZ.forEach((item, qi) => {
+    const card = document.createElement('div');
+    card.className = 'qcard';
+
+    const head = document.createElement('div');
+    head.className = 'qhead';
+    const no = document.createElement('span');
+    no.className = 'qno'; no.textContent = 'Q' + (qi+1);
+    const cat = document.createElement('span');
+    cat.className = 'pill'; cat.textContent = item.cat;
+    const verb = document.createElement('span');
+    verb.className = 'qverb jp'; verb.textContent = item.v;
+    const q = document.createElement('div');
+    q.style.cssText = 'width:100%; margin-top:4px;';
+    q.textContent = item.q;
+    head.appendChild(no); head.appendChild(cat); head.appendChild(verb); head.appendChild(q);
+    card.appendChild(head);
+
+    const opts = document.createElement('div');
+    opts.className = 'opts';
+    const exp = document.createElement('div');
+    exp.className = 'exp';
+
+    item.opts.forEach((text, oi) => {
+      const b = document.createElement('button');
+      b.className = 'opt jp';
+      b.textContent = text;
+      b.addEventListener('click', () => {
+        if (opts.dataset.done) return;
+        opts.dataset.done = '1';
+        answered++;
+        [...opts.children].forEach((btn, i) => {
+          btn.disabled = true;
+          if (i === item.ans) btn.classList.add('correct');
+        });
+        const isRight = (oi === item.ans);
+        if (isRight) { correctCount++; } else { b.classList.add('wrong'); }
+        exp.innerHTML = '<span class="verdict ' + (isRight ? 'ok' : 'ng') + '">' +
+          (isRight ? '✓ 正确！' : '✗ 不对，正确答案是「' + item.opts[item.ans] + '」') + '</span>' +
+          '<span>　' + item.exp + '</span>';
+        exp.classList.add('show');
+        document.getElementById('score').textContent = correctCount;
+        document.getElementById('prog').textContent = answered;
+        if (answered === QUIZ.length){
+          const pct = Math.round(correctCount / QUIZ.length * 100);
+          const f = document.getElementById('final');
+          let msg;
+          if (pct === 100) msg = '满分！变形规则已经完全掌握了。';
+          else if (pct >= 80) msg = '很棒！只差一点点，看看错题的解析再巩固一下。';
+          else if (pct >= 60) msg = '不错，但音便和 う→わ 这类陷阱还要多练。';
+          else msg = '建议回到第 3～5 节把规则表再读一遍，然后重做。';
+          f.innerHTML = '<b>完成！得分：' + correctCount + ' / ' + QUIZ.length + '（' + pct + '%）</b><br>' + msg;
+          f.style.display = 'block';
+          f.scrollIntoView({behavior:'smooth', block:'center'});
+        }
+      });
+      opts.appendChild(b);
+    });
+    card.appendChild(opts);
+    card.appendChild(exp);
+    quizDiv.appendChild(card);
+  });
+}
+document.getElementById('reset').addEventListener('click', () => {
+  build();
+  document.getElementById('quiz-section').scrollIntoView({behavior:'smooth'});
+});
+build();
+</script>
+</body>
+</html>
