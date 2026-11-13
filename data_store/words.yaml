@@ -3482,3 +3482,88 @@
   pos:
   - 副词
   category: null
+- id: 639
+  kanji: 予定
+  kana: よてい0
+  meaning: 计划；打算
+  pos:
+  - 名词
+  category: null
+- id: 640
+  kanji: 起きる
+  kana: おきる2
+  meaning: 起床；起来
+  pos:
+  - 动词1
+  - 自动词
+  category: null
+- id: 641
+  kanji: 上がる
+  kana: あがる0
+  meaning: 升起；登上；进入
+  pos:
+  - 动词5
+  - 自动词
+  category: null
+- id: 642
+  kanji: 引っ越す
+  kana: ひっこす3
+  meaning: 搬家
+  pos:
+  - 动词5
+  - 自动词
+  category: null
+- id: 643
+  kanji: 急ぐ
+  kana: いそぐ2
+  meaning: 急忙；赶紧
+  pos:
+  - 动词5
+  - 自动词
+  category: null
+- id: 644
+  kanji: 連れる
+  kana: つれる0
+  meaning: 带（人）；带领
+  pos:
+  - 动词1
+  - 他动词
+  category: null
+- id: 645
+  kanji: 選ぶ
+  kana: えらぶ2
+  meaning: 挑选；选择
+  pos:
+  - 动词5
+  - 他动词
+  category: null
+- id: 646
+  kanji: 似合う
+  kana: にあう2
+  meaning: 相配；合适
+  pos:
+  - 动词5
+  - 自动词
+  category: null
+- id: 647
+  kanji: 迷う
+  kana: まよう2
+  meaning: 迷路；犹豫
+  pos:
+  - 动词5
+  - 自动词
+  category: null
+- id: 648
+  kanji: 怖い
+  kana: こわい2
+  meaning: 可怕的
+  pos:
+  - 形容词
+  category: null
+- id: 649
+  kanji: 風邪
+  kana: かぜ0
+  meaning: 感冒
+  pos:
+  - 名词
+  category: null
