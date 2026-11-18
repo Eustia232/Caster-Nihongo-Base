@@ -3567,3 +3567,81 @@
   pos:
   - 名词
   category: null
+- id: 650
+  kanji: 来る
+  kana: くる1
+  meaning: 来；到来
+  pos:
+  - 自动词
+  category: null
+- id: 651
+  kanji: 勤める
+  kana: つとめる3
+  meaning: 工作；任职（于）
+  pos:
+  - 动词1
+  - 他动词
+  category: null
+- id: 652
+  kanji: 金曜日
+  kana: きんようび3
+  meaning: 星期五
+  pos:
+  - 名词
+  category: null
+- id: 653
+  kanji: 半年
+  kana: はんとし4
+  meaning: 半年
+  pos:
+  - 名词
+  category: null
+- id: 654
+  kanji: 池
+  kana: いけ2
+  meaning: 池塘；池子
+  pos:
+  - 名词
+  category: null
+- id: 655
+  kanji: 鶏肉
+  kana: とりにく0
+  meaning: 鸡肉
+  pos:
+  - 名词
+  category: null
+- id: 656
+  kanji: 廊下
+  kana: ろうか0
+  meaning: 走廊；过道
+  pos:
+  - 名词
+  category: null
+- id: 657
+  kanji: 上着
+  kana: うわぎ0
+  meaning: 上衣；外套
+  pos:
+  - 名词
+  category: null
+- id: 658
+  kanji: お巡りさん
+  kana: おまわりさん2
+  meaning: 巡警；警察
+  pos:
+  - 名词
+  category: null
+- id: 659
+  kanji: 自分
+  kana: じぶん0
+  meaning: 自己；自身
+  pos:
+  - 名词
+  category: null
+- id: 660
+  kanji: 先月
+  kana: せんげつ1
+  meaning: 上个月
+  pos:
+  - 名词
+  category: null
