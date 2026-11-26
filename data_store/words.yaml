@@ -3645,3 +3645,143 @@
   pos:
   - 名词
   category: null
+- id: 661
+  kanji: 月曜日
+  kana: げつようび3
+  meaning: 星期一
+  pos:
+  - 名词
+  category: null
+- id: 662
+  kanji: 午後
+  kana: ごご1
+  meaning: 下午
+  pos:
+  - 名词
+  category: null
+- id: 663
+  kanji: 授業
+  kana: じゅぎょう1
+  meaning: 课；授课
+  pos:
+  - 名词サ变
+  category: null
+- id: 664
+  kanji: 橋
+  kana: はし2
+  meaning: 桥
+  pos:
+  - 名词
+  category: null
+- id: 665
+  kanji: 食べ物
+  kana: たべもの3,2
+  meaning: 食物
+  pos:
+  - 名词
+  category: null
+- id: 666
+  kanji: 茶碗
+  kana: ちゃわん0
+  meaning: 饭碗
+  pos:
+  - 名词
+  category: null
+- id: 667
+  kanji: 電気
+  kana: でんき1
+  meaning: 电；电灯
+  pos:
+  - 名词
+  category: null
+- id: 668
+  kanji: 朝ご飯
+  kana: あさごはん3
+  meaning: 早饭
+  pos:
+  - 名词
+  category: null
+- id: 669
+  kanji: 戸
+  kana: と0
+  meaning: 门；拉门
+  pos:
+  - 名词
+  category: null
+- id: 670
+  kanji: 会話
+  kana: かいわ0
+  meaning: 会话；对话
+  pos:
+  - 名词
+  category: null
+- id: 671
+  kanji: 字引
+  kana: じびき3
+  meaning: 字典
+  pos:
+  - 名词
+  category: null
+- id: 672
+  kanji: 頃
+  kana: ころ1
+  meaning: 时候；时期
+  pos:
+  - 名词
+  category: null
+- id: 673
+  kanji: お腹
+  kana: おなか0
+  meaning: 肚子
+  pos:
+  - 名词
+  category: null
+- id: 675
+  kanji: 西
+  kana: にし0
+  meaning: 西；西方
+  pos:
+  - 名词
+  category: null
+- id: 676
+  kanji: 試験
+  kana: しけん2
+  meaning: 考试
+  pos:
+  - 名词
+  category: null
+- id: 677
+  kanji: 半分
+  kana: はんぶん3
+  meaning: 一半
+  pos:
+  - 名词
+  category: null
+- id: 678
+  kanji: 茶色
+  kana: ちゃいろ0
+  meaning: 茶色；棕色
+  pos:
+  - 名词
+  category: null
+- id: 679
+  kanji: 曇り
+  kana: くもり3
+  meaning: 阴天
+  pos:
+  - 名词
+  category: null
+- id: 680
+  kanji: 明後日
+  kana: あさって2
+  meaning: 后天
+  pos:
+  - 名词
+  category: null
+- id: 681
+  kanji: 醤油
+  kana: しょうゆ0
+  meaning: 酱油
+  pos:
+  - 名词
+  category: null
